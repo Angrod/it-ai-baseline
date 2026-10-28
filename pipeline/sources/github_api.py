@@ -48,6 +48,7 @@ class GitHub:
         })
         if token:
             self.session.headers["Authorization"] = f"Bearer {token}"
+        self.errors: dict[str, str] = {}  # owner/name -> GraphQL error message (other than not-found)
 
     # -- search -----------------------------------------------------------
 
@@ -68,15 +69,20 @@ class GitHub:
         resp = self.session.post(GRAPHQL, json={"query": query, "variables": variables}, timeout=60)
         resp.raise_for_status()
         body = resp.json()
-        if "data" not in body:
+        if not body.get("data"):
             raise RuntimeError(f"GraphQL error: {body.get('errors')}")
         return body
 
     def repos(self, names: list[str], now: datetime, with_stars: bool = False,
               window_days: int = 30, max_star_pages: int = 10) -> tuple[dict[str, dict], list[str]]:
-        """Fetch metadata for owner/name strings. Returns ({lowercase name: record}, missing names)."""
+        """Fetch metadata for owner/name strings. Returns ({lowercase name: record}, names not found).
+
+        Repos that fail for any other reason are recorded in self.errors. With with_stars, they are
+        retried without star history, so they come back without a starred_at field instead of vanishing.
+        """
         found: dict[str, dict] = {}
         missing: list[str] = []
+        failed: list[str] = []
         fields = _BASE_FIELDS + (_STAR_FIELDS % "" if with_stars else "")
         for start in range(0, len(names), BATCH):
             chunk = names[start:start + BATCH]
@@ -87,11 +93,18 @@ class GitHub:
                 parts.append(f"r{i}: repository(owner: $o{i}, name: $n{i}) {{ {fields} }}")
                 variables[f"o{i}"], variables[f"n{i}"] = owner, repo
             query = f"query({', '.join(params)}) {{ {' '.join(parts)} }}"
-            data = self.graphql(query, variables)["data"]
+            body = self.graphql(query, variables)
+            data = body["data"]
+            errors = {e["path"][0]: e for e in body.get("errors", []) if e.get("path")}
             for i, name in enumerate(chunk):
                 node = data.get(f"r{i}")
                 if node is None:
-                    missing.append(name)
+                    error = errors.get(f"r{i}", {})
+                    if error.get("type", "NOT_FOUND") == "NOT_FOUND":
+                        missing.append(name)
+                    else:
+                        self.errors[name] = error.get("message", "unknown GraphQL error")
+                        failed.append(name)
                     continue
                 record = from_graphql(node)
                 if with_stars:
@@ -105,6 +118,10 @@ class GitHub:
                     record["starred_exhausted"] = not has_next
                 # Keyed by the requested name so renamed repos still line up with their sources.
                 found[name.lower()] = record
+        if failed and with_stars:
+            retried, gone = self.repos(failed, now)
+            found.update(retried)
+            missing += gone
         return found, missing
 
     def _more_stars(self, full_name: str, starred: list[str], has_next: bool, cursor: str | None,
@@ -114,7 +131,10 @@ class GitHub:
         query = ("query($o: String!, $n: String!, $c: String) { repository(owner: $o, name: $n) { "
                  + _STAR_FIELDS % ", after: $c" + " } }")
         while has_next and pages > 0 and starred and parse_time(starred[-1]) >= cutoff:
-            stars = self.graphql(query, {"o": owner, "n": name, "c": cursor})["data"]["repository"]["stargazers"]
+            repo = self.graphql(query, {"o": owner, "n": name, "c": cursor})["data"].get("repository")
+            if repo is None:  # keep what we have; the count is flagged as estimated
+                break
+            stars = repo["stargazers"]
             starred += [e["starredAt"] for e in stars["edges"]]
             has_next, cursor = stars["pageInfo"]["hasNextPage"], stars["pageInfo"]["endCursor"]
             pages -= 1
