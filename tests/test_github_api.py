@@ -89,3 +89,19 @@ def test_search_skips_rejected_queries():
     gh = GitHub(token="t", session=Session(gets=[Resp({"items": [item]}), Resp(status=422)]))
     assert [r["full_name"] for r in gh.search("topic:jamf", 5, pause=0)] == ["acme-it/x"]
     assert gh.search("topic:bad!", 5, pause=0) == []
+
+
+def test_star_history_errors_keep_the_repo_and_record_why():
+    base_only = {k: v for k, v in node("acme-it/locked", [], False).items() if k != "stargazers"}
+    session = Session(posts=[
+        Resp({"data": {"r0": None, "r1": None},
+              "errors": [{"path": ["r0", "stargazers"], "type": "FORBIDDEN", "message": "Resource not accessible by integration"},
+                         {"path": ["r1"], "type": "NOT_FOUND", "message": "Could not resolve to a Repository"}]}),
+        Resp({"data": {"r0": base_only}}),  # retried without star history
+    ])
+    gh = GitHub(token="t", session=session)
+    found, missing = gh.repos(["acme-it/locked", "acme-it/gone"], NOW, with_stars=True)
+    assert missing == ["acme-it/gone"]
+    assert "starred_at" not in found["acme-it/locked"]
+    assert gh.errors == {"acme-it/locked": "Resource not accessible by integration"}
+    assert "stargazers" not in session.sent[1]["query"]

@@ -26,7 +26,7 @@ CONTRIBUTORS_CACHE_DAYS = 7
 
 CARD_FIELDS = (
     "full_name", "url", "description", "language", "stars", "stars_gained_7d", "stars_gained_30d",
-    "stars_gained_estimated", "times_trending_7d", "times_trending_30d", "trend_score", "trend_rank",
+    "stars_gained_estimated", "stars_gained_unknown", "times_trending_7d", "times_trending_30d", "trend_score", "trend_rank",
     "lens_rank", "fit", "scored_by", "tags", "why", "first_step", "readonly_mode", "trust_score",
     "trust_badge", "trust_reasons", "gated", "pushed_at", "license", "needs_review",
 )
@@ -128,7 +128,8 @@ def methodology(settings: Settings, history_days: int) -> dict:
 
 
 def review_digest(now: datetime, stats: dict, records: dict, classified: list[str], lens_keys: list[str],
-                  previous_lens: list[str], missing: list[str], baseline_out: dict) -> str:
+                  previous_lens: list[str], missing: list[str], baseline_out: dict,
+                  fetch_errors: dict[str, str] | None = None) -> str:
     lines = [f"# Weekly refresh: {now.date().isoformat()}", "",
              "Review the changes below. To change a score, tag or note, edit `curation/overrides.yaml` "
              "in this PR; overrides beat Claude's first pass.", "",
@@ -168,6 +169,17 @@ def review_digest(now: datetime, stats: dict, records: dict, classified: list[st
     if missing or unverified:
         lines += ["## Not found on GitHub", "", "Fix or remove these in `curation/`:", ""]
         lines += [f"- {name}" for name in sorted(set(missing) | set(unverified))]
+        lines.append("")
+
+    if fetch_errors:
+        messages = sorted(set(fetch_errors.values()))
+        lines += ["## Fetch problems", "",
+                  f"GitHub returned errors for {len(fetch_errors)} repo(s). They are still ranked, but their "
+                  "stars gained is unknown this week.", ""]
+        lines += [f"- `{m}`" for m in messages[:5]]
+        if any("not accessible by integration" in m.lower() for m in messages):
+            lines += ["", "The built-in Actions token can't read this. Add a `GH_PAT` repository secret "
+                      "(a fine-grained token with read-only access to public repositories) and re-run the refresh."]
         lines.append("")
     return "\n".join(lines)
 
@@ -210,19 +222,28 @@ def build(settings: Settings, gh, now: datetime, *, snapshot_dir: Path = SNAPSHO
     enriched, gone = gh.repos([records[k]["full_name"] for k in tracked], now, with_stars=True,
                               window_days=window, max_star_pages=settings.scoring["stargazers"]["max_pages"])
     missing = sorted(set(missing) | set(gone))
+    gone_keys = {g.lower() for g in gone}
+    pool_keys = [k for k in pool_keys if k not in gone_keys]
+    tracked = [k for k in tracked if k not in gone_keys]
     for key in tracked:
-        if key not in enriched:
-            continue
         rec = records[key]
-        rec.update(enriched[key])
-        starred, exhausted = rec.pop("starred_at", []), rec.pop("starred_exhausted", True)
-        g30, est30 = stars_gained(starred, exhausted, now, window)
-        g7, est7 = stars_gained(starred, exhausted, now, 7)
-        rec.update(stars_gained_30d=g30, stars_gained_7d=g7, stars_gained_estimated=est30 or est7,
-                   times_trending_30d=tt30.get(key, 0), times_trending_7d=tt7.get(key, 0))
+        rec.update(enriched.get(key, {}))  # a repo that failed enrichment keeps its collect-stage data
+        starred, exhausted = rec.pop("starred_at", None), rec.pop("starred_exhausted", True)
+        if starred is None:
+            g30 = g7 = 0
+            estimated, unknown = False, True
+        else:
+            (g30, est30), (g7, est7) = stars_gained(starred, exhausted, now, window), stars_gained(starred, exhausted, now, 7)
+            estimated, unknown = est30 or est7, False
+        rec.update(stars_gained_30d=g30, stars_gained_7d=g7, stars_gained_estimated=estimated,
+                   stars_gained_unknown=unknown, times_trending_30d=tt30.get(key, 0),
+                   times_trending_7d=tt7.get(key, 0))
         rec["gated"], rec["gate_failures"] = lens.gate(rec, lens_cfg["gate"], now)
-    pool_keys = [k for k in pool_keys if k in enriched]
-    tracked = [k for k in tracked if k in enriched]
+    fetch_errors = dict(getattr(gh, "errors", {}))
+    if fetch_errors:
+        first = next(iter(fetch_errors.values()))
+        print(f"::warning::GitHub GraphQL errors for {len(fetch_errors)} repo(s) (kept without star history). "
+              f"First: {first}")
 
     deep = [k for k in tracked if records[k]["gated"] or k in curated or k in display_keys]
     contributor_cache = load_json(cache_dir / "contributors.json", {})
@@ -291,8 +312,10 @@ def build(settings: Settings, gh, now: datetime, *, snapshot_dir: Path = SNAPSHO
     stats = {"candidates": len(records), "relevant": len(pool_keys),
              "gated": sum(1 for k in pool_keys if records[k]["gated"]),
              "needs_review": sum(1 for k in tracked if records[k].get("needs_review"))}
+    # Only curated names belong in "Not found"; a trending repo that vanished is not actionable.
+    curated_missing = [m for m in missing if sources.get(m.lower(), set()) & {"baseline", "nominated", "foundation"}]
     digest = review_digest(now, stats, keyed, classified, views["lens"],
-                           previous.get("views", {}).get("lens", []), missing, baseline_out)
+                           previous.get("views", {}).get("lens", []), curated_missing, baseline_out, fetch_errors)
     review.parent.mkdir(parents=True, exist_ok=True)
     review.write_text(digest, encoding="utf-8")
 

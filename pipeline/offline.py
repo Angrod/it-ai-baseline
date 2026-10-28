@@ -2,7 +2,7 @@
 
 A fixture directory holds repos.json ({owner/name: record}) and snapshots/*.json.
 Records use the same shape the GitHub client returns, plus optional
-`stars_30d`, `contributors`, `scorecard` and `readme` fields.
+`stars_30d`, `contributors`, `scorecard`, `readme` and `star_error` fields.
 """
 
 from __future__ import annotations
@@ -18,10 +18,13 @@ class FixtureGitHub:
     def __init__(self, directory: Path):
         raw = load_json(Path(directory) / "repos.json", {})
         self.records = {name.lower(): {"full_name": name, **rec} for name, rec in raw.items()}
+        self.errors: dict[str, str] = {}
 
     def _public(self, rec: dict, with_stars: bool, now: datetime | None = None) -> dict:
-        out = {k: copy.deepcopy(v) for k, v in rec.items() if k not in ("stars_30d", "contributors", "scorecard", "readme")}
-        if with_stars:
+        out = {k: copy.deepcopy(v) for k, v in rec.items() if k not in ("stars_30d", "contributors", "scorecard", "readme", "star_error")}
+        if with_stars and rec.get("star_error"):
+            self.errors[rec["full_name"]] = rec["star_error"]  # mimics GitHub erroring on star history only
+        elif with_stars:
             out["starred_at"] = recent_stars(rec.get("stars_30d", 0), now)
             out["starred_exhausted"] = True
         return out

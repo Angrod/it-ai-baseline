@@ -24,8 +24,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -36,12 +36,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || secrets.CLAUDE_MODEL }}
           CLAUDE_FALLBACKS: ${{ vars.CLAUDE_FALLBACKS || 'default' }}
           MODE: ${{ inputs.classify || 'live' }}
         run: |
-          if [ "$MODE" = live ] && { [ -z "$ANTHROPIC_API_KEY" ] || [ -z "$CLAUDE_MODEL" ]; }; then
-            echo "::warning::ANTHROPIC_API_KEY secret or CLAUDE_MODEL variable missing; building without Claude scoring"
+          missing=""
+          [ -z "$ANTHROPIC_API_KEY" ] && missing="ANTHROPIC_API_KEY (repository secret)"
+          [ -z "$CLAUDE_MODEL" ] && missing="${missing:+$missing and }CLAUDE_MODEL (repository variable)"
+          if [ "$MODE" = live ] && [ -n "$missing" ]; then
+            echo "::warning::$missing not set; building without Claude scoring"
             MODE=off
           fi
           python -m pipeline.build --classify "$MODE"

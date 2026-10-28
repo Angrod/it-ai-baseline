@@ -489,6 +489,7 @@
     "owner_type": "Organization",
     "pushed_at": "2026-10-23T12:00:00Z",
     "scorecard": null,
+    "star_error": "Resource not accessible by integration",
     "stars": 3200,
     "stars_30d": 12,
     "topics": [

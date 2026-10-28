@@ -96,6 +96,16 @@ def test_baseline_flags_missing_repos(scored):
     assert "acme-it/okta-offboarder" in review
 
 
+def test_star_history_failure_keeps_repo_ranked(scored):
+    data, _, tmp_path = scored
+    munki = data["repos"]["munki/munki"]
+    assert munki["stars_gained_unknown"] is True and munki["stars_gained_30d"] == 0
+    assert "munki/munki" in data["views"]["trending"]
+    review = (tmp_path / "review.md").read_text()
+    assert "## Fetch problems" in review and "GH_PAT" in review
+    assert "- munki/munki" not in review.split("## Fetch problems")[0]  # not reported as "not found"
+
+
 def test_cache_prevents_rescoring(tmp_path):
     first = FakeClassifier()
     run(tmp_path, first)

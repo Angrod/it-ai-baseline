@@ -65,7 +65,8 @@ REPOS = {
     "ossf/scorecard": repo(["security", "supply-chain"], "OpenSSF Scorecard - Security health metrics for Open Source", 4700, 40, lang="Go", license="Apache-2.0", contributors=200, scorecard=9.6),
     # nominations
     "macadmins/nudge": repo(["macadmins", "macos"], "A tool for encouraging the installation of macOS security updates", 1300, 9, lang="Swift", contributors=40),
-    "munki/munki": repo(["munki", "macadmins"], "Managed software installation for macOS", 3200, 12, license="Apache-2.0", contributors=60),
+    "munki/munki": repo(["munki", "macadmins"], "Managed software installation for macOS", 3200, 12, license="Apache-2.0", contributors=60,
+                        star_error="Resource not accessible by integration"),
     "fleetdm/fleet": repo(["osquery", "mdm", "device-management"], "Open-source platform for IT and security teams with thousands of computers", 5200, 120, lang="Go", contributors=300, scorecard=7.1),
     "bartreardon/swiftDialog": repo(["macadmins"], "Create user notifications on macOS with swiftDialog", 1100, 15, lang="Swift", owner_type="User", contributors=25),
     "microsoft/mcp": repo(["mcp"], "Catalog of official Microsoft MCP server implementations", 2100, 300, lang="C#", contributors=120),

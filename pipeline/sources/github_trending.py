@@ -21,6 +21,7 @@ TRENDING_URL = "https://github.com/trending{lang}?since={period}"
 USER_AGENT = "it-ai-baseline (+https://github.com/Angrod/it-ai-baseline)"
 
 _ARTICLE = re.compile(r'<article class="Box-row".*?</article>', re.S)
+_ARTICLE_TAG = re.compile(r"<article\b")
 _REPO = re.compile(r'<h2[^>]*>\s*<a[^>]*?href="/([^"/\s]+/[^"/\s]+)"', re.S)
 _PERIOD_STARS = re.compile(r"([\d,]+)\s+stars?\s+(?:today|this week|this month)")
 
@@ -54,7 +55,12 @@ def fetch_snapshot(languages: list[str], periods: list[str], session: requests.S
             url = TRENDING_URL.format(lang=f"/{lang}" if lang else "", period=period)
             resp = session.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
             resp.raise_for_status()
-            pages[page_key(lang, period)] = parse_trending(resp.text)
+            rows = parse_trending(resp.text)
+            articles = len(_ARTICLE_TAG.findall(resp.text))
+            if articles > len(rows):
+                print(f"::warning::{page_key(lang, period)}: parsed {len(rows)} of {articles} rows; "
+                      "GitHub's trending markup may have changed")
+            pages[page_key(lang, period)] = rows
             time.sleep(pause)
     return pages
 
