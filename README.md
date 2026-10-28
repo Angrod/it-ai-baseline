@@ -3,7 +3,7 @@
 GitHub repos worth a sysadmin's attention, scored for real usefulness and deploy-safety, plus the
 APIs, MCP servers and skills that make an IT stack ready for agents.
 
-It's the IT counterpart to Scribes' [Top GitHub repos for marketing & comms](https://wearescribes.xyz/top-github-repos-marketing-communications/),
+Inspired by Scribes' [Top GitHub repos for marketing & comms](https://wearescribes.xyz/top-github-repos-marketing-communications/),
 with two IT-specific changes: a **trust badge**, because adopting an IT tool usually means handing it an
 admin token, and an **AI-Ready Baseline** matrix, because the goal isn't only "what's hot" but "what
 should my stack look like".
