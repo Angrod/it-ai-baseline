@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-23",
+  "pages": {
+    "all/daily": [
+      {
+        "repo": "acme-it/ai-chat-framework",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "acme-it/okta-offboarder",
+        "rank": 2,
+        "period_stars": 50
+      }
+    ],
+    "powershell/daily": [
+      {
+        "repo": "acme-it/ai-chat-framework",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ],
+    "all/weekly": [
+      {
+        "repo": "acme-it/ai-chat-framework",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "acme-it/okta-offboarder",
+        "rank": 2,
+        "period_stars": 50
+      }
+    ]
+  }
+}

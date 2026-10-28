@@ -1,0 +1,44 @@
+# Provenance for the trust score. Matching is case-insensitive on the owner login.
+
+# Vendor- or foundation-maintained orgs.
+vendor:
+  - okta
+  - oktadev
+  - microsoft
+  - microsoftgraph
+  - azure
+  - azuread
+  - jamf
+  - jamf-concepts
+  - google
+  - googleworkspace
+  - crowdstrike
+  - rapid7
+  - tenable
+  - fortinet
+  - fortinetdev
+  - paloaltonetworks
+  - netboxlabs
+  - netbox-community
+  - osquery
+  - fleetdm
+  - wazuh
+  - powershell
+  - hashicorp
+  - anthropics
+  - modelcontextprotocol
+  - ossf
+  - elastic
+  - grafana
+  - snipe
+
+# Long-running community orgs that admins already rely on.
+community:
+  - macadmins
+  - autopkg
+  - munki
+  - installomator
+  - gam-team
+  - pnp
+  - deploymenttheory
+  - chocolatey

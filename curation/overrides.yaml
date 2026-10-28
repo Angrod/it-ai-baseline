@@ -1,0 +1,80 @@
+# Human decisions. Anything set here beats Claude's first pass.
+# Keys are owner/name. Fields (all optional):
+#   fit: 0-3            tags: [rubric tag ids]      why: "Why for sysadmins"
+#   first_step: "..."   readonly_mode: true|false   exclude: true (hide everywhere)
+#   note: internal reviewer note (not shown on the site)
+#
+# The entries below were seeded during setup from the baseline matrix.
+# Review them like any other PR and change anything you disagree with.
+
+okta/okta-mcp-server:
+  fit: 3
+  tags: [identity, agent]
+  why: Official Okta MCP server. Lets an agent answer user, group and log questions in plain language, scoped by OAuth admin scopes.
+  first_step: Connect it to an Okta preview org with read-only scopes and ask which users haven't signed in for 90 days.
+  readonly_mode: true
+
+microsoft/EnterpriseMCP:
+  fit: 3
+  tags: [identity, agent]
+  why: Microsoft's own MCP server for querying Entra ID data. Covers the "who has access to what" questions that eat helpdesk time.
+  first_step: Try it in an M365 developer tenant first and review which Graph permissions the consent grants.
+  readonly_mode: true
+
+merill/lokka:
+  fit: 3
+  tags: [identity, saas, agent]
+  why: Graph and Azure MCP from a Microsoft PM. One server covers Entra, Intune and M365 queries.
+  first_step: Register a custom Entra app with only User.Read.All and Group.Read.All, then point Lokka at it.
+
+CrowdStrike/falcon-mcp:
+  fit: 3
+  tags: [security, agent]
+  why: Official Falcon MCP. Pulls detections, incidents and host context into an agent for faster triage.
+  first_step: Create a Falcon API client with read-only scopes and ask for a summary of last week's detections.
+  readonly_mode: true
+
+GAM-team/GAM:
+  fit: 3
+  tags: [saas, automation]
+  why: The standard Google Workspace admin CLI. Bulk user, group, Drive and license changes from CSV.
+  first_step: Have Claude draft GAM commands for a task you already know, and compare them with what you would run.
+
+taylorwilsdon/google_workspace_mcp:
+  fit: 3
+  tags: [saas, agent]
+  why: Workspace MCP covering Gmail, Drive, Calendar and admin data, with a read-only mode for safe starts.
+  first_step: Run it in read-only mode on a test OU and ask it to list files owned by a departed user.
+  readonly_mode: true
+
+dbankscard/jamf-mcp-server:
+  fit: 2
+  tags: [endpoint, agent]
+  why: Community Jamf Pro MCP. Handy for inventory, compliance and policy questions; a personal project, so pilot it carefully.
+  first_step: Enable its read-only mode against a Jamf test instance and ask which Macs are behind on macOS updates.
+  readonly_mode: true
+
+netboxlabs/netbox-mcp-server:
+  fit: 2
+  tags: [network, agent]
+  why: Read-only NetBox access for agents. Useful once NetBox is your network source of truth.
+  first_step: Point it at NetBox with a read-only token and ask which devices are on a given VLAN.
+  readonly_mode: true
+
+autopkg/autopkg:
+  fit: 3
+  tags: [patching, endpoint]
+  why: Automates downloading and packaging Mac apps for Jamf, Munki or Intune. It saves hours of manual repackaging every patch cycle.
+  first_step: Run one recipe (e.g. GoogleChrome.pkg) locally, then wire up the JamfUploader processors.
+
+Installomator/Installomator:
+  fit: 3
+  tags: [patching, endpoint]
+  why: One script that installs or updates hundreds of Mac apps straight from vendor sources. A staple Jamf policy payload.
+  first_step: Deploy it as a Jamf script with a single label (e.g. googlechromepkg) to a test group.
+
+osquery/osquery:
+  fit: 2
+  tags: [endpoint, security]
+  why: Query Mac/Windows/Linux endpoints with SQL. A strong evidence source for audits and agent investigations.
+  first_step: Install it on one Mac and run a query for unencrypted disks or stale admin accounts.

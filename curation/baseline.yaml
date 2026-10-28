@@ -1,0 +1,166 @@
+# AI-Ready Baseline matrix: hand-curated and slow-moving.
+# Every `repo:` here is also pulled into the pipeline, so its stars and trust badge stay live.
+# Entry kinds:
+#   repo:  owner/name on GitHub
+#   skill: path to a skill in this repo (see skills/)
+#   idea:  something worth building that doesn't exist yet
+# Set `verify: true` while a repo location is unconfirmed; the build flags it if GitHub can't find it.
+
+levels:
+  - id: L1
+    label: Scriptable
+    description: Official API, SDK or CLI. You (or an agent) can script against it.
+  - id: L2
+    label: Agent-readable
+    description: Read-only MCP server. The agent can look but not touch.
+  - id: L3
+    label: Agent-operable
+    description: Write access with least-privilege scopes and a human approval step.
+  - id: L4
+    label: Codified know-how
+    description: Skills and runbooks that tell the agent how your team does the job.
+
+domains:
+  - id: identity
+    label: Identity & Access
+    cells:
+      L1:
+        - repo: okta/okta-sdk-python
+          note: Official Python SDK for the Okta management API.
+        - repo: okta/terraform-provider-okta
+          note: Group rules, apps and policies as code, reviewed in PRs.
+        - repo: microsoftgraph/msgraph-sdk-powershell
+          note: Entra ID users, groups, apps and Conditional Access from PowerShell.
+      L2:
+        - repo: okta/okta-mcp-server
+          note: Official. Start with read-only admin scopes (users, groups, system log) against a preview org.
+        - repo: microsoft/EnterpriseMCP
+          note: Microsoft's official MCP Server for Enterprise. Natural-language queries over Entra data.
+        - repo: merill/lokka
+          note: Community Graph + Azure MCP. App-only auth lets you scope Graph permissions tightly.
+      L3:
+        - repo: okta/okta-mcp-server
+          note: Add one write scope for one narrow task (e.g. group membership). Keep approval prompts on.
+      L4:
+        - skill: skills/okta-access-audit
+          note: Read-only audit of stale users, empty groups and admin-role sprawl.
+        - skill: skills/offboard-user
+          note: Offboarding runbook across Okta, Google Workspace and Jamf, with a confirmation before every write.
+
+  - id: endpoint
+    label: Endpoint, MDM & Patching
+    cells:
+      L1:
+        - repo: autopkg/autopkg
+          note: Automated Mac app packaging. Pairs with Jamf, Munki or Intune.
+        - repo: Installomator/Installomator
+          note: One script that installs and updates hundreds of Mac apps from vendor sources.
+        - repo: osquery/osquery
+          note: SQL over your fleet. Handy as an agent's evidence source for compliance questions.
+        - repo: deploymenttheory/terraform-provider-jamfpro
+          note: Jamf Pro policies, profiles and groups as code.
+      L2:
+        - repo: Jamf-Concepts/mcp-hub
+          verify: true
+          note: Jamf's own beta MCP server (Jamf Pro, Protect, Security Cloud). Confirm the repo location.
+        - repo: dbankscard/jamf-mcp-server
+          note: Community Jamf Pro MCP with a read-only mode. Turn that on first.
+      L3:
+        - repo: dbankscard/jamf-mcp-server
+          note: Leave read-only only for scoped tasks, e.g. re-running a policy on one test Mac.
+      L4:
+        - idea: Zero-touch enrollment runbook skill
+          note: Checks a new Mac's enrollment, prestage, Jamf Connect login and Okta push, then reports gaps.
+
+  - id: saas
+    label: SaaS & Collaboration
+    cells:
+      L1:
+        - repo: GAM-team/GAM
+          note: The Google Workspace admin CLI. Most agent workflows here start as GAM commands.
+        - repo: pnp/powershell
+          note: Microsoft 365 (SharePoint, Teams, Entra) from PowerShell.
+      L2:
+        - repo: taylorwilsdon/google_workspace_mcp
+          note: Community Workspace MCP with a read-only mode. Pair it with a dedicated, limited admin role.
+        - repo: merill/lokka
+          note: Microsoft 365 via Graph. Mail, Teams and SharePoint reads under scoped app permissions.
+      L3:
+        - repo: taylorwilsdon/google_workspace_mcp
+          note: Enable writes per tool, not globally. Drive transfers and group changes are good first candidates.
+      L4:
+        - idea: GAM command-builder skill
+          note: Drafts GAM commands, prints a dry-run preview, and only runs after you approve.
+
+  - id: security
+    label: Security & Compliance
+    cells:
+      L1:
+        - repo: CrowdStrike/falconpy
+          note: Official Python SDK for the Falcon API.
+        - repo: wazuh/wazuh
+          note: Open-source XDR/SIEM with an API. Common for compliance evidence in smaller shops.
+      L2:
+        - repo: CrowdStrike/falcon-mcp
+          note: Official and read-oriented. Detections, incidents and hosts for agent-assisted triage.
+      L3: []
+      L4:
+        - idea: Vulnerability triage skill
+          note: Turns Rapid7/Nessus exports into a ranked patch plan mapped to Jamf/Intune deployment groups.
+
+  - id: network
+    label: Network & Infrastructure
+    cells:
+      L1:
+        - repo: netbox-community/netbox
+          note: Network source of truth with a full REST API.
+        - repo: fortinetdev/terraform-provider-fortios
+          note: FortiGate configuration as code.
+      L2:
+        - repo: netboxlabs/netbox-mcp-server
+          note: Read-only NetBox access for agents. Answers "what's on this VLAN?" without touching gear.
+      L3: []
+      L4:
+        - idea: Firewall change-review skill
+          note: Diffs a proposed FortiGate/UniFi rule change against your standards before a human applies it.
+
+  - id: helpdesk
+    label: Helpdesk & Knowledge
+    cells:
+      L1:
+        - repo: snipe/snipe-it
+          note: Open-source IT asset management with a REST API.
+      L2: []
+      L3: []
+      L4:
+        - skill: skills/offboard-user
+          note: The runbook doubles as helpdesk documentation, since the agent and the human follow the same steps.
+        - idea: New-hire onboarding skill
+          note: Okta profile, Workspace account, Jamf prestage and SaaS groups from a single HR ticket.
+
+# Cross-cutting building blocks, shown above the matrix.
+foundations:
+  - repo: anthropics/skills
+    note: Agent Skills format and examples. The template for everything in L4.
+  - repo: modelcontextprotocol/servers
+    note: Reference MCP servers. Shows how tools, scopes and transports fit together.
+  - repo: ossf/scorecard
+    note: Security health checks for open-source repos. Run it before you install an MCP server.
+
+checklist:
+  - title: One identity per agent tool
+    detail: A dedicated service account or API client for each MCP server, scoped read-only to start. Never reuse your own admin token.
+  - title: Sandbox first
+    detail: Okta preview org, Jamf test instance, a Workspace test OU, an M365 developer tenant. Agents earn production access.
+  - title: Secrets stay out of config files
+    detail: Keep tokens in a vault or the OS keychain. MCP config files are easy to commit by accident.
+  - title: Log every tool call
+    detail: Vendor audit logs plus a Claude Code hook that appends each tool call to a local log.
+  - title: Guardrail hooks for destructive verbs
+    detail: Block Remove-*, gam delete, wipe/erase and deactivate unless you approve that specific call.
+  - title: Agent proposes, human approves
+    detail: Config-as-code changes go through PRs. Direct writes happen only after a confirmation step.
+  - title: Pin and review versions
+    detail: Treat MCP servers like any other software. Pin releases, read the changelog, and check the trust badge before upgrading.
+  - title: One-step kill switch
+    detail: Know exactly which token to revoke to cut an agent off, and test it once.

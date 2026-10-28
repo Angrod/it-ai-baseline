@@ -1,0 +1,60 @@
+# Where candidate repos come from. IT tooling rarely reaches GitHub's global
+# trending list, so discovery leans on language trending pages and topic search.
+
+trending:
+  # "" is the global page; the rest are github.com/trending/<language>.
+  languages: ["", powershell, shell, hcl, python, go, swift]
+  periods: [daily, weekly, monthly]
+  keep_days: 45
+
+search:
+  min_stars: 50
+  per_query: 30
+  # One GitHub search per topic: topic:<name> stars:>=min_stars archived:false
+  topics:
+    - okta
+    - entra-id
+    - azure-ad
+    - active-directory
+    - microsoft-graph
+    - intune
+    - jamf
+    - jamf-pro
+    - macadmins
+    - munki
+    - autopkg
+    - mdm
+    - osquery
+    - google-workspace
+    - gam
+    - microsoft-365
+    - scim
+    - identity-governance
+    - powershell-module
+    - sysadmin
+    - itsm
+    - helpdesk
+    - it-asset-management
+    - patch-management
+    - endpoint-security
+    - siem
+    - vulnerability-management
+    - cis-benchmark
+    - netbox
+    - network-automation
+    - unifi
+    - fortinet
+  # Free-form search queries (stars/archived qualifiers are appended).
+  # Pairs "mcp" with an IT platform so only IT-facing agent tooling comes in.
+  queries:
+    - mcp okta in:name,description,topics
+    - mcp entra in:name,description,topics
+    - mcp intune in:name,description,topics
+    - mcp jamf in:name,description,topics
+    - mcp google workspace in:name,description,topics
+    - mcp microsoft graph in:name,description,topics
+    - mcp crowdstrike in:name,description,topics
+    - mcp netbox in:name,description,topics
+    - mcp active directory in:name,description,topics
+    - mcp servicenow in:name,description,topics
+    - mcp sysadmin in:name,description,topics
