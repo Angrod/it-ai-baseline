@@ -16,15 +16,28 @@ should my stack look like".
 | **IT Ops lens** | What would actually help a sysadmin, and is it safe to pilot? | Validation gate, then fit 0-3, then trust, then momentum |
 | **AI-Ready Baseline** | What does an agent-ready IT stack look like? | Hand-curated matrix: 6 domains × 4 readiness levels |
 
-### Why the marketing formula needed changes for IT
-1. **IT tools rarely reach global trending.** AutoPkg, GAM, Okta and Jamf tooling trend on *language*
-   pages (PowerShell, Shell, HCL, Swift…). So the snapshots cover those pages, and discovery also uses
-   GitHub topic search (`config/topics.yaml`).
-2. **Star counts are very skewed.** osquery has ~20k stars and Installomator ~2k, so total stars are
-   log-normalized and one giant repo doesn't flatten the rest.
-3. **Trust matters more than hype.** The badge (`pipeline/lens.py`) weighs maintenance, releases,
-   contributors, license, provenance (vendor / community / personal), OpenSSF Scorecard and, for agent
-   tools, whether a read-only mode exists.
+### How repos are scored
+
+**Trending**
+- Pool: repos that match at least one IT domain in `config/rubric.yaml`, gathered from daily GitHub Trending
+  snapshots (global, PowerShell, Shell, HCL, Python, Go and Swift pages), GitHub topic search
+  (`config/topics.yaml`), nominations, and the baseline matrix. Forks and archived repos are excluded.
+- Score: 40% stars gained (30d) + 35% times trending (30d) + 25% total stars. Stars gained and times trending
+  are max-normalized across the pool; total stars are log-normalized.
+- Times trending: distinct days a repo appeared on any daily trending page in the last 30 days.
+
+**IT Ops lens**
+- Gate: ≥500 stars, or ≥50 stars gained in 30 days, or trended at least once; and not archived, pushed in the
+  last 180 days, with a recognised license.
+- Fit 0-3: Claude scores against the rubric first; `curation/overrides.yaml` overrides it. Fit 0 is excluded
+  everywhere.
+- Rank: fit, then trust, then trending score. The top 15 are shown.
+
+**Trust badge (0-100)**
+- Maintenance 30 · releases 15 · contributors 15 · license 10 · provenance (vendor / community / personal) 15 ·
+  OpenSSF Scorecard 15 (half credit when not published).
+- Agent tools: +10 for a documented read-only mode, −10 when write access is required.
+- Production-ready ≥85 · Pilot in lab ≥60 · otherwise Experimental. Archived repos are always Experimental.
 
 All thresholds and weights live in `config/scoring.yaml`, and the site's "How repos are ranked" text is
 generated from them.
