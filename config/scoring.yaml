@@ -1,0 +1,43 @@
+# Ranking knobs. The site's "How repos are ranked" section is generated from
+# these values, so the page never drifts from the math.
+
+trending:
+  window_days: 30
+  # Same weights as the Scribes marketing list.
+  weights:
+    stars_gained: 0.40
+    times_trending: 0.35
+    total_stars: 0.25
+  # total_stars is log-normalized so one 50k-star repo doesn't flatten the rest;
+  # the other two are max-normalized.
+  log_total_stars: true
+  show: 25
+
+lens:
+  gate:
+    min_stars: 500
+    min_stars_gained_30d: 50
+    min_times_trending_30d: 1
+    max_days_since_push: 180
+    require_license: true
+  show: 15
+
+trust:
+  # Points per signal; they sum to 100.
+  points:
+    maintenance: 30   # last push: <=30d full, <=90d 2/3, <=180d 1/3
+    releases: 15      # release in last 180d full, any release half
+    community: 15     # contributors: >=10 full, >=3 2/3, else 1/5
+    license: 10       # recognised SPDX license
+    provenance: 15    # vendor/foundation org full, known community org 4/5, other org 1/2, personal 1/5
+    scorecard: 15     # OpenSSF Scorecard score/10; not published = half
+  readonly_bonus: 10  # agent tools with a documented read-only mode
+  readonly_penalty: 10  # agent tools that require write access
+  # Deliberately strict: "production" should mean you'd hand it a scoped admin token.
+  badges:
+    production: 85
+    pilot: 60
+
+stargazers:
+  # GraphQL pages of 100 stars fetched per repo before extrapolating.
+  max_pages: 10

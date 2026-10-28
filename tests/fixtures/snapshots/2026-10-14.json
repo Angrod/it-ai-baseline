@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-14",
+  "pages": {
+    "all/daily": [
+      {
+        "repo": "netbox-community/netbox",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 2,
+        "period_stars": 50
+      }
+    ],
+    "powershell/daily": [
+      {
+        "repo": "netbox-community/netbox",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ],
+    "all/weekly": [
+      {
+        "repo": "netbox-community/netbox",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 2,
+        "period_stars": 50
+      }
+    ]
+  }
+}

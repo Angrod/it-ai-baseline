@@ -1,0 +1,9 @@
+[project]
+name = "it-ai-baseline"
+version = "0.1.0"
+description = "AI-Ready IT Baseline: trending GitHub repos and an IT Ops lens for sysadmins"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

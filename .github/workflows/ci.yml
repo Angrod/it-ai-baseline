@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+      - name: Offline build against fixtures
+        run: >
+          python -m pipeline.build --offline tests/fixtures --now 2026-10-26T12:00:00Z
+          --out "$RUNNER_TEMP/data.json" --review "$RUNNER_TEMP/review.md" --cache-dir "$RUNNER_TEMP/cache"

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-Ready IT Baseline</title>
+  <meta name="description" content="Trending GitHub repos for sysadmins, an IT Ops lens scored for real usefulness and deploy-safety, and a readiness matrix of APIs, MCP servers and skills.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f5e'/%3E%3Cpath d='M8 21h16M8 16h11M8 11h7' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <p class="eyebrow">For sysadmins &amp; IT engineers</p>
+      <h1>AI-Ready IT Baseline</h1>
+      <p class="lede">The GitHub repos worth a sysadmin's attention, scored for real usefulness and deploy-safety, plus the APIs, MCP servers and skills that make an IT stack ready for agents.</p>
+      <p class="meta" id="meta"></p>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Views">
+    <div class="wrap tabs-inner" role="tablist">
+      <button role="tab" id="tab-trending" aria-controls="view" data-view="trending">Trending</button>
+      <button role="tab" id="tab-lens" aria-controls="view" data-view="lens">IT Ops lens</button>
+      <button role="tab" id="tab-baseline" aria-controls="view" data-view="baseline">AI-Ready Baseline</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <p class="view-intro" id="intro"></p>
+    <div class="controls" id="controls" hidden>
+      <label class="sort">Sort
+        <select id="sort">
+          <option value="rank">Rank</option>
+          <option value="stars_gained_30d">Stars gained (30d)</option>
+          <option value="times_trending_30d">Times trending (30d)</option>
+          <option value="stars">Total stars</option>
+          <option value="trust_score">Trust</option>
+        </select>
+      </label>
+      <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
+    </div>
+    <section id="view" role="tabpanel" aria-live="polite"></section>
+
+    <details class="method" id="method">
+      <summary>How repos are ranked</summary>
+      <div id="method-body"></div>
+    </details>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Data: daily snapshots of GitHub Trending (global and IT-language pages), the GitHub API, and
+      <a href="https://securityscorecards.dev">OpenSSF Scorecard</a>. Fit scores come from a Claude first pass, and a human reviews every change in a pull request.</p>
+    <p>Inspired by Scribes' <a href="https://wearescribes.xyz/top-github-repos-marketing-communications/">Top GitHub repos for marketing &amp; comms</a>.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

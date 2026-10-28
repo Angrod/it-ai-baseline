@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-06",
+  "pages": {
+    "all/daily": [
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "osquery/osquery",
+        "rank": 2,
+        "period_stars": 50
+      }
+    ],
+    "powershell/daily": [
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ],
+    "all/weekly": [
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "osquery/osquery",
+        "rank": 2,
+        "period_stars": 50
+      }
+    ]
+  }
+}

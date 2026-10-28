@@ -1,0 +1,8 @@
+# Repos to always consider, even if no source surfaced them this week.
+# They still pass through the same gate and rubric as everything else.
+repos:
+  - macadmins/nudge
+  - munki/munki
+  - fleetdm/fleet
+  - bartreardon/swiftDialog
+  - microsoft/mcp

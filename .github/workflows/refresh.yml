@@ -1,0 +1,66 @@
+name: Weekly refresh
+
+# Weekly: rebuild site/data.json, then open (or update) a PR for human review.
+# Nothing reaches the live site until a person merges that PR.
+on:
+  schedule:
+    - cron: "17 15 * * 1"
+  workflow_dispatch:
+    inputs:
+      classify:
+        description: Claude scoring
+        type: choice
+        default: live
+        options: [live, dry-run, "off"]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+          CLAUDE_FALLBACKS: ${{ vars.CLAUDE_FALLBACKS || 'default' }}
+          MODE: ${{ inputs.classify || 'live' }}
+        run: |
+          if [ "$MODE" = live ] && { [ -z "$ANTHROPIC_API_KEY" ] || [ -z "$CLAUDE_MODEL" ]; }; then
+            echo "::warning::ANTHROPIC_API_KEY secret or CLAUDE_MODEL variable missing; building without Claude scoring"
+            MODE=off
+          fi
+          python -m pipeline.build --classify "$MODE"
+
+      - name: Open or update the review PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch=refresh/weekly
+          title="Weekly refresh $(date -u +%F)"
+          git switch -C "$branch"
+          git add site/data.json data/review.md data/cache
+          if git diff --cached --quiet; then echo "No changes this week"; exit 0; fi
+          git commit -m "$title"
+          git push --force origin "$branch"
+          if [ "$(gh pr view "$branch" --json state -q .state 2>/dev/null)" = OPEN ]; then
+            gh pr edit "$branch" --title "$title" --body-file data/review.md
+          else
+            gh pr create --base main --head "$branch" --title "$title" --body-file data/review.md
+          fi

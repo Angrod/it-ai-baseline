@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-21",
+  "pages": {
+    "all/daily": [
+      {
+        "repo": "acme-it/old-jamf-tool",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ],
+    "powershell/daily": [
+      {
+        "repo": "acme-it/old-jamf-tool",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ],
+    "all/weekly": [
+      {
+        "repo": "acme-it/old-jamf-tool",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ]
+  }
+}

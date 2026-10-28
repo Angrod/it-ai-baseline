@@ -1,0 +1,78 @@
+# IT Ops rubric: application tags and the 0-3 fit scale.
+# Bump `version` whenever tags or the fit scale change; cached Claude scores
+# are keyed on it, so a bump re-scores every repo on the next refresh.
+version: 1
+
+fit_scale:
+  3: Automates, replaces or materially improves a recurring sysadmin task in a mainstream stack (Okta, Entra ID, Jamf, Intune, Google Workspace, Microsoft 365, common EDR/firewalls). Pilot-able this month.
+  2: Clearly useful for IT work, but needs adaptation or integration effort, or serves a narrower stack.
+  1: Adjacent - a building block, inspiration, or a developer tool with some IT use.
+  0: Not applicable to IT administration.
+
+# `domain: true` tags make a repo IT-relevant on their own. Agent tooling only
+# counts alongside a domain tag, otherwise every MCP server on GitHub qualifies.
+# Topics match GitHub topics exactly; keywords match whole words in the repo
+# name and description (case-insensitive).
+tags:
+  - id: identity
+    label: Identity & Access
+    domain: true
+    description: SSO, MFA, SCIM provisioning, lifecycle automation, directories, access reviews.
+    topics: [okta, entra-id, azure-ad, azuread, active-directory, sso, saml, oidc, scim, iam, ldap, mfa, identity-governance, keycloak, authentik, identity-management]
+    keywords: [okta, entra, entra id, azure ad, active directory, scim, saml, single sign-on, mfa, ldap, keycloak, authentik, identity provider, access review, user provisioning, identity governance]
+
+  - id: endpoint
+    label: Endpoint & MDM
+    domain: true
+    description: Mac/Windows/mobile device management, inventory, configuration, enrollment.
+    topics: [mdm, jamf, jamf-pro, intune, macadmins, mac-admins, osquery, munki, device-management, endpoint-management, rmm, apple-business-manager, autopilot]
+    keywords: [jamf, intune, mdm, device management, osquery, munki, endpoint management, rmm, apple business manager, autopilot, configuration profile, macadmins, mac admins, zero-touch]
+
+  - id: patching
+    label: Patching & Packaging
+    domain: true
+    description: App packaging, patch catalogs, software deployment.
+    topics: [autopkg, patch-management, winget, chocolatey, software-deployment, installomator]
+    keywords: [autopkg, installomator, winget, chocolatey, patch management, patching, software deployment, silent install, package deployment]
+
+  - id: saas
+    label: SaaS & Collaboration Admin
+    domain: true
+    description: Google Workspace, Microsoft 365, Exchange, SharePoint, Slack administration.
+    topics: [google-workspace, gsuite, gam, microsoft-365, m365, office365, office-365, exchange-online, sharepoint, microsoft-graph, msgraph]
+    keywords: [google workspace, gsuite, g suite, gam, microsoft 365, m365, office 365, office365, exchange online, sharepoint, microsoft graph, msgraph, teams admin]
+
+  - id: security
+    label: Security & Compliance
+    domain: true
+    description: EDR, vulnerability management, hardening baselines, compliance evidence, SIEM.
+    topics: [edr, siem, vulnerability-scanner, vulnerability-management, cis-benchmark, compliance, soc2, threat-detection, wazuh, crowdstrike, hardening, security-baseline]
+    keywords: [edr, siem, vulnerability scanner, vulnerability management, cis benchmark, compliance, soc 2, soc2, hardening, crowdstrike, threat hunting, security baseline, iso 27001, wazuh]
+
+  - id: network
+    label: Network & Infrastructure
+    domain: true
+    description: Firewalls, VPN, VLANs, network source of truth, virtualization, monitoring.
+    topics: [network-automation, firewall, netbox, vpn, wireguard, ubiquiti, unifi, fortinet, fortigate, snmp, vsphere, proxmox, network-monitoring]
+    keywords: [firewall, vpn, wireguard, unifi, ubiquiti, fortigate, fortinet, netbox, vlan, network automation, snmp, vsphere, proxmox, network monitoring]
+
+  - id: automation
+    label: Automation & IaC
+    domain: true
+    description: PowerShell/Python/Bash tooling, Ansible, Terraform providers for IT platforms, runbooks.
+    topics: [powershell, powershell-module, ansible, terraform-provider, infrastructure-as-code, sysadmin, system-administration]
+    keywords: [powershell, ansible, terraform provider, infrastructure as code, runbook, sysadmin, system administration, configuration management]
+
+  - id: helpdesk
+    label: Helpdesk & Knowledge
+    domain: true
+    description: Ticketing, ITSM, asset management, IT documentation, onboarding/offboarding.
+    topics: [helpdesk, itsm, ticketing, asset-management, it-asset-management, cmdb, servicedesk, service-desk, it-documentation]
+    keywords: [helpdesk, help desk, itsm, service desk, ticketing system, it asset, asset management, cmdb, it documentation, onboarding, offboarding]
+
+  - id: agent
+    label: Agent Tooling (MCP & Skills)
+    domain: false
+    description: MCP servers, Claude Code skills, and agent tooling that act on IT systems.
+    topics: [mcp, mcp-server, model-context-protocol, claude-code, agent-skills, claude-skills]
+    keywords: [mcp server, model context protocol, mcp, claude code, agent skill, agent skills]

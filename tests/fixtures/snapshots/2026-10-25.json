@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-25",
+  "pages": {
+    "all/daily": [
+      {
+        "repo": "acme-it/ai-chat-framework",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 2,
+        "period_stars": 50
+      },
+      {
+        "repo": "okta/okta-mcp-server",
+        "rank": 3,
+        "period_stars": 50
+      }
+    ],
+    "powershell/daily": [
+      {
+        "repo": "acme-it/ai-chat-framework",
+        "rank": 1,
+        "period_stars": 50
+      }
+    ],
+    "all/weekly": [
+      {
+        "repo": "acme-it/ai-chat-framework",
+        "rank": 1,
+        "period_stars": 50
+      },
+      {
+        "repo": "taylorwilsdon/google_workspace_mcp",
+        "rank": 2,
+        "period_stars": 50
+      },
+      {
+        "repo": "okta/okta-mcp-server",
+        "rank": 3,
+        "period_stars": 50
+      }
+    ]
+  }
+}
