@@ -351,6 +351,27 @@
     ],
     "url": "https://github.com/fortinetdev/terraform-provider-fortios"
   },
+  "grokability/snipe-it": {
+    "archived": false,
+    "contributors": 400,
+    "created_at": "2024-05-09T12:00:00Z",
+    "description": "A free open source IT asset/license management system",
+    "fork": false,
+    "forks": 1250,
+    "language": "PHP",
+    "latest_release_at": "2026-10-06T12:00:00Z",
+    "license": "AGPL-3.0",
+    "owner_type": "Organization",
+    "pushed_at": "2026-10-23T12:00:00Z",
+    "scorecard": null,
+    "stars": 12500,
+    "stars_30d": 140,
+    "topics": [
+      "asset-management",
+      "itsm"
+    ],
+    "url": "https://github.com/grokability/snipe-it"
+  },
   "macadmins/nudge": {
     "archived": false,
     "contributors": 40,
@@ -665,27 +686,6 @@
       "microsoft-365"
     ],
     "url": "https://github.com/pnp/powershell"
-  },
-  "snipe/snipe-it": {
-    "archived": false,
-    "contributors": 400,
-    "created_at": "2024-05-09T12:00:00Z",
-    "description": "A free open source IT asset/license management system",
-    "fork": false,
-    "forks": 1250,
-    "language": "PHP",
-    "latest_release_at": "2026-10-06T12:00:00Z",
-    "license": "AGPL-3.0",
-    "owner_type": "Organization",
-    "pushed_at": "2026-10-23T12:00:00Z",
-    "scorecard": null,
-    "stars": 12500,
-    "stars_30d": 140,
-    "topics": [
-      "asset-management",
-      "itsm"
-    ],
-    "url": "https://github.com/snipe/snipe-it"
   },
   "taylorwilsdon/google_workspace_mcp": {
     "archived": false,
