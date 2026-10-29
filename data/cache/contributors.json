@@ -1,0 +1,814 @@
+{
+  "abgox/pscompletions": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "abhinavxd/libredesk": {
+    "count": 35,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "agentic-community/mcp-gateway-registry": {
+    "count": 76,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "aixisstudio/snitch": {
+    "count": 3,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "ansible/ansible-navigator": {
+    "count": 61,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "anthropics/skills": {
+    "count": 16,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "antonputra/tutorials": {
+    "count": 89,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "aquasecurity/kube-bench": {
+    "count": 165,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "aquasecurity/trivy": {
+    "count": 442,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "art-of-wifi/unifi-api-browser": {
+    "count": 9,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "art-of-wifi/unifi-api-client": {
+    "count": 11,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "ascit31/dark-moon": {
+    "count": 13,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "automatedlab/automatedlab": {
+    "count": 66,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "autopkg/autopkg": {
+    "count": 55,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "bartreardon/swiftdialog": {
+    "count": 22,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "batfish/batfish": {
+    "count": 70,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "beenuar/aisoc": {
+    "count": 19,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "bert-janp/hunting-queries-detection-rules": {
+    "count": 16,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "bestpractical/rt": {
+    "count": 78,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "bijomaru78/eccm": {
+    "count": 1,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "bitwire-it/ipblocklist": {
+    "count": 4,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "borgbase/vykar": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "bytedesk/bytedesk": {
+    "count": 4,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "casdoor/casdoor": {
+    "count": 321,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "chainguard-dev/osquery-defense-kit": {
+    "count": 12,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "chaitin/safeline": {
+    "count": 27,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "cisagov/scubagear": {
+    "count": 50,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "codingwonders/dismtools": {
+    "count": 1,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "combodo/itop": {
+    "count": 57,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "compasssecurity/entrafalcon": {
+    "count": 2,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "crowdstrike/falcon-mcp": {
+    "count": 31,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "crowdstrike/falconpy": {
+    "count": 51,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "cyb3rmik3/kql-threat-hunting-queries": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "cyb3rxp/awesome-soc": {
+    "count": 14,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "datacleaner/datacleaner": {
+    "count": 32,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "dbankscard/jamf-mcp-server": {
+    "count": 3,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "deepfence/threatmapper": {
+    "count": 41,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "defectdojo/django-defectdojo": {
+    "count": 352,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "deploymenttheory/terraform-provider-jamfpro": {
+    "count": 27,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "dirkjanm/roadtools": {
+    "count": 35,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "django-crm/django-crm": {
+    "count": 44,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "django-helpdesk/django-helpdesk": {
+    "count": 144,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "docker-mailserver/docker-mailserver": {
+    "count": 338,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "dotnet/dev-proxy": {
+    "count": 28,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "drduh/macos-security-and-privacy-guide": {
+    "count": 87,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "dromara/maxkey": {
+    "count": 42,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "ediwang/moonglade": {
+    "count": 13,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "emersonfelipesp/netbox-proxbox": {
+    "count": 17,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "enms-automation/enms": {
+    "count": 20,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "ep1cman/unifi-protect-backup": {
+    "count": 18,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "evotecit/eventviewerx": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "faveosuite/faveo-helpdesk": {
+    "count": 29,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "fleetdm/fleet": {
+    "count": 407,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "fortinetdev/terraform-provider-fortios": {
+    "count": 15,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "frappe/helpdesk": {
+    "count": 109,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "freescout-help-desk/freescout": {
+    "count": 95,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "future-architect/vuls": {
+    "count": 126,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "gacwr/openuba": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "gam-team/gam": {
+    "count": 37,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "glpi-project/glpi": {
+    "count": 221,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "google/mcp-security": {
+    "count": 44,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "google/osv.dev": {
+    "count": 111,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "googleworkspace/apps-script-oauth2": {
+    "count": 42,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "googleworkspace/apps-script-samples": {
+    "count": 66,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "googleworkspace/cli": {
+    "count": 43,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "googleworkspace/google-chat-samples": {
+    "count": 28,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "googleworkspace/node-samples": {
+    "count": 31,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "googleworkspace/python-samples": {
+    "count": 32,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "greenbone/openvas-scanner": {
+    "count": 57,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "guacsec/guac": {
+    "count": 80,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "h-mdm/hmdm-server": {
+    "count": 11,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "hairyhenderson/gomplate": {
+    "count": 68,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "harmveenstra/powershellisfun": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "holo-routing/holo": {
+    "count": 15,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "hotcakex/harden-windows-security": {
+    "count": 19,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "infobyte/faraday": {
+    "count": 43,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "installomator/installomator": {
+    "count": 319,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "jaegeral/security-apis": {
+    "count": 43,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "jamf-concepts/mcp-hub": {
+    "count": 2,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "jkroepke/openvpn-auth-oauth2": {
+    "count": 21,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "jm33-m0/emp3r0r": {
+    "count": 11,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "jmpsec/osctrl": {
+    "count": 17,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "kanidm/kanidm": {
+    "count": 156,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "karib0u/rustinel": {
+    "count": 9,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "kchristensen/udm-le": {
+    "count": 29,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "kdeldycke/awesome-iam": {
+    "count": 17,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "kesslernity/awesome-copilot-studio-agents": {
+    "count": 2,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lazywinadmin/powershell": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lefayjey/linwinpwn": {
+    "count": 11,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lemker/unifi-os-server": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lethal-forensics/microsoft-analyzer-suite": {
+    "count": 2,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lissy93/networking-toolbox": {
+    "count": 13,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lissy93/web-check": {
+    "count": 40,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "lkarlslund/adalanche": {
+    "count": 1,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "m14r41/pentestingeverything": {
+    "count": 14,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "macadmins/nudge": {
+    "count": 43,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "macjutsu/super": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "maester365/maester": {
+    "count": 133,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "mdecrevoisier/evtx-to-mitre-attack": {
+    "count": 2,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "merill/lokka": {
+    "count": 10,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "mhsanaei/3x-ui": {
+    "count": 315,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "michaelgrafnetter/dsinternals": {
+    "count": 13,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "micke-k/intunemanagement": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "micromdm/micromdm": {
+    "count": 53,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "microsoft/enterprisemcp": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "microsoft/mcp": {
+    "count": 181,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "microsoft/shell-intune-samples": {
+    "count": 59,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "microsoft365dsc/microsoft365dsc": {
+    "count": 166,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "microsoftgraph/msgraph-sdk-javascript": {
+    "count": 54,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "microsoftgraph/msgraph-sdk-powershell": {
+    "count": 66,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "modelcontextprotocol/servers": {
+    "count": 427,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "mthcht/awesome-lists": {
+    "count": 13,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "mukul975/cve-mcp-server": {
+    "count": 2,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "munki/munki": {
+    "count": 108,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "nautobot/nautobot": {
+    "count": 316,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netalertx/netalertx": {
+    "count": 161,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netbox-community/devicetype-library": {
+    "count": 449,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netbox-community/netbox": {
+    "count": 350,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netbox-community/netbox-docker": {
+    "count": 110,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netbox-community/netbox-topology-views": {
+    "count": 29,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netbox-community/pynetbox": {
+    "count": 51,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "netboxlabs/netbox-mcp-server": {
+    "count": 15,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "normation/rudder": {
+    "count": 37,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "nozaq/terraform-aws-secure-baseline": {
+    "count": 32,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "oauth2-proxy/oauth2-proxy": {
+    "count": 414,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "okta/okta-mcp-server": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "okta/okta-sdk-python": {
+    "count": 29,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "okta/terraform-provider-okta": {
+    "count": 141,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "olivetin/olivetin": {
+    "count": 29,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "opsmill/infrahub": {
+    "count": 61,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "orange-cyberdefense/goad": {
+    "count": 41,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "osquery/osquery": {
+    "count": 380,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "ossf/scorecard": {
+    "count": 186,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "outflanknl/redelk": {
+    "count": 17,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "owasp/nettacker": {
+    "count": 81,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pablosnt/rekono": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "patchmon/patchmon": {
+    "count": 41,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pegaprox/project-pegaprox": {
+    "count": 28,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pennyw0rth/netexec": {
+    "count": 197,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pnp/cli-microsoft365": {
+    "count": 153,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pnp/list-formatting": {
+    "count": 116,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pnp/powershell": {
+    "count": 178,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "powershell/psresourceget": {
+    "count": 41,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "powershellorg/plaster": {
+    "count": 36,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "powershellorg/pskoans": {
+    "count": 47,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pranshuparmar/witr": {
+    "count": 45,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "project-copacetic/copacetic": {
+    "count": 53,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "prowler-cloud/prowler": {
+    "count": 397,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "psake/psake": {
+    "count": 74,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "psappdeploytoolkit/psappdeploytoolkit": {
+    "count": 67,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "pythops/oryx": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "rackulalives/rackula": {
+    "count": 13,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "rana-gmbh/netfluss": {
+    "count": 4,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "raphire/win11debloat": {
+    "count": 40,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "reconmap/reconmap": {
+    "count": 7,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "rmbolger/posh-acme": {
+    "count": 88,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "romanitho/winget-autoupdate": {
+    "count": 51,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "rubysec/bundler-audit": {
+    "count": 63,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "ruudmens/lazyadmin": {
+    "count": 16,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "s1ckb0y1337/active-directory-exploitation-cheat-sheet": {
+    "count": 12,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "safe3/openresty-manager": {
+    "count": 1,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "sebadob/rauthy": {
+    "count": 67,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "sharepoint/sp-dev-docs": {
+    "count": 396,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "sherifabdlnaby/elastdocker": {
+    "count": 9,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "sierrasoftworks/tailscale-unifi": {
+    "count": 21,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "silverhack/monkey365": {
+    "count": 9,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "sirkirby/unifi-mcp": {
+    "count": 48,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "skiptotheendpoint/openintunebaseline": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "snailsploit/claude-red": {
+    "count": 9,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "snipe/snipe-it": {
+    "count": 335,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "softeria/ms-365-mcp-server": {
+    "count": 78,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "srl-labs/containerlab": {
+    "count": 202,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "stackql/stackql": {
+    "count": 32,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "stevegilham/altcover": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "t0pcyber/hawk": {
+    "count": 16,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "tailscale/tailscale": {
+    "count": 376,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "taylorwilsdon/google_workspace_mcp": {
+    "count": 181,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "tenzir/tenzir": {
+    "count": 50,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "the-art-of-hacking/h4cker": {
+    "count": 60,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "the-viper-one/psmapexec": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "threathunters-io/laurel": {
+    "count": 15,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "timhartmann7/omnyssh": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "tngan/samlify": {
+    "count": 62,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "tonyphipps/siem": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "topscoder/nuclei-wordfence-cve": {
+    "count": 4,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "turbot/tailpipe": {
+    "count": 8,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "turroks/cve_prioritizer": {
+    "count": 5,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "unpoller/unpoller": {
+    "count": 54,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "utmstack/utmstack": {
+    "count": 17,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "vgrem/office365-rest-python-client": {
+    "count": 57,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "vibber-ai/fastapi-azure-auth": {
+    "count": 32,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "victoriametrics/victorialogs": {
+    "count": 368,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "voltiusapp/voltius": {
+    "count": 12,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "wazuh/wazuh": {
+    "count": 211,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "willswire/unifi-ddns": {
+    "count": 30,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "xtls/xray-core": {
+    "count": 268,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "xxh/xxh": {
+    "count": 26,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "yuezk/globalprotect-openconnect": {
+    "count": 55,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "zammad/zammad": {
+    "count": 155,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "zinggai/zingg": {
+    "count": 33,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "zitadel/zitadel": {
+    "count": 250,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "znuny/znuny": {
+    "count": 101,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  },
+  "zoicware/removewindowsai": {
+    "count": 6,
+    "fetched_at": "2026-10-29T04:39:32Z"
+  }
+}
