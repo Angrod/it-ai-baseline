@@ -1,0 +1,807 @@
+{
+  "agentic-community/mcp-gateway-registry": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy it locally with Docker Compose and the bundled Keycloak, register one harmless read-only MCP server, and review the scopes and audit records before connecting your production IdP.",
+    "fit": 2,
+    "key": "f1371a90cbce17ae",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "agent",
+      "identity",
+      "security",
+      "automation"
+    ],
+    "why": "Central gateway and registry for MCP servers and agents, with Entra ID/Okta/Keycloak OAuth, scoped access control, and audit logging. Useful for IT teams governing which agent tools staff can reach."
+  },
+  "ascit31/dark-moon": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Clone and run against an authorized sandbox target (e.g. OWASP Juice Shop) with a local model to review findings before any production use.",
+    "fit": 2,
+    "key": "4f7a2e804aa88a3c",
+    "readonly_mode": false,
+    "status": "scored",
+    "tags": [
+      "security",
+      "automation"
+    ],
+    "why": "Autonomous AI penetration testing across web, AD, cloud, K8s and CI/CD, runnable on a local LLM for self-hosted vulnerability assessment of your own infrastructure."
+  },
+  "automatedlab/automatedlab": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install the module from PowerShell Gallery on an isolated Hyper-V host and run the single Windows 10 client sample script to validate the setup.",
+    "fit": 2,
+    "key": "881b12853015cd67",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation",
+      "network",
+      "identity",
+      "saas"
+    ],
+    "why": "PowerShell framework to spin up Hyper-V or Azure test labs with AD, PKI, Exchange, SQL and ConfigMgr. Useful for testing GPOs, migrations and changes before production, but it does not manage production systems."
+  },
+  "casdoor/casdoor": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the casdoor-all-in-one Docker image locally with SQLite and wire one test app to it over OIDC before considering production use.",
+    "fit": 2,
+    "key": "923d4bcea51ee29c",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "agent"
+    ],
+    "why": "Self-hosted IdP providing SSO via OIDC, SAML, CAS, LDAP and SCIM with MFA, federating to Google Workspace and Entra ID. Useful for internal apps or labs, but it is an alternative IdP rather than a tool for managing Okta or Entra."
+  },
+  "chainguard-dev/osquery-defense-kit": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install osquery on a test Mac or Linux host and run `make detect` to see which queries fire before loading any packs into production.",
+    "fit": 2,
+    "key": "741cd034b6016648",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "endpoint"
+    ],
+    "why": "Ships 250+ osquery detection, policy and incident-response queries for macOS and Linux fleets, tuned to return zero rows normally so they can drive alerts in a SIEM or fleet manager."
+  },
+  "compasssecurity/entrafalcon": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run run_EntraFalcon.ps1 with a Global Reader account against a test or production tenant and review the Security Findings HTML report before changing anything.",
+    "fit": 3,
+    "key": "d9cd1254e5690e08",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security",
+      "automation"
+    ],
+    "why": "Read-only PowerShell assessment of Entra ID that flags privileged objects, risky app permissions, users without MFA, Conditional Access gaps and PIM assignments, with output as HTML reports."
+  },
+  "cyb3rmik3/kql-threat-hunting-queries": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Copy a single query into Defender XDR Advanced Hunting, run it read-only over a short time range, and review the results before turning it into a detection rule.",
+    "fit": 2,
+    "key": "a0a9b8f3b02d64ed",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security"
+    ],
+    "why": "Collection of KQL hunting and detection queries for Microsoft Sentinel and Defender XDR, useful for M365 security teams writing hunts or analytics rules. Currently being rebuilt, so content may be in flux."
+  },
+  "datacleaner/datacleaner": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Load a CSV export of user or asset records into the desktop app and run a profiling job to spot duplicates and missing fields.",
+    "fit": 1,
+    "key": "ee94ffcfaa87dfc4",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation"
+    ],
+    "why": "General data quality and profiling desktop tool. Sysadmins could use it to profile and deduplicate exported directory or asset inventory data, but it is not IT-admin specific."
+  },
+  "deploymenttheory/terraform-provider-jamfpro": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Point the provider at a non-production Jamf Pro instance with a limited-scope OAuth2 API client, import a few existing objects, and run terraform plan to review drift without applying.",
+    "fit": 3,
+    "key": "cff2b84a4958ea76",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "automation",
+      "patching"
+    ],
+    "why": "Terraform provider that manages Jamf Pro configuration (policies, groups, profiles, apps) as code, enabling version control, change review, drift detection and replication across tenants."
+  },
+  "dirkjanm/roadtools": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run roadrecon against your tenant with read-only Graph credentials to dump data to a local DB and explore in the GUI.",
+    "fit": 3,
+    "key": "8db66686214a00df",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Dumps and explores all Entra ID/Azure AD data into a queryable offline database for security review and access analysis; useful for blue-team audits of tenant configuration."
+  },
+  "dotnet/dev-proxy": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install it on a dev workstation and run the microsoft-graph-rate-limiting preset while executing an existing read-only Graph script against a test tenant.",
+    "fit": 1,
+    "key": "acf60c0566702aa7",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation"
+    ],
+    "why": "Developer tool that intercepts HTTP calls to simulate API errors and throttling, including Microsoft Graph rate limits. It can help test whether internal Graph automation scripts handle 429s and retries."
+  },
+  "dromara/maxkey": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy the Docker build in an isolated lab, connect it to a test LDAP/AD, and federate one non-production SAML or OIDC app.",
+    "fit": 2,
+    "key": "1a726a19ae7bc57b",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Self-hosted open-source IdP providing SSO (SAML, OIDC, CAS), MFA, SCIM provisioning and AD/LDAP account management. An alternative to Okta/Entra, but it requires running and maintaining a Java/MySQL stack."
+  },
+  "ediwang/moonglade": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Not applicable for IT administration; if you are curious, run it locally with docker compose to evaluate it as a blog.",
+    "fit": 0,
+    "key": "b7060a0b19c1db0d",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [],
+    "why": "A self-hosted personal blog platform in ASP.NET Core. It supports Entra ID/OIDC sign-in, but it does not automate or improve any IT administration task."
+  },
+  "fleetdm/fleet": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Stand up a trial Fleet server and enroll a few test machines with the osquery agent to review inventory and CIS policy results before enabling MDM or software deployment.",
+    "fit": 3,
+    "key": "fb139db802e189bf",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "patching",
+      "security",
+      "automation"
+    ],
+    "why": "Open-source MDM and osquery-based device management for macOS, Windows, Linux, iOS and Android: inventory, software deployment and patching, CIS benchmark checks, and GitOps-managed config."
+  },
+  "googleworkspace/apps-script-oauth2": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Add the library to a test Apps Script project and authorize against a sandbox API to confirm token storage and refresh behavior.",
+    "fit": 1,
+    "key": "3f8199685248eb9c",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation"
+    ],
+    "why": "Apps Script library that handles OAuth2 token flows and refresh. Useful as a building block when Google Workspace admin scripts need to call third-party APIs such as Okta or Slack."
+  },
+  "googleworkspace/apps-script-samples": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Copy the adminSDK sample into an Apps Script project in a test Workspace domain and run its read-only list functions, such as listing users, before adapting it.",
+    "fit": 2,
+    "key": "bffae652863ca543",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation"
+    ],
+    "why": "Official Google Apps Script samples, including Admin SDK directory and domain management, Drive activity, and Gmail examples, that Workspace admins can adapt into scripts for user, group and Drive tasks."
+  },
+  "googleworkspace/cli": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install gws against a test Workspace tenant. Log in with narrow read-only scopes, run list commands such as admin directory users list, and use --dry-run before any write call.",
+    "fit": 3,
+    "key": "ebf141df622ef556",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation",
+      "agent",
+      "identity"
+    ],
+    "why": "A CLI built from Google's Discovery Service that covers every Workspace API, Admin included. Use it to script user, group, Drive and Gmail admin tasks with JSON output, and it ships agent skills for LLM-driven management."
+  },
+  "googleworkspace/google-chat-samples": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy the Webhook app sample to post a test message into a test Chat space in a non-production Workspace tenant.",
+    "fit": 1,
+    "key": "40541635f16f70f6",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation"
+    ],
+    "why": "Developer samples for building Google Chat apps and bots. Useful as a starting point for IT teams building helpdesk bots or webhook alerts into Google Chat, but they are not admin tooling."
+  },
+  "googleworkspace/node-samples": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Clone the repo and run a read-only Drive or Admin SDK sample against a test Workspace tenant using a service account with minimal scopes.",
+    "fit": 1,
+    "key": "0ba6003879ec5ee3",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation"
+    ],
+    "why": "Official Node.js code samples for Google Workspace APIs (Drive, Slides, etc.), useful as reference snippets when writing custom Workspace admin scripts."
+  },
+  "googleworkspace/python-samples": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the Admin SDK Directory quickstart with read-only scopes against a test Workspace domain to list users.",
+    "fit": 1,
+    "key": "c093f22c4818f8d9",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation"
+    ],
+    "why": "Official Python quickstart samples for Google Workspace APIs, including Admin SDK Directory and Reports. Useful as starting code for scripting user listings or audit log pulls, but not a finished tool."
+  },
+  "h-mdm/hmdm-server": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install the web panel on a test Ubuntu VM and enroll one factory-reset spare Android device via QR code to evaluate app deployment and configs.",
+    "fit": 2,
+    "key": "135245a117fcefce",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "patching"
+    ],
+    "why": "Self-hosted open-source Android MDM: QR enrollment, app deployment, device groups and configuration. Useful for Android fleets or kiosks outside Intune, but key lockdown features are in the paid edition."
+  },
+  "harmveenstra/powershellisfun": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Pick a read-only reporting script, such as the M365 license overview or AD OU permissions report, read its blog post, and run it against a test tenant or lab domain.",
+    "fit": 2,
+    "key": "1700251f96ddb4e3",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "endpoint",
+      "saas",
+      "automation",
+      "security",
+      "patching",
+      "network"
+    ],
+    "why": "Collection of blog-backed PowerShell scripts for Intune printer/WinGet deployment, AD permission reports, Exchange permission copying, M365 license reports and MFA setup. Each needs per-script review and adaptation."
+  },
+  "hotcakex/harden-windows-security": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install Harden System Security on a test VM and run its compliance check to compare current settings against its baseline before applying any changes.",
+    "fit": 2,
+    "key": "cd4e430e1800b944",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "endpoint"
+    ],
+    "why": "Hardens Windows using Microsoft-supported settings (Defender, BitLocker, firewall, WDAC). AppControl Manager helps build and deploy App Control for Business policies. Useful for baseline and application-allowlisting work."
+  },
+  "jkroepke/openvpn-auth-oauth2": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the Docker Compose demo against a test app registration in a sandbox IdP tenant before touching a production OpenVPN server.",
+    "fit": 3,
+    "key": "5a5aa0cac127e947",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "network",
+      "security"
+    ],
+    "why": "Adds OIDC SSO to OpenVPN servers using Entra ID, Okta, Google Workspace or Keycloak, replacing static VPN credentials with your IdP login and MFA policies."
+  },
+  "jm33-m0/emp3r0r": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Not applicable for defensive sysadmin work; would only be relevant to red-team specialists.",
+    "fit": 0,
+    "key": "a1927f30f7eac941",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [],
+    "why": "This is an offensive C2/post-exploitation and malware framework for red teaming, not a tool for administering identity, endpoints, SaaS, or networks."
+  },
+  "jmpsec/osctrl": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy osctrl in a lab with a few test hosts enrolled, run saved read-only queries, and connect osctrl-mcp with mutating tools left disabled.",
+    "fit": 3,
+    "key": "a650829897342916",
+    "readonly_mode": true,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "security",
+      "agent",
+      "automation"
+    ],
+    "why": "Self-hosted osquery fleet manager for running distributed queries across endpoints, carving files, alerting on node state, and tracking posture mapped to SOC 2/ISO 27001. Includes an MCP server for fleet inspection."
+  },
+  "kanidm/kanidm": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy a test instance in a container per the Kanidm book, then connect one non-critical app via OIDC or one Linux host via the unix client.",
+    "fit": 2,
+    "key": "c13a36fa818ba83f",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "network",
+      "security"
+    ],
+    "why": "Self-hosted identity provider with OIDC SSO, passkeys, RADIUS for VPN/Wi-Fi, SSH key distribution and Linux login. An alternative to FreeIPA/Keycloak, not a tool for managing Okta or Entra ID."
+  },
+  "kdeldycke/awesome-iam": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Skim the MFA, password-less and SAML sections for references relevant to your Okta or Entra ID rollout plans.",
+    "fit": 1,
+    "key": "a113aa13de67743c",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Curated reading list on IAM concepts (SSO, MFA, SAML, SCIM, passkeys, zero trust). It's aimed mostly at developers building auth, but useful background for admins designing identity policy."
+  },
+  "kesslernity/awesome-copilot-studio-agents": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Paste one instruction-only agent into Agent Builder in a test tenant with a Copilot licence, and check how it behaves before sharing it with users.",
+    "fit": 1,
+    "key": "09f58cd53b784e88",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas"
+    ],
+    "why": "A library of prompt instruction blocks for M365 Copilot declarative agents, mostly aimed at business users (writing, PM, HR). M365 admins rolling out Copilot could use it as starter content for users."
+  },
+  "lazywinadmin/powershell": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Browse the repo for a read-only AD or O365 reporting function, review its code, and run it in a test domain or tenant.",
+    "fit": 2,
+    "key": "3bc9fcbd6e4d781d",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation",
+      "identity",
+      "saas",
+      "endpoint",
+      "network"
+    ],
+    "why": "A collection of PowerShell functions for Active Directory, SCCM, Exchange/O365, Azure and VMware admin tasks. It is useful as a script library, but each script needs review and adaptation before use."
+  },
+  "lefayjey/linwinpwn": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run in automated enumeration-only mode against a lab/sandbox domain controller with authorized credentials.",
+    "fit": 2,
+    "key": "e9a6cbb78fc2bf1e",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity"
+    ],
+    "why": "Offensive AD pentesting wrapper (BloodHound, impacket, kerberoast, certipy). Sysadmins can use it to audit their own AD for weaknesses like ZeroLogon, noPac, ASREPRoast and ADCS misconfigs."
+  },
+  "lethal-forensics/microsoft-analyzer-suite": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Export sign-in and audit logs from a test tenant with Microsoft-Extractor-Suite, then run the matching analyzer offline against those files and review the output.",
+    "fit": 3,
+    "key": "685172130ee3326c",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity",
+      "saas",
+      "automation"
+    ],
+    "why": "Analyzes Entra ID sign-in/audit logs, M365 Unified Audit Log, MFA status, OAuth grants, mailbox permissions and transport rules exported by Microsoft-Extractor-Suite, for incident response and tenant review."
+  },
+  "lkarlslund/adalanche": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the collector with a standard read-only domain user against a lab or test domain, then review the attack paths in the local web UI before running it in production.",
+    "fit": 3,
+    "key": "93f442414cc3df7e",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Collects Active Directory ACLs, group memberships and Windows machine data to graph who can effectively reach Domain Admin. It also flags delegation errors, kerberoastable accounts and AD CS misconfigurations."
+  },
+  "m14r41/pentestingeverything": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Browse the Configuration Review and Network Pentesting sections on the website to compare against your own hardening checklist, without installing the agent skill.",
+    "fit": 1,
+    "key": "9ff025c542508462",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "agent"
+    ],
+    "why": "A pentesting knowledge base and checklists covering network, Wi-Fi, AD, cloud, and configuration review. Useful as reference when hardening infrastructure or preparing for an external assessment, but it does not automate admin tasks."
+  },
+  "macjutsu/super": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy the stable 5.1.x release to a small test group of Macs through Jamf Pro and review the update dialogs and deferral behavior before rolling it out more widely.",
+    "fit": 3,
+    "key": "0f570efa13b45952",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "patching",
+      "security"
+    ],
+    "why": "Enforces macOS and Apple software updates with user dialogs, deferrals, deadlines, and restarts, and can run Jamf Pro policies. Covers a recurring Mac patch-compliance task."
+  },
+  "maester365/maester": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install the release build (2.3.0 or current stable) in PowerShell 7.4, run Connect-Maester and Invoke-Maester against a test tenant, and review the HTML report.",
+    "fit": 3,
+    "key": "b60ef728c47cfca3",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity",
+      "saas",
+      "automation"
+    ],
+    "why": "PowerShell framework that runs automated security configuration checks against Entra ID and Microsoft 365 tenants (Conditional Access, Exchange, etc.) and reports drift, with CI/CD and Teams/email notifications."
+  },
+  "michaelgrafnetter/dsinternals": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install from PowerShell Gallery in a lab, then run Test-PasswordQuality against an offline ntds.dit copy from a test domain, with security team approval since it can dump hashes.",
+    "fit": 3,
+    "key": "b0e8a452f4c74cbe",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security",
+      "automation"
+    ],
+    "why": "PowerShell module for Active Directory password auditing (shared and breached passwords via Test-PasswordQuality), key credential audits, LAPS and BitLocker key recovery, and DC recovery from IFM backups."
+  },
+  "micke-k/intunemanagement": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run a bulk export with read-only Graph permissions against a test tenant and review the generated JSON and documentation before trying any import.",
+    "fit": 3,
+    "key": "761a153982a1b4a4",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "automation",
+      "security"
+    ],
+    "why": "Exports, backs up, documents, compares and migrates Intune policies and profiles, including assignments, between tenants via Graph, with a UI or silent batch mode."
+  },
+  "micromdm/micromdm": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Follow the ngrok demo guide to stand up a test instance and enroll a spare test Mac, or evaluate NanoMDM instead given v1's end of support.",
+    "fit": 2,
+    "key": "6248338253534ae0",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "automation"
+    ],
+    "why": "Open-source API-driven Apple MDM server for enrolling Macs/iOS devices via DEP and pushing commands, but v1 is in maintenance mode with support ending 2025; NanoMDM is the successor."
+  },
+  "microsoft/shell-intune-samples": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Pick one macOS custom attribute or config script, review it, and deploy it via Intune to a single test Mac in a pilot group.",
+    "fit": 3,
+    "key": "b173089002706dc8",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "patching",
+      "automation",
+      "security"
+    ],
+    "why": "Microsoft-maintained shell script samples for Intune-managed macOS and Linux: app installs, device config, custom attributes and Linux custom compliance checks."
+  },
+  "microsoft365dsc/microsoft365dsc": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install the module and export a snapshot of a test tenant's configuration with read-only credentials, then review it before applying anything.",
+    "fit": 3,
+    "key": "7429dd2280dd935e",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "identity",
+      "endpoint",
+      "security",
+      "automation"
+    ],
+    "why": "Exports, deploys and monitors Microsoft 365 tenant configuration (Entra ID, Exchange, Intune, Teams, SharePoint, Defender) as PowerShell DSC code, so you can back it up and catch configuration drift."
+  },
+  "microsoftgraph/msgraph-sdk-javascript": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Register an app in a test tenant with read-only Graph permissions like User.Read.All and write a small Node script that lists users.",
+    "fit": 1,
+    "key": "ffca3a1b9edd46aa",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "identity",
+      "automation"
+    ],
+    "why": "Official JavaScript/TypeScript SDK for Microsoft Graph, a building block for custom scripts that query or manage Entra ID users, groups, and Microsoft 365 data such as mail and OneDrive."
+  },
+  "okta/terraform-provider-okta": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Pin v6.15.0 and run terraform plan with data sources and import blocks against an Okta preview/sandbox org to codify existing config without making changes.",
+    "fit": 3,
+    "key": "299b31b6a29219b0",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "automation"
+    ],
+    "why": "Official Okta-maintained Terraform provider for managing Okta users, groups, apps, and policies as code, letting you version-control and review identity configuration changes."
+  },
+  "orange-cyberdefense/goad": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy GOAD-Light or MINILAB on an isolated hypervisor host with no internet exposure to test AD attack detection and hardening changes.",
+    "fit": 1,
+    "key": "bfe93afc0598a2a4",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity",
+      "automation",
+      "network"
+    ],
+    "why": "Builds an intentionally vulnerable Active Directory lab (multi-forest, SCCM) for practicing attack techniques. Useful for testing AD detections and hardening, not for production admin."
+  },
+  "pennyw0rth/netexec": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "With written authorization, install via pipx in an isolated lab domain and run read-only SMB/LDAP enumeration against test hosts before any production use.",
+    "fit": 2,
+    "key": "993687a06cef146d",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "network",
+      "identity"
+    ],
+    "why": "Pentest tool (successor to CrackMapExec) for auditing Active Directory and Windows networks over SMB, LDAP, WinRM and similar protocols, e.g. finding weak credentials, open shares and misconfigurations."
+  },
+  "pnp/cli-microsoft365": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install via npm or Docker, run `m365 setup` to register a dedicated Entra app with minimal read permissions in a test tenant, then try list/get commands such as `m365 spo site list`.",
+    "fit": 3,
+    "key": "f99d2553bab68757",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "identity",
+      "automation"
+    ],
+    "why": "Cross-platform CLI for administering a Microsoft 365 tenant (SharePoint Online, Teams, Entra ID, OneDrive, Power Platform, Purview) from bash or PowerShell, with JSON output and JMESPath queries for scripting."
+  },
+  "pnp/powershell": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install PnP.PowerShell in PowerShell 7.4+, register your own Entra app, and run read-only Get- cmdlets such as Get-PnPTenantSite against a test tenant.",
+    "fit": 3,
+    "key": "e86a0481debd9f47",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation",
+      "identity",
+      "agent"
+    ],
+    "why": "Widely used PowerShell module with 900+ cmdlets for administering SharePoint Online, Teams and other Microsoft 365 workloads, e.g. site provisioning, permissions reports and bulk changes."
+  },
+  "psappdeploytoolkit/psappdeploytoolkit": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install the module from the PowerShell Gallery, generate a template with New-ADTTemplate, and package one simple app to test on a single test VM before deploying it through Intune.",
+    "fit": 3,
+    "key": "eca509e346b20833",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "patching",
+      "endpoint",
+      "automation"
+    ],
+    "why": "PowerShell framework for packaging and deploying Windows apps through Intune, ConfigMgr or Tanium, with standard install/uninstall workflows, user prompts, deferrals and logging."
+  },
+  "s1ckb0y1337/active-directory-exploitation-cheat-sheet": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Review enumeration techniques and run read-only checks (BloodHound/PowerView collection) against a lab AD to find exposures.",
+    "fit": 2,
+    "key": "52341beb537cb821",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity"
+    ],
+    "why": "AD attack/enumeration cheat sheet useful for sysadmins to understand and test their own Active Directory for Kerberoasting, delegation abuse, ACL weaknesses, and hardening priorities."
+  },
+  "sebadob/rauthy": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the single-instance Docker image with embedded Hiqlite in a lab, then connect one test OIDC app and one test Linux host via PAM.",
+    "fit": 2,
+    "key": "56dff152f8f1024b",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Self-hosted OIDC/OAuth2 identity provider with passkey MFA, SCIM, audit events, and a PAM module for Linux host logins. A lightweight Keycloak alternative for SSO on internal apps and servers."
+  },
+  "sharepoint/sp-dev-docs": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Read the site templates/site scripts and list formatting articles on Microsoft Learn and test examples in a dev tenant.",
+    "fit": 1,
+    "key": "29582dda73b8aac8",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas"
+    ],
+    "why": "Source for Microsoft's SharePoint developer docs (SPFx, site scripts, list formatting). Mostly developer-focused, but site templates and column formatting docs help SharePoint admins."
+  },
+  "skiptotheendpoint/openintunebaseline": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Import the Windows baseline into a test tenant with IntuneManagement or OIB Deployer, assign it only to a pilot device group, and review each setting against your own requirements.",
+    "fit": 3,
+    "key": "ce7b5dbc9e44893e",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "security"
+    ],
+    "why": "Ready-made Intune security baseline policies for Windows, Windows 365 and macOS, mapped to CIS, NCSC and Essential Eight, for hardening managed devices without building every policy by hand."
+  },
+  "the-viper-one/psmapexec": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run in an isolated lab AD environment with explicit authorization to understand attack paths against your own setup.",
+    "fit": 1,
+    "key": "4c06bb71342bd7e5",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security"
+    ],
+    "why": "Offensive post-exploitation framework for Active Directory, useful for red-team testing but not a routine admin task. Could inform defensive hardening."
+  },
+  "tngan/samlify": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the samlify-starter example locally against a test SAML app in a sandbox Okta or Entra tenant, with schema validation enabled.",
+    "fit": 1,
+    "key": "73420f79190fc47b",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity"
+    ],
+    "why": "Node.js library for building SAML service providers or identity providers. Useful if you write internal apps that need to SSO against Okta or Entra ID, but it is a developer building block, not an admin tool."
+  },
+  "vgrem/office365-rest-python-client": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Register an app with read-only Graph permissions (e.g. User.Read.All, Sites.Read.All) in a test tenant and run one of the example scripts that lists users or SharePoint sites.",
+    "fit": 2,
+    "key": "c23f61570b658005",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation",
+      "identity"
+    ],
+    "why": "Python SDK for SharePoint REST and Microsoft Graph that lets you script M365 admin tasks such as SharePoint site and permission reports, OneDrive files, Teams, and Entra ID users and groups."
+  },
+  "vibber-ai/fastapi-azure-auth": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Register a test app in a sandbox Entra tenant and protect a demo FastAPI endpoint following the single-tenant tutorial in the docs.",
+    "fit": 1,
+    "key": "b97fdc276a6b9031",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity"
+    ],
+    "why": "Python library for adding Entra ID token validation to FastAPI apps. Useful if you build internal IT tools or APIs that need Entra SSO and role or scope checks, but it is a developer building block rather than an admin tool."
+  },
+  "xxh/xxh": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install via pipx and run 'xxh <testhost> +s bash' against a non-production Linux box, then remove ~/.xxh afterward.",
+    "fit": 1,
+    "key": "abf5b138d838223e",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation"
+    ],
+    "why": "Carries your local shell (zsh, fish, xonsh, bash) and dotfiles to remote Linux hosts over SSH without root. It is a convenience for admins working on Linux servers, and it does not automate any admin task."
+  },
+  "yuezk/globalprotect-openconnect": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Install gpclient on a test Linux machine and run 'sudo gpclient connect <portal> --browser' against your GlobalProtect portal to check SSO and HIP compatibility.",
+    "fit": 2,
+    "key": "7cf188ba649ee375",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "endpoint",
+      "identity"
+    ],
+    "why": "Open-source GlobalProtect VPN client for Linux/macOS/BSD with SAML SSO (Okta/Entra), FIDO2 and cert auth, plus HIP reports. Useful for supporting Linux users on Palo Alto VPNs."
+  },
+  "zinggai/zingg": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Run the Docker image against the bundled Febrl example, then try a CSV export of duplicate asset or user records.",
+    "fit": 1,
+    "key": "d9e368ccd28213f1",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [],
+    "why": "Spark-based ML entity resolution for customer/master data. It is a data engineering tool, though it could help dedupe messy asset or user records merged from multiple HR/IT systems."
+  },
+  "zitadel/zitadel": {
+    "classified_at": "2026-10-29T04:39:32Z",
+    "first_step": "Deploy the Docker Compose stack in a lab, connect one test app via OIDC or SAML, and review the audit event stream before planning any production use.",
+    "fit": 2,
+    "key": "ce616cb2fcad3c46",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity"
+    ],
+    "why": "Self-hostable IdP providing SSO (OIDC/SAML), MFA, passkeys, SCIM and LDAP federation. Mainly for app developers and B2B platforms, but usable as an internal IdP alternative to Keycloak or Okta."
+  }
+}
