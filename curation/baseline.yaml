@@ -61,8 +61,7 @@ domains:
           note: Jamf Pro policies, profiles and groups as code.
       L2:
         - repo: Jamf-Concepts/mcp-hub
-          verify: true
-          note: Jamf's own beta MCP server (Jamf Pro, Protect, Security Cloud). Confirm the repo location.
+          note: Jamf's own beta MCP server (Jamf Pro, Protect, Security Cloud).
         - repo: dbankscard/jamf-mcp-server
           note: Community Jamf Pro MCP with a read-only mode. Turn that on first.
       L3:
@@ -128,7 +127,7 @@ domains:
     label: Helpdesk & Knowledge
     cells:
       L1:
-        - repo: snipe/snipe-it
+        - repo: grokability/snipe-it
           note: Open-source IT asset management with a REST API.
       L2: []
       L3: []

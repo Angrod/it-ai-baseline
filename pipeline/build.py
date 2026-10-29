@@ -178,8 +178,9 @@ def review_digest(now: datetime, stats: dict, records: dict, classified: list[st
                   "stars gained is unknown this week.", ""]
         lines += [f"- `{m}`" for m in messages[:5]]
         if any("not accessible by integration" in m.lower() for m in messages):
-            lines += ["", "The built-in Actions token can't read this. Add a `GH_PAT` repository secret "
-                      "(a fine-grained token with read-only access to public repositories) and re-run the refresh."]
+            lines += ["", "The built-in Actions token can't read star history. Add a `GH_PAT` repository secret "
+                      "(a classic personal access token with no scopes selected, which can only read public data) "
+                      "and run the refresh again."]
         lines.append("")
     return "\n".join(lines)
 

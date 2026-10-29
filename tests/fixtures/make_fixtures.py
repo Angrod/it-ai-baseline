@@ -58,7 +58,7 @@ REPOS = {
     "fortinetdev/terraform-provider-fortios": repo(["fortinet", "terraform-provider"], "Terraform Fortios provider", 80, 2, lang="Go", license="MPL-2.0", contributors=8),
     "netboxlabs/netbox-mcp-server": repo(["netbox", "mcp-server"], "Model Context Protocol server for read-only interaction with NetBox data", 200, 37, license="Apache-2.0", contributors=7),
     # helpdesk
-    "snipe/snipe-it": repo(["asset-management", "itsm"], "A free open source IT asset/license management system", 12500, 140, lang="PHP", license="AGPL-3.0", contributors=400),
+    "grokability/snipe-it": repo(["asset-management", "itsm"], "A free open source IT asset/license management system", 12500, 140, lang="PHP", license="AGPL-3.0", contributors=400),
     # foundations
     "anthropics/skills": repo(["agent-skills"], "Public repository for Agent Skills", 52000, 6100, lang="Python", license="Apache-2.0", contributors=40),
     "modelcontextprotocol/servers": repo(["mcp"], "Model Context Protocol Servers", 76000, 2400, lang="TypeScript", contributors=600, scorecard=6.0),

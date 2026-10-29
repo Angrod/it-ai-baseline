@@ -30,7 +30,7 @@ vendor:
   - ossf
   - elastic
   - grafana
-  - snipe
+  - grokability
 
 # Long-running community orgs that admins already rely on.
 community:

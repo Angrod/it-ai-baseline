@@ -63,7 +63,8 @@ couldn't find. Merging that PR is the approval.
    - Secret `ANTHROPIC_API_KEY`: used for the fit scoring. Without it, the refresh still runs and simply skips scoring.
    - Variable `CLAUDE_MODEL`: the Claude model ID to score with.
    - Optional variable `CLAUDE_FALLBACKS`: `default` (server-side refusal fallback, the default) or `off` for models that don't support it.
-   - Optional secret `GH_PAT`: a fine-grained personal token, if the candidate pool outgrows the built-in token's 1,000 requests/hour.
+   - Secret `GH_PAT`: a classic personal access token with **no scopes** selected (read-only public data). The built-in
+     Actions token can't read star history, so without this, "stars gained" stays blank.
 2. **Actions permissions** (Settings → Actions → General → Workflow permissions): *Read and write*, and
    tick *Allow GitHub Actions to create and approve pull requests*.
 3. **Pages** (Settings → Pages): Source = *GitHub Actions*.
