@@ -1,0 +1,1593 @@
+{
+  "date": "2026-10-29",
+  "fetched_at": "2026-10-29T02:47:40Z",
+  "pages": {
+    "all/daily": [
+      {
+        "period_stars": 1068,
+        "rank": 1,
+        "repo": "JetBrains/thinkrail"
+      },
+      {
+        "period_stars": 2139,
+        "rank": 2,
+        "repo": "elayadesign/ai-design-skills"
+      },
+      {
+        "period_stars": 1095,
+        "rank": 3,
+        "repo": "obra/superpowers"
+      },
+      {
+        "period_stars": 2371,
+        "rank": 4,
+        "repo": "HKUDS/DeepTutor"
+      },
+      {
+        "period_stars": 117,
+        "rank": 5,
+        "repo": "macro-inc/macro"
+      },
+      {
+        "period_stars": 2110,
+        "rank": 6,
+        "repo": "Nutlope/hallmark"
+      },
+      {
+        "period_stars": 1472,
+        "rank": 7,
+        "repo": "pbakaus/impeccable"
+      },
+      {
+        "period_stars": 728,
+        "rank": 8,
+        "repo": "makecindy/cindy"
+      },
+      {
+        "period_stars": 1054,
+        "rank": 9,
+        "repo": "nightly-labs/openbot"
+      },
+      {
+        "period_stars": 1477,
+        "rank": 10,
+        "repo": "togg53192-cmd/jailbreaks"
+      },
+      {
+        "period_stars": 1616,
+        "rank": 11,
+        "repo": "hmjz100/LinkSwift"
+      },
+      {
+        "period_stars": 90,
+        "rank": 12,
+        "repo": "expo/skills"
+      },
+      {
+        "period_stars": 557,
+        "rank": 13,
+        "repo": "ruvnet/RuView"
+      },
+      {
+        "period_stars": 148,
+        "rank": 14,
+        "repo": "xiaolai/the-craft-of-selfteaching"
+      }
+    ],
+    "all/monthly": [
+      {
+        "period_stars": 21015,
+        "rank": 1,
+        "repo": "heygen-com/hyperframes"
+      },
+      {
+        "period_stars": 28617,
+        "rank": 2,
+        "repo": "cloudflare/security-audit-skill"
+      },
+      {
+        "period_stars": 7899,
+        "rank": 3,
+        "repo": "anthropics/knowledge-work-plugins"
+      },
+      {
+        "period_stars": 7453,
+        "rank": 4,
+        "repo": "earthtojake/text-to-cad"
+      },
+      {
+        "period_stars": 19821,
+        "rank": 5,
+        "repo": "pbakaus/impeccable"
+      },
+      {
+        "period_stars": 51430,
+        "rank": 6,
+        "repo": "debpalash/VoiceStudio"
+      },
+      {
+        "period_stars": 5652,
+        "rank": 7,
+        "repo": "cursor/plugins"
+      },
+      {
+        "period_stars": 8154,
+        "rank": 8,
+        "repo": "anthropics/claude-plugins-official"
+      },
+      {
+        "period_stars": 8679,
+        "rank": 9,
+        "repo": "mksglu/context-mode"
+      },
+      {
+        "period_stars": 9592,
+        "rank": 10,
+        "repo": "thedotmack/claude-mem"
+      },
+      {
+        "period_stars": 24428,
+        "rank": 11,
+        "repo": "affaan-m/ECC"
+      },
+      {
+        "period_stars": 15700,
+        "rank": 12,
+        "repo": "NationalSecurityAgency/ghidra"
+      },
+      {
+        "period_stars": 7410,
+        "rank": 13,
+        "repo": "pingdotgg/t3code"
+      },
+      {
+        "period_stars": 11650,
+        "rank": 14,
+        "repo": "NVIDIA/OpenShell"
+      },
+      {
+        "period_stars": 13933,
+        "rank": 15,
+        "repo": "Leonxlnx/taste-skill"
+      },
+      {
+        "period_stars": 20047,
+        "rank": 16,
+        "repo": "Panniantong/Agent-Reach"
+      },
+      {
+        "period_stars": 32691,
+        "rank": 17,
+        "repo": "DietrichGebert/ponytail"
+      },
+      {
+        "period_stars": 13983,
+        "rank": 18,
+        "repo": "tashfeenahmed/freellmapi"
+      },
+      {
+        "period_stars": 10841,
+        "rank": 19,
+        "repo": "Nutlope/hallmark"
+      }
+    ],
+    "all/weekly": [
+      {
+        "period_stars": 16002,
+        "rank": 1,
+        "repo": "cloudflare/security-audit-skill"
+      },
+      {
+        "period_stars": 3516,
+        "rank": 2,
+        "repo": "AgriciDaniel/claude-seo"
+      },
+      {
+        "period_stars": 4293,
+        "rank": 3,
+        "repo": "multica-ai/andrej-karpathy-skills"
+      },
+      {
+        "period_stars": 2612,
+        "rank": 4,
+        "repo": "anthropics/knowledge-work-plugins"
+      },
+      {
+        "period_stars": 5322,
+        "rank": 5,
+        "repo": "TauricResearch/TradingAgents"
+      },
+      {
+        "period_stars": 7283,
+        "rank": 6,
+        "repo": "pbakaus/impeccable"
+      },
+      {
+        "period_stars": 6662,
+        "rank": 7,
+        "repo": "Graphify-Labs/graphify"
+      },
+      {
+        "period_stars": 3940,
+        "rank": 8,
+        "repo": "Leonxlnx/taste-skill"
+      },
+      {
+        "period_stars": 1930,
+        "rank": 9,
+        "repo": "ruvnet/ruflo"
+      },
+      {
+        "period_stars": 3498,
+        "rank": 10,
+        "repo": "anomalyco/opencode"
+      },
+      {
+        "period_stars": 776,
+        "rank": 11,
+        "repo": "jakubkrehel/skills"
+      }
+    ],
+    "go/daily": [
+      {
+        "period_stars": 31,
+        "rank": 1,
+        "repo": "cloudflare/cloudflared"
+      },
+      {
+        "period_stars": 69,
+        "rank": 2,
+        "repo": "superplanehq/superplane"
+      },
+      {
+        "period_stars": 310,
+        "rank": 3,
+        "repo": "alibaba/open-code-review"
+      },
+      {
+        "period_stars": 137,
+        "rank": 4,
+        "repo": "multica-ai/multica"
+      },
+      {
+        "period_stars": 162,
+        "rank": 5,
+        "repo": "router-for-me/CLIProxyAPI"
+      },
+      {
+        "period_stars": 86,
+        "rank": 6,
+        "repo": "MHSanaei/3x-ui"
+      },
+      {
+        "period_stars": 9,
+        "rank": 7,
+        "repo": "mvanhorn/cli-printing-press"
+      },
+      {
+        "period_stars": 9,
+        "rank": 8,
+        "repo": "tulir/whatsmeow"
+      },
+      {
+        "period_stars": 43,
+        "rank": 9,
+        "repo": "chaitin/SafeLine"
+      },
+      {
+        "period_stars": 2,
+        "rank": 10,
+        "repo": "github/gh-stack"
+      },
+      {
+        "period_stars": 8,
+        "rank": 11,
+        "repo": "fleetdm/fleet"
+      },
+      {
+        "period_stars": 35,
+        "rank": 12,
+        "repo": "wailsapp/wails"
+      },
+      {
+        "period_stars": 13,
+        "rank": 13,
+        "repo": "plandex-ai/plandex"
+      },
+      {
+        "period_stars": 15,
+        "rank": 14,
+        "repo": "anchore/syft"
+      },
+      {
+        "period_stars": 9,
+        "rank": 15,
+        "repo": "lionsoul2014/ip2region"
+      },
+      {
+        "period_stars": 6,
+        "rank": 16,
+        "repo": "argoproj/argo-workflows"
+      },
+      {
+        "period_stars": 134,
+        "rank": 17,
+        "repo": "ollama/ollama"
+      },
+      {
+        "period_stars": 15,
+        "rank": 18,
+        "repo": "kubernetes-sigs/agent-sandbox"
+      }
+    ],
+    "go/monthly": [
+      {
+        "period_stars": 2114,
+        "rank": 1,
+        "repo": "Gaurav-Gosain/tuios"
+      },
+      {
+        "period_stars": 2566,
+        "rank": 2,
+        "repo": "caddyserver/caddy"
+      },
+      {
+        "period_stars": 4304,
+        "rank": 3,
+        "repo": "ollama/ollama"
+      },
+      {
+        "period_stars": 7795,
+        "rank": 4,
+        "repo": "vxcontrol/pentagi"
+      },
+      {
+        "period_stars": 288,
+        "rank": 5,
+        "repo": "oauth2-proxy/oauth2-proxy"
+      },
+      {
+        "period_stars": 452,
+        "rank": 6,
+        "repo": "lharries/whatsapp-mcp"
+      },
+      {
+        "period_stars": 1566,
+        "rank": 7,
+        "repo": "kubernetes/kubernetes"
+      },
+      {
+        "period_stars": 769,
+        "rank": 8,
+        "repo": "aquasecurity/trivy"
+      },
+      {
+        "period_stars": 798,
+        "rank": 9,
+        "repo": "Gentleman-Programming/engram"
+      },
+      {
+        "period_stars": 1261,
+        "rank": 10,
+        "repo": "Asymptote-Labs/agent-beacon"
+      },
+      {
+        "period_stars": 139,
+        "rank": 11,
+        "repo": "php/frankenphp"
+      },
+      {
+        "period_stars": 480,
+        "rank": 12,
+        "repo": "keploy/keploy"
+      },
+      {
+        "period_stars": 2693,
+        "rank": 13,
+        "repo": "strelov1/freehire"
+      },
+      {
+        "period_stars": 1690,
+        "rank": 14,
+        "repo": "golang/go"
+      },
+      {
+        "period_stars": 714,
+        "rank": 15,
+        "repo": "XTLS/Xray-core"
+      },
+      {
+        "period_stars": 1274,
+        "rank": 16,
+        "repo": "docker/docker-agent"
+      },
+      {
+        "period_stars": 644,
+        "rank": 17,
+        "repo": "microsoft/TypeScript"
+      },
+      {
+        "period_stars": 444,
+        "rank": 18,
+        "repo": "Armur-Ai/Pentest-Swarm-AI"
+      },
+      {
+        "period_stars": 536,
+        "rank": 19,
+        "repo": "gtsteffaniak/filebrowser"
+      },
+      {
+        "period_stars": 1369,
+        "rank": 20,
+        "repo": "tailscale/tailscale"
+      }
+    ],
+    "go/weekly": [
+      {
+        "period_stars": 1229,
+        "rank": 1,
+        "repo": "strelov1/freehire"
+      },
+      {
+        "period_stars": 277,
+        "rank": 2,
+        "repo": "slavakurilyak/awesome-ai-agents"
+      },
+      {
+        "period_stars": 733,
+        "rank": 3,
+        "repo": "multica-ai/multica"
+      },
+      {
+        "period_stars": 1140,
+        "rank": 4,
+        "repo": "ollama/ollama"
+      },
+      {
+        "period_stars": 378,
+        "rank": 5,
+        "repo": "tailscale/tailscale"
+      },
+      {
+        "period_stars": 302,
+        "rank": 6,
+        "repo": "eugenioenko/ttt"
+      },
+      {
+        "period_stars": 257,
+        "rank": 7,
+        "repo": "aquasecurity/trivy"
+      },
+      {
+        "period_stars": 171,
+        "rank": 8,
+        "repo": "samber/cc-skills-golang"
+      },
+      {
+        "period_stars": 245,
+        "rank": 9,
+        "repo": "mudler/LocalAI"
+      },
+      {
+        "period_stars": 176,
+        "rank": 10,
+        "repo": "wailsapp/wails"
+      },
+      {
+        "period_stars": 45,
+        "rank": 11,
+        "repo": "pearl-research-labs/pearl"
+      },
+      {
+        "period_stars": 69,
+        "rank": 12,
+        "repo": "php/frankenphp"
+      },
+      {
+        "period_stars": 560,
+        "rank": 13,
+        "repo": "Asymptote-Labs/agent-beacon"
+      },
+      {
+        "period_stars": 178,
+        "rank": 14,
+        "repo": "dagger/dagger"
+      },
+      {
+        "period_stars": 549,
+        "rank": 15,
+        "repo": "QuantumNous/new-api"
+      },
+      {
+        "period_stars": 282,
+        "rank": 16,
+        "repo": "superplanehq/superplane"
+      },
+      {
+        "period_stars": 471,
+        "rank": 17,
+        "repo": "infiniflow/ragflow"
+      },
+      {
+        "period_stars": 62,
+        "rank": 18,
+        "repo": "moby/moby"
+      },
+      {
+        "period_stars": 255,
+        "rank": 19,
+        "repo": "chaitin/SafeLine"
+      }
+    ],
+    "hcl/daily": [
+      {
+        "period_stars": 0,
+        "rank": 1,
+        "repo": "terraform-aws-modules/terraform-aws-eks"
+      },
+      {
+        "period_stars": 0,
+        "rank": 2,
+        "repo": "GoogleCloudPlatform/cloud-foundation-fabric"
+      },
+      {
+        "period_stars": 0,
+        "rank": 3,
+        "repo": "terraform-aws-modules/terraform-aws-vpc"
+      },
+      {
+        "period_stars": 0,
+        "rank": 4,
+        "repo": "terraform-aws-modules/terraform-aws-lambda"
+      },
+      {
+        "period_stars": 0,
+        "rank": 5,
+        "repo": "terraform-aws-modules/terraform-aws-s3-bucket"
+      },
+      {
+        "period_stars": 0,
+        "rank": 6,
+        "repo": "cloudposse/terraform-aws-ecs-container-definition"
+      },
+      {
+        "period_stars": 0,
+        "rank": 7,
+        "repo": "terraform-aws-modules/terraform-aws-eventbridge"
+      },
+      {
+        "period_stars": 0,
+        "rank": 8,
+        "repo": "terraform-google-modules/terraform-google-cloud-storage"
+      },
+      {
+        "period_stars": 0,
+        "rank": 9,
+        "repo": "chainguard-images/images"
+      }
+    ],
+    "hcl/monthly": [
+      {
+        "period_stars": 29,
+        "rank": 1,
+        "repo": "semgrep/semgrep-rules"
+      },
+      {
+        "period_stars": 3,
+        "rank": 2,
+        "repo": "terraform-aws-modules/terraform-aws-s3-bucket"
+      },
+      {
+        "period_stars": 3,
+        "rank": 3,
+        "repo": "chainguard-images/images"
+      },
+      {
+        "period_stars": 6,
+        "rank": 4,
+        "repo": "mysql/mysql-community"
+      },
+      {
+        "period_stars": 6,
+        "rank": 5,
+        "repo": "terraform-google-modules/terraform-google-kubernetes-engine"
+      },
+      {
+        "period_stars": 13,
+        "rank": 6,
+        "repo": "terraform-aws-modules/terraform-aws-eks"
+      },
+      {
+        "period_stars": 10,
+        "rank": 7,
+        "repo": "terraform-aws-modules/terraform-aws-vpc"
+      },
+      {
+        "period_stars": 17,
+        "rank": 8,
+        "repo": "GoogleCloudPlatform/cloud-foundation-fabric"
+      },
+      {
+        "period_stars": 17,
+        "rank": 9,
+        "repo": "sidpalas/devops-directive-terraform-course"
+      },
+      {
+        "period_stars": 2,
+        "rank": 10,
+        "repo": "terraform-aws-modules/terraform-aws-lambda"
+      },
+      {
+        "period_stars": 2,
+        "rank": 11,
+        "repo": "terraform-google-modules/terraform-google-network"
+      }
+    ],
+    "hcl/weekly": [
+      {
+        "period_stars": 5,
+        "rank": 1,
+        "repo": "semgrep/semgrep-rules"
+      },
+      {
+        "period_stars": 1,
+        "rank": 2,
+        "repo": "terraform-aws-modules/terraform-aws-vpc"
+      },
+      {
+        "period_stars": 1,
+        "rank": 3,
+        "repo": "terraform-aws-modules/terraform-aws-eks"
+      },
+      {
+        "period_stars": 0,
+        "rank": 4,
+        "repo": "terraform-aws-modules/terraform-aws-s3-bucket"
+      },
+      {
+        "period_stars": 0,
+        "rank": 5,
+        "repo": "terraform-aws-modules/terraform-aws-lambda"
+      },
+      {
+        "period_stars": 8,
+        "rank": 6,
+        "repo": "antonputra/tutorials"
+      },
+      {
+        "period_stars": 0,
+        "rank": 7,
+        "repo": "terraform-google-modules/terraform-google-cloud-storage"
+      },
+      {
+        "period_stars": 0,
+        "rank": 8,
+        "repo": "terraform-aws-modules/terraform-aws-eventbridge"
+      },
+      {
+        "period_stars": 2,
+        "rank": 9,
+        "repo": "terraform-google-modules/terraform-google-network"
+      },
+      {
+        "period_stars": 4,
+        "rank": 10,
+        "repo": "terraform-google-modules/terraform-google-kubernetes-engine"
+      }
+    ],
+    "powershell/daily": [
+      {
+        "period_stars": 3,
+        "rank": 1,
+        "repo": "actions/runner-images"
+      },
+      {
+        "period_stars": 1,
+        "rank": 2,
+        "repo": "microsoft/fabric-toolbox"
+      },
+      {
+        "period_stars": 2,
+        "rank": 3,
+        "repo": "microsoft/hve-core"
+      },
+      {
+        "period_stars": 0,
+        "rank": 4,
+        "repo": "microsoft/finops-toolkit"
+      },
+      {
+        "period_stars": 8,
+        "rank": 5,
+        "repo": "Euro-Office/DesktopEditors"
+      },
+      {
+        "period_stars": 18,
+        "rank": 6,
+        "repo": "cisagov/ScubaGear"
+      },
+      {
+        "period_stars": 4,
+        "rank": 7,
+        "repo": "dotnet/core"
+      },
+      {
+        "period_stars": 26,
+        "rank": 8,
+        "repo": "javaht/claude-desktop-zh-cn"
+      },
+      {
+        "period_stars": 0,
+        "rank": 9,
+        "repo": "pnp/List-Formatting"
+      },
+      {
+        "period_stars": 0,
+        "rank": 10,
+        "repo": "Micke-K/IntuneManagement"
+      },
+      {
+        "period_stars": 0,
+        "rank": 11,
+        "repo": "MicrosoftDocs/PowerShell-Docs"
+      },
+      {
+        "period_stars": 98,
+        "rank": 12,
+        "repo": "zhaoxuya520/reverse-skill"
+      },
+      {
+        "period_stars": 0,
+        "rank": 13,
+        "repo": "MicrosoftEdge/WebView2Feedback"
+      },
+      {
+        "period_stars": 2,
+        "rank": 14,
+        "repo": "Romanitho/Winget-AutoUpdate"
+      },
+      {
+        "period_stars": 0,
+        "rank": 15,
+        "repo": "ScoopInstaller/Main"
+      }
+    ],
+    "powershell/monthly": [
+      {
+        "period_stars": 3761,
+        "rank": 1,
+        "repo": "Raphire/Win11Debloat"
+      },
+      {
+        "period_stars": 179,
+        "rank": 2,
+        "repo": "actions/runner-images"
+      },
+      {
+        "period_stars": 464,
+        "rank": 3,
+        "repo": "zoicware/RemoveWindowsAI"
+      },
+      {
+        "period_stars": 638,
+        "rank": 4,
+        "repo": "microsoft/WindowsDeveloperConfig"
+      },
+      {
+        "period_stars": 291,
+        "rank": 5,
+        "repo": "Euro-Office/DesktopEditors"
+      },
+      {
+        "period_stars": 89,
+        "rank": 6,
+        "repo": "SkipToTheEndpoint/OpenIntuneBaseline"
+      },
+      {
+        "period_stars": 77,
+        "rank": 7,
+        "repo": "dartraiden/NVIDIA-patcher"
+      },
+      {
+        "period_stars": 169,
+        "rank": 8,
+        "repo": "Orange-Cyberdefense/GOAD"
+      },
+      {
+        "period_stars": 9,
+        "rank": 9,
+        "repo": "ScoopInstaller/Main"
+      },
+      {
+        "period_stars": 46,
+        "rank": 10,
+        "repo": "dotnet/core"
+      },
+      {
+        "period_stars": 2110,
+        "rank": 11,
+        "repo": "ChrisTitusTech/winutil"
+      },
+      {
+        "period_stars": 7,
+        "rank": 12,
+        "repo": "secretGeek/AwesomeCSV"
+      },
+      {
+        "period_stars": 16,
+        "rank": 13,
+        "repo": "ScoopInstaller/Extras"
+      },
+      {
+        "period_stars": 146,
+        "rank": 14,
+        "repo": "mandiant/flare-vm"
+      },
+      {
+        "period_stars": 4,
+        "rank": 15,
+        "repo": "actions/python-versions"
+      }
+    ],
+    "powershell/weekly": [
+      {
+        "period_stars": 900,
+        "rank": 1,
+        "repo": "Raphire/Win11Debloat"
+      },
+      {
+        "period_stars": 533,
+        "rank": 2,
+        "repo": "ChrisTitusTech/winutil"
+      },
+      {
+        "period_stars": 54,
+        "rank": 3,
+        "repo": "Euro-Office/DesktopEditors"
+      },
+      {
+        "period_stars": 36,
+        "rank": 4,
+        "repo": "microsoft/hve-core"
+      },
+      {
+        "period_stars": 115,
+        "rank": 5,
+        "repo": "zoicware/RemoveWindowsAI"
+      },
+      {
+        "period_stars": 14,
+        "rank": 6,
+        "repo": "dotnet/core"
+      },
+      {
+        "period_stars": 232,
+        "rank": 7,
+        "repo": "javaht/claude-desktop-zh-cn"
+      },
+      {
+        "period_stars": 33,
+        "rank": 8,
+        "repo": "cisagov/ScubaGear"
+      },
+      {
+        "period_stars": 2,
+        "rank": 9,
+        "repo": "actions/python-versions"
+      },
+      {
+        "period_stars": 2,
+        "rank": 10,
+        "repo": "microsoftgraph/microsoft-graph-docs-contrib"
+      },
+      {
+        "period_stars": 0,
+        "rank": 11,
+        "repo": "Azure/Azure-Functions"
+      },
+      {
+        "period_stars": 3,
+        "rank": 12,
+        "repo": "SharePoint/sp-dev-docs"
+      },
+      {
+        "period_stars": 15,
+        "rank": 13,
+        "repo": "SkipToTheEndpoint/OpenIntuneBaseline"
+      },
+      {
+        "period_stars": 14,
+        "rank": 14,
+        "repo": "dartraiden/NVIDIA-patcher"
+      }
+    ],
+    "python/daily": [
+      {
+        "period_stars": 2371,
+        "rank": 1,
+        "repo": "HKUDS/DeepTutor"
+      },
+      {
+        "period_stars": 1793,
+        "rank": 2,
+        "repo": "debpalash/VoiceStudio"
+      },
+      {
+        "period_stars": 307,
+        "rank": 3,
+        "repo": "p-e-w/heretic"
+      },
+      {
+        "period_stars": 581,
+        "rank": 4,
+        "repo": "AgriciDaniel/claude-seo"
+      },
+      {
+        "period_stars": 429,
+        "rank": 5,
+        "repo": "baidu/Unlimited-OCR"
+      },
+      {
+        "period_stars": 361,
+        "rank": 6,
+        "repo": "github/spec-kit"
+      },
+      {
+        "period_stars": 654,
+        "rank": 7,
+        "repo": "TauricResearch/TradingAgents"
+      },
+      {
+        "period_stars": 298,
+        "rank": 8,
+        "repo": "NVIDIA/SkillSpector"
+      },
+      {
+        "period_stars": 74,
+        "rank": 9,
+        "repo": "shitagaki-lab/see-through"
+      },
+      {
+        "period_stars": 400,
+        "rank": 10,
+        "repo": "Alishahryar1/free-claude-code"
+      }
+    ],
+    "python/monthly": [
+      {
+        "period_stars": 7899,
+        "rank": 1,
+        "repo": "anthropics/knowledge-work-plugins"
+      },
+      {
+        "period_stars": 7453,
+        "rank": 2,
+        "repo": "earthtojake/text-to-cad"
+      },
+      {
+        "period_stars": 51430,
+        "rank": 3,
+        "repo": "debpalash/VoiceStudio"
+      },
+      {
+        "period_stars": 8154,
+        "rank": 4,
+        "repo": "anthropics/claude-plugins-official"
+      },
+      {
+        "period_stars": 20047,
+        "rank": 5,
+        "repo": "Panniantong/Agent-Reach"
+      },
+      {
+        "period_stars": 6948,
+        "rank": 6,
+        "repo": "HKUDS/CLI-Anything"
+      },
+      {
+        "period_stars": 15439,
+        "rank": 7,
+        "repo": "rohitg00/ai-engineering-from-scratch"
+      },
+      {
+        "period_stars": 9077,
+        "rank": 8,
+        "repo": "Alishahryar1/free-claude-code"
+      },
+      {
+        "period_stars": 11393,
+        "rank": 9,
+        "repo": "calesthio/OpenMontage"
+      },
+      {
+        "period_stars": 1988,
+        "rank": 10,
+        "repo": "wshobson/agents"
+      },
+      {
+        "period_stars": 5924,
+        "rank": 11,
+        "repo": "TencentCloud/Octop"
+      },
+      {
+        "period_stars": 5366,
+        "rank": 12,
+        "repo": "AgriciDaniel/claude-seo"
+      },
+      {
+        "period_stars": 4561,
+        "rank": 13,
+        "repo": "NVIDIA/SkillSpector"
+      },
+      {
+        "period_stars": 3519,
+        "rank": 14,
+        "repo": "AstrBotDevs/AstrBot"
+      },
+      {
+        "period_stars": 642,
+        "rank": 15,
+        "repo": "lightseekorg/tokenspeed"
+      },
+      {
+        "period_stars": 1372,
+        "rank": 16,
+        "repo": "tile-ai/tilelang"
+      },
+      {
+        "period_stars": 4136,
+        "rank": 17,
+        "repo": "VectifyAI/PageIndex"
+      }
+    ],
+    "python/weekly": [
+      {
+        "period_stars": 3516,
+        "rank": 1,
+        "repo": "AgriciDaniel/claude-seo"
+      },
+      {
+        "period_stars": 2612,
+        "rank": 2,
+        "repo": "anthropics/knowledge-work-plugins"
+      },
+      {
+        "period_stars": 5322,
+        "rank": 3,
+        "repo": "TauricResearch/TradingAgents"
+      },
+      {
+        "period_stars": 6662,
+        "rank": 4,
+        "repo": "Graphify-Labs/graphify"
+      },
+      {
+        "period_stars": 12923,
+        "rank": 5,
+        "repo": "debpalash/VoiceStudio"
+      },
+      {
+        "period_stars": 1072,
+        "rank": 6,
+        "repo": "vllm-project/vllm"
+      },
+      {
+        "period_stars": 415,
+        "rank": 7,
+        "repo": "higgsfield-ai/skills"
+      },
+      {
+        "period_stars": 408,
+        "rank": 8,
+        "repo": "aws/agent-toolkit-for-aws"
+      },
+      {
+        "period_stars": 868,
+        "rank": 9,
+        "repo": "mvanhorn/last30days-skill"
+      },
+      {
+        "period_stars": 1174,
+        "rank": 10,
+        "repo": "fastapi/fastapi"
+      },
+      {
+        "period_stars": 3404,
+        "rank": 11,
+        "repo": "luongnv89/claude-howto"
+      },
+      {
+        "period_stars": 5724,
+        "rank": 12,
+        "repo": "HKUDS/DeepTutor"
+      },
+      {
+        "period_stars": 2059,
+        "rank": 13,
+        "repo": "SnailSploit/Claude-Red"
+      },
+      {
+        "period_stars": 2222,
+        "rank": 14,
+        "repo": "NVIDIA/SkillSpector"
+      }
+    ],
+    "shell/daily": [
+      {
+        "period_stars": 1095,
+        "rank": 1,
+        "repo": "obra/superpowers"
+      },
+      {
+        "period_stars": 90,
+        "rank": 2,
+        "repo": "expo/skills"
+      },
+      {
+        "period_stars": 26,
+        "rank": 3,
+        "repo": "nvm-sh/nvm"
+      },
+      {
+        "period_stars": 15,
+        "rank": 4,
+        "repo": "fscarmen/sing-box"
+      },
+      {
+        "period_stars": 538,
+        "rank": 5,
+        "repo": "Donchitos/Claude-Code-Game-Studios"
+      },
+      {
+        "period_stars": 12,
+        "rank": 6,
+        "repo": "youngyangyang04/leetcode-master"
+      },
+      {
+        "period_stars": 30,
+        "rank": 7,
+        "repo": "ohmyzsh/ohmyzsh"
+      },
+      {
+        "period_stars": 13,
+        "rank": 8,
+        "repo": "mack-a/v2ray-agent"
+      },
+      {
+        "period_stars": 925,
+        "rank": 9,
+        "repo": "mattpocock/skills"
+      },
+      {
+        "period_stars": 18,
+        "rank": 10,
+        "repo": "233boy/v2ray"
+      },
+      {
+        "period_stars": 6,
+        "rank": 11,
+        "repo": "remote-android/redroid-doc"
+      },
+      {
+        "period_stars": 11,
+        "rank": 12,
+        "repo": "StressOzz/Zapret-Manager"
+      },
+      {
+        "period_stars": 13,
+        "rank": 13,
+        "repo": "CachyOS/linux-cachyos"
+      }
+    ],
+    "shell/monthly": [
+      {
+        "period_stars": 10560,
+        "rank": 1,
+        "repo": "msitarzewski/agency-agents"
+      },
+      {
+        "period_stars": 2954,
+        "rank": 2,
+        "repo": "Donchitos/Claude-Code-Game-Studios"
+      },
+      {
+        "period_stars": 851,
+        "rank": 3,
+        "repo": "docker-mailserver/docker-mailserver"
+      },
+      {
+        "period_stars": 4788,
+        "rank": 4,
+        "repo": "tw93/Mole"
+      },
+      {
+        "period_stars": 1401,
+        "rank": 5,
+        "repo": "EpicGames/unreal-engine-skills-for-claude-code-plugin"
+      },
+      {
+        "period_stars": 790,
+        "rank": 6,
+        "repo": "expo/skills"
+      },
+      {
+        "period_stars": 35690,
+        "rank": 7,
+        "repo": "mattpocock/skills"
+      },
+      {
+        "period_stars": 369,
+        "rank": 8,
+        "repo": "juewuy/ShellCrash"
+      },
+      {
+        "period_stars": 244,
+        "rank": 9,
+        "repo": "edoardottt/awesome-hacker-search-engines"
+      },
+      {
+        "period_stars": 658,
+        "rank": 10,
+        "repo": "nvm-sh/nvm"
+      },
+      {
+        "period_stars": 854,
+        "rank": 11,
+        "repo": "ohmyzsh/ohmyzsh"
+      },
+      {
+        "period_stars": 287,
+        "rank": 12,
+        "repo": "cloudflare/skills"
+      },
+      {
+        "period_stars": 16220,
+        "rank": 13,
+        "repo": "obra/superpowers"
+      },
+      {
+        "period_stars": 347,
+        "rank": 14,
+        "repo": "auscaster/frantic-board"
+      },
+      {
+        "period_stars": 247,
+        "rank": 15,
+        "repo": "nyldn/claude-octopus"
+      },
+      {
+        "period_stars": 396,
+        "rank": 16,
+        "repo": "233boy/sing-box"
+      }
+    ],
+    "shell/weekly": [
+      {
+        "period_stars": 4655,
+        "rank": 1,
+        "repo": "obra/superpowers"
+      },
+      {
+        "period_stars": 1448,
+        "rank": 2,
+        "repo": "Donchitos/Claude-Code-Game-Studios"
+      },
+      {
+        "period_stars": 592,
+        "rank": 3,
+        "repo": "expo/skills"
+      },
+      {
+        "period_stars": 192,
+        "rank": 4,
+        "repo": "pi-hole/pi-hole"
+      },
+      {
+        "period_stars": 187,
+        "rank": 5,
+        "repo": "233boy/sing-box"
+      },
+      {
+        "period_stars": 6201,
+        "rank": 6,
+        "repo": "mattpocock/skills"
+      },
+      {
+        "period_stars": 96,
+        "rank": 7,
+        "repo": "mack-a/v2ray-agent"
+      },
+      {
+        "period_stars": 86,
+        "rank": 8,
+        "repo": "fscarmen/sing-box"
+      },
+      {
+        "period_stars": 145,
+        "rank": 9,
+        "repo": "auscaster/frantic-board"
+      },
+      {
+        "period_stars": 1064,
+        "rank": 10,
+        "repo": "tw93/Mole"
+      },
+      {
+        "period_stars": 128,
+        "rank": 11,
+        "repo": "nvm-sh/nvm"
+      },
+      {
+        "period_stars": 187,
+        "rank": 12,
+        "repo": "kharmanskyi/open-steps"
+      },
+      {
+        "period_stars": 2082,
+        "rank": 13,
+        "repo": "msitarzewski/agency-agents"
+      },
+      {
+        "period_stars": 113,
+        "rank": 14,
+        "repo": "SimoneAvogadro/android-reverse-engineering-skill"
+      },
+      {
+        "period_stars": 68,
+        "rank": 15,
+        "repo": "cloudflare/skills"
+      },
+      {
+        "period_stars": 54,
+        "rank": 16,
+        "repo": "google/oss-fuzz"
+      },
+      {
+        "period_stars": 41,
+        "rank": 17,
+        "repo": "Dammyjay93/interface-design"
+      }
+    ],
+    "swift/daily": [
+      {
+        "period_stars": 14,
+        "rank": 1,
+        "repo": "robinebers/openusage"
+      },
+      {
+        "period_stars": 6,
+        "rank": 2,
+        "repo": "milika/SmartTubeIOS"
+      },
+      {
+        "period_stars": 51,
+        "rank": 3,
+        "repo": "altic-dev/FluidVoice"
+      },
+      {
+        "period_stars": 14,
+        "rank": 4,
+        "repo": "ggml-org/Llama-macOS"
+      },
+      {
+        "period_stars": 5,
+        "rank": 5,
+        "repo": "pointfreeco/swift-composable-architecture"
+      },
+      {
+        "period_stars": 9,
+        "rank": 6,
+        "repo": "Ebullioscopic/Atoll"
+      },
+      {
+        "period_stars": 27,
+        "rank": 7,
+        "repo": "jithin-sabu/purge-app"
+      },
+      {
+        "period_stars": 32,
+        "rank": 8,
+        "repo": "manaflow-ai/cmux"
+      },
+      {
+        "period_stars": 17,
+        "rank": 9,
+        "repo": "carloslfu/slotstream"
+      },
+      {
+        "period_stars": 2,
+        "rank": 10,
+        "repo": "cmagnussen/blitztext-app"
+      },
+      {
+        "period_stars": 11,
+        "rank": 11,
+        "repo": "mattt/iMCP"
+      },
+      {
+        "period_stars": 35,
+        "rank": 12,
+        "repo": "slopus/happy"
+      },
+      {
+        "period_stars": 16,
+        "rank": 13,
+        "repo": "nikitabobko/AeroSpace"
+      }
+    ],
+    "swift/monthly": [
+      {
+        "period_stars": 8705,
+        "rank": 1,
+        "repo": "vorssaint/vorssaint-utils"
+      },
+      {
+        "period_stars": 386,
+        "rank": 2,
+        "repo": "TelegramMessenger/Telegram-iOS"
+      },
+      {
+        "period_stars": 987,
+        "rank": 3,
+        "repo": "utmapp/UTM"
+      },
+      {
+        "period_stars": 372,
+        "rank": 4,
+        "repo": "altstoreio/AltStore"
+      },
+      {
+        "period_stars": 393,
+        "rank": 5,
+        "repo": "iliyami/MacSai"
+      },
+      {
+        "period_stars": 1324,
+        "rank": 6,
+        "repo": "manaflow-ai/cmux"
+      },
+      {
+        "period_stars": 394,
+        "rank": 7,
+        "repo": "f/textream"
+      },
+      {
+        "period_stars": 886,
+        "rank": 8,
+        "repo": "gauthierpiarrette/highball"
+      },
+      {
+        "period_stars": 253,
+        "rank": 9,
+        "repo": "PlayCover/PlayCover"
+      },
+      {
+        "period_stars": 318,
+        "rank": 10,
+        "repo": "FluidInference/FluidAudio"
+      },
+      {
+        "period_stars": 486,
+        "rank": 11,
+        "repo": "jithin-sabu/purge-app"
+      },
+      {
+        "period_stars": 518,
+        "rank": 12,
+        "repo": "iina/iina"
+      },
+      {
+        "period_stars": 76,
+        "rank": 13,
+        "repo": "github/CopilotForXcode"
+      },
+      {
+        "period_stars": 784,
+        "rank": 14,
+        "repo": "permissionlesstech/bitchat"
+      },
+      {
+        "period_stars": 497,
+        "rank": 15,
+        "repo": "iFurySt/open-computer-use"
+      },
+      {
+        "period_stars": 140,
+        "rank": 16,
+        "repo": "milika/SmartTubeIOS"
+      },
+      {
+        "period_stars": 174,
+        "rank": 17,
+        "repo": "swiftlang/swift"
+      }
+    ],
+    "swift/weekly": [
+      {
+        "period_stars": 331,
+        "rank": 1,
+        "repo": "permissionlesstech/bitchat"
+      },
+      {
+        "period_stars": 504,
+        "rank": 2,
+        "repo": "pauljoda/Crest"
+      },
+      {
+        "period_stars": 99,
+        "rank": 3,
+        "repo": "altstoreio/AltStore"
+      },
+      {
+        "period_stars": 102,
+        "rank": 4,
+        "repo": "kaishi00/hermes-conduit"
+      },
+      {
+        "period_stars": 348,
+        "rank": 5,
+        "repo": "utmapp/UTM"
+      },
+      {
+        "period_stars": 181,
+        "rank": 6,
+        "repo": "momenbasel/PureMac"
+      },
+      {
+        "period_stars": 235,
+        "rank": 7,
+        "repo": "LiveContainer/LiveContainer"
+      },
+      {
+        "period_stars": 96,
+        "rank": 8,
+        "repo": "milika/SmartTubeIOS"
+      },
+      {
+        "period_stars": 126,
+        "rank": 9,
+        "repo": "carloslfu/slotstream"
+      },
+      {
+        "period_stars": 113,
+        "rank": 10,
+        "repo": "fayazara/Screendrop"
+      },
+      {
+        "period_stars": 3,
+        "rank": 11,
+        "repo": "LoopKit/Loop"
+      },
+      {
+        "period_stars": 155,
+        "rank": 12,
+        "repo": "slopus/happy"
+      },
+      {
+        "period_stars": 14,
+        "rank": 13,
+        "repo": "groue/GRDB.swift"
+      },
+      {
+        "period_stars": 40,
+        "rank": 14,
+        "repo": "palmier-io/palmier-pro"
+      },
+      {
+        "period_stars": 123,
+        "rank": 15,
+        "repo": "open-meteo/open-meteo"
+      },
+      {
+        "period_stars": 669,
+        "rank": 16,
+        "repo": "jaywcjlove/awesome-mac"
+      },
+      {
+        "period_stars": 239,
+        "rank": 17,
+        "repo": "altic-dev/FluidVoice"
+      }
+    ]
+  }
+}
