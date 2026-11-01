@@ -31,6 +31,17 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
 
+      # Scores from a refresh PR that hasn't been merged yet live only on its branch.
+      # Reuse them so Claude doesn't re-score (and re-bill) the same repos.
+      - name: Reuse caches from an unmerged refresh
+        run: |
+          if git fetch --depth=1 origin refresh/weekly 2>/dev/null &&
+             git checkout FETCH_HEAD -- data/cache 2>/dev/null; then
+            echo "Loaded data/cache from refresh/weekly"
+          else
+            echo "No unmerged refresh cache; starting from main's"
+          fi
+
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
