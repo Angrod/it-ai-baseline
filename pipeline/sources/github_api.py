@@ -29,12 +29,21 @@ _BASE_FIELDS = """
   repositoryTopics(first: 20) { nodes { topic { name } } }
   latestRelease { publishedAt }
 """
+# Walk back from the newest end (`last` + `before` on ascending order), so the result doesn't
+# depend on GitHub honouring a DESC sort.
 _STAR_FIELDS = """
-  stargazers(first: 100, orderBy: {field: STARRED_AT, direction: DESC}%s) {
+  stargazers(last: 100, orderBy: {field: STARRED_AT, direction: ASC}%s) {
     edges { starredAt }
-    pageInfo { hasNextPage endCursor }
+    pageInfo { hasPreviousPage startCursor }
   }
 """
+
+
+def _star_page(connection: dict) -> tuple[list[str], bool, str | None]:
+    """One page of stars, newest first, plus whether older stars exist and the cursor to reach them."""
+    starred = sorted((e["starredAt"] for e in connection["edges"]), reverse=True)
+    info = connection["pageInfo"]
+    return starred, info["hasPreviousPage"], info["startCursor"]
 
 
 class GitHub:
@@ -108,14 +117,11 @@ class GitHub:
                     continue
                 record = from_graphql(node)
                 if with_stars:
-                    stars = node["stargazers"]
-                    starred = [e["starredAt"] for e in stars["edges"]]
-                    has_next = stars["pageInfo"]["hasNextPage"]
-                    cursor = stars["pageInfo"]["endCursor"]
-                    starred, has_next = self._more_stars(record["full_name"], starred, has_next, cursor,
-                                                         now - timedelta(days=window_days), max_star_pages - 1)
+                    starred, has_older, cursor = _star_page(node["stargazers"])
+                    starred, has_older = self._more_stars(record["full_name"], starred, has_older, cursor,
+                                                          now - timedelta(days=window_days), max_star_pages - 1)
                     record["starred_at"] = starred
-                    record["starred_exhausted"] = not has_next
+                    record["starred_exhausted"] = not has_older
                 # Keyed by the requested name so renamed repos still line up with their sources.
                 found[name.lower()] = record
         if failed and with_stars:
@@ -124,21 +130,20 @@ class GitHub:
             missing += gone
         return found, missing
 
-    def _more_stars(self, full_name: str, starred: list[str], has_next: bool, cursor: str | None,
+    def _more_stars(self, full_name: str, starred: list[str], has_older: bool, cursor: str | None,
                     cutoff: datetime, pages: int) -> tuple[list[str], bool]:
-        """Keep paging while every star so far is newer than the cutoff."""
+        """Keep paging back while every star so far is newer than the cutoff."""
         owner, _, name = full_name.partition("/")
         query = ("query($o: String!, $n: String!, $c: String) { repository(owner: $o, name: $n) { "
-                 + _STAR_FIELDS % ", after: $c" + " } }")
-        while has_next and pages > 0 and starred and parse_time(starred[-1]) >= cutoff:
+                 + _STAR_FIELDS % ", before: $c" + " } }")
+        while has_older and pages > 0 and starred and parse_time(starred[-1]) >= cutoff:
             repo = self.graphql(query, {"o": owner, "n": name, "c": cursor})["data"].get("repository")
             if repo is None:  # keep what we have; the count is flagged as estimated
                 break
-            stars = repo["stargazers"]
-            starred += [e["starredAt"] for e in stars["edges"]]
-            has_next, cursor = stars["pageInfo"]["hasNextPage"], stars["pageInfo"]["endCursor"]
+            page, has_older, cursor = _star_page(repo["stargazers"])
+            starred += page
             pages -= 1
-        return starred, has_next
+        return starred, has_older
 
     # -- per-repo REST ----------------------------------------------------
 
