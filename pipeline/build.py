@@ -226,6 +226,7 @@ def build(settings: Settings, gh, now: datetime, *, snapshot_dir: Path = SNAPSHO
     gone_keys = {g.lower() for g in gone}
     pool_keys = [k for k in pool_keys if k not in gone_keys]
     tracked = [k for k in tracked if k not in gone_keys]
+    newest_star: dict[str, str] = {}
     for key in tracked:
         rec = records[key]
         rec.update(enriched.get(key, {}))  # a repo that failed enrichment keeps its collect-stage data
@@ -236,10 +237,17 @@ def build(settings: Settings, gh, now: datetime, *, snapshot_dir: Path = SNAPSHO
         else:
             (g30, est30), (g7, est7) = stars_gained(starred, exhausted, now, window), stars_gained(starred, exhausted, now, 7)
             estimated, unknown = est30 or est7, False
+            if starred:
+                newest_star[key] = starred[0]
         rec.update(stars_gained_30d=g30, stars_gained_7d=g7, stars_gained_estimated=estimated,
                    stars_gained_unknown=unknown, times_trending_30d=tt30.get(key, 0),
                    times_trending_7d=tt7.get(key, 0))
         rec["gated"], rec["gate_failures"] = lens.gate(rec, lens_cfg["gate"], now)
+    # Popular repos always have recent stars; an old "newest star" means star history came back wrong.
+    for key in sorted(newest_star, key=lambda k: -records[k]["stars"])[:3]:
+        rec = records[key]
+        print(f"star history check: {rec['full_name']} ({rec['stars']} stars) newest fetched star "
+              f"{newest_star[key][:10]}, +{rec['stars_gained_30d']} in {window}d")
     fetch_errors = dict(getattr(gh, "errors", {}))
     if fetch_errors:
         first = next(iter(fetch_errors.values()))

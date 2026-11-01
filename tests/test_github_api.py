@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta, timezone
 
-from pipeline.sources.github_api import TOO_MANY_CONTRIBUTORS, GitHub
+from pipeline.sources.github_api import TOO_MANY_CONTRIBUTORS, GitHub, stars_gained
 
 NOW = datetime(2026, 10, 26, 12, tzinfo=timezone.utc)
 
@@ -36,7 +36,8 @@ class Session:
         return self.gets.pop(0)
 
 
-def node(name, starred, has_next):
+def node(name, starred, has_older):
+    """A GraphQL repository node; `starred` is one page in GitHub's ascending (oldest-first) order."""
     return {
         "nameWithOwner": name, "url": f"https://github.com/{name}", "description": "d", "stargazerCount": 500,
         "forkCount": 1, "isArchived": False, "isFork": False, "pushedAt": ago(1), "createdAt": ago(400),
@@ -45,17 +46,17 @@ def node(name, starred, has_next):
         "repositoryTopics": {"nodes": [{"topic": {"name": "okta"}}]},
         "latestRelease": None,
         "stargazers": {"edges": [{"starredAt": t} for t in starred],
-                       "pageInfo": {"hasNextPage": has_next, "endCursor": "c1"}},
+                       "pageInfo": {"hasPreviousPage": has_older, "startCursor": "c1"}},
     }
 
 
 def test_repos_pages_stars_until_past_the_window_and_reports_missing():
-    first_page = [ago(1)] * 100
-    second_page = [ago(5)] * 50 + [ago(45)] * 50
+    newest_page = [ago(1)] * 100
+    older_page = [ago(45)] * 50 + [ago(5)] * 50
     session = Session(posts=[
-        Resp({"data": {"r0": node("acme-it/hot", first_page, True), "r1": None}}),
-        Resp({"data": {"repository": {"stargazers": {"edges": [{"starredAt": t} for t in second_page],
-                                                     "pageInfo": {"hasNextPage": True, "endCursor": "c2"}}}}}),
+        Resp({"data": {"r0": node("acme-it/hot", newest_page, True), "r1": None}}),
+        Resp({"data": {"repository": {"stargazers": {"edges": [{"starredAt": t} for t in older_page],
+                                                     "pageInfo": {"hasPreviousPage": True, "startCursor": "c2"}}}}}),
     ])
     found, missing = GitHub(token="t", session=session).repos(["acme-it/hot", "acme-it/gone"], NOW, with_stars=True)
     assert missing == ["acme-it/gone"]
@@ -64,8 +65,9 @@ def test_repos_pages_stars_until_past_the_window_and_reports_missing():
     assert len(rec["starred_at"]) == 200 and rec["starred_exhausted"] is False
     batch_query = session.sent[0]
     assert batch_query["variables"] == {"o0": "acme-it", "n0": "hot", "o1": "acme-it", "n1": "gone"}
-    assert "orderBy: {field: STARRED_AT, direction: DESC}" in batch_query["query"]
-    assert session.sent[1]["variables"]["c"] == "c1"
+    assert "stargazers(last: 100, orderBy: {field: STARRED_AT, direction: ASC})" in batch_query["query"]
+    assert "before: $c" in session.sent[1]["query"] and session.sent[1]["variables"]["c"] == "c1"
+    assert rec["starred_at"][0] == ago(1) and rec["starred_at"][-1] == ago(45)  # newest first across pages
     assert len(session.posts) == 0  # stopped once the oldest star left the window
 
 
@@ -105,3 +107,12 @@ def test_star_history_errors_keep_the_repo_and_record_why():
     assert "starred_at" not in found["acme-it/locked"]
     assert gh.errors == {"acme-it/locked": "Resource not accessible by integration"}
     assert "stargazers" not in session.sent[1]["query"]
+
+
+def test_star_page_order_does_not_matter():
+    """Counting must work whichever order GitHub returns a page in."""
+    page = [ago(40), ago(10), ago(2)]  # ascending, as GitHub returns it
+    session = Session(posts=[Resp({"data": {"r0": node("acme-it/mixed", page, False)}})])
+    rec = GitHub(token="t", session=session).repos(["acme-it/mixed"], NOW, with_stars=True)[0]["acme-it/mixed"]
+    assert rec["starred_at"] == [ago(2), ago(10), ago(40)] and rec["starred_exhausted"] is True
+    assert stars_gained(rec["starred_at"], rec["starred_exhausted"], NOW, 30) == (2, False)
