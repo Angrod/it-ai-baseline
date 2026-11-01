@@ -37,7 +37,3 @@ trust:
   badges:
     production: 85
     pilot: 60
-
-stargazers:
-  # GraphQL pages of 100 stars fetched per repo before extrapolating.
-  max_pages: 10

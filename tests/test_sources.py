@@ -52,19 +52,25 @@ def test_prune_removes_only_expired_snapshots(tmp_path):
     assert (tmp_path / "2026-10-20.json").exists()
 
 
-def test_stars_gained_counts_inside_window():
-    starred = [ago(1), ago(5), ago(20), ago(40)]
-    assert stars_gained(starred, exhausted=False, now=NOW, days=30) == (3, False)
-    assert stars_gained(starred, exhausted=False, now=NOW, days=7) == (2, False)
+def week(y, m, d, days):
+    """One star-history entry: Sunday-start week, Unix timestamp, per-day counts."""
+    ts = int(datetime(y, m, d, tzinfo=timezone.utc).timestamp())
+    return {"week": ts, "total": sum(days), "days": days}
 
 
-def test_stars_gained_extrapolates_when_sample_is_all_recent():
-    starred = [ago(10 * (i + 1) / 100) for i in range(100)]  # 100 stars over the last 10 days
-    count, estimated = stars_gained(starred, exhausted=False, now=NOW, days=30)
-    assert estimated
-    assert count == 300
+# NOW is Monday 2026-10-26. A 30-day window covers 09-27..10-26; a 7-day window 10-20..10-26.
+HISTORY = [
+    week(2026, 10, 25, [3, 2, 50, 0, 0, 0, 0]),   # Sun 3 + Mon 2 count; Tue is in the future
+    week(2026, 10, 18, [1, 1, 1, 1, 1, 1, 1]),    # all 7 in 30d; Tue-Sat (5) in 7d
+    week(2026, 9, 27, [4, 0, 0, 0, 0, 0, 0]),     # first day of the 30-day window
+    week(2026, 9, 20, [9, 9, 9, 9, 9, 9, 9]),     # entirely before the window
+]
 
 
-def test_stars_gained_exact_when_history_exhausted():
-    starred = [ago(1), ago(2)]
-    assert stars_gained(starred, exhausted=True, now=NOW, days=30) == (2, False)
+def test_stars_gained_counts_days_inside_the_window():
+    assert stars_gained(HISTORY, NOW, 30) == 5 + 7 + 4
+    assert stars_gained(HISTORY, NOW, 7) == 5 + 5
+
+
+def test_stars_gained_empty_history_is_zero():
+    assert stars_gained([], NOW, 30) == 0

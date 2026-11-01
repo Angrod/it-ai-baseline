@@ -1,7 +1,7 @@
-"""GitHub REST + GraphQL: topic search, repo metadata, recent stargazers, contributors, README.
+"""GitHub REST + GraphQL: topic search, repo metadata, star history, contributors, README.
 
-Works with the Actions GITHUB_TOKEN (1,000 requests/hour). Set GH_PAT for a
-personal token's higher limits if the candidate pool grows.
+Star history costs one request per tracked repo, so set GH_PAT (5,000 requests/hour)
+rather than relying on the Actions GITHUB_TOKEN (1,000/hour).
 """
 
 from __future__ import annotations
@@ -9,11 +9,9 @@ from __future__ import annotations
 import os
 import time
 from urllib.parse import parse_qs, urlparse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import requests
-
-from pipeline.config import parse_time
 
 API = "https://api.github.com"
 GRAPHQL = f"{API}/graphql"
@@ -29,21 +27,9 @@ _BASE_FIELDS = """
   repositoryTopics(first: 20) { nodes { topic { name } } }
   latestRelease { publishedAt }
 """
-# Walk back from the newest end (`last` + `before` on ascending order), so the result doesn't
-# depend on GitHub honouring a DESC sort.
-_STAR_FIELDS = """
-  stargazers(last: 100, orderBy: {field: STARRED_AT, direction: ASC}%s) {
-    edges { starredAt }
-    pageInfo { hasPreviousPage startCursor }
-  }
-"""
-
-
-def _star_page(connection: dict) -> tuple[list[str], bool, str | None]:
-    """One page of stars, newest first, plus whether older stars exist and the cursor to reach them."""
-    starred = sorted((e["starredAt"] for e in connection["edges"]), reverse=True)
-    info = connection["pageInfo"]
-    return starred, info["hasPreviousPage"], info["startCursor"]
+# Since mid-2026 GitHub lists individual stargazers only to a repo's admins and collaborators;
+# everyone else gets empty results. /stargazers/history serves counts instead, on this API version.
+STAR_HISTORY_API_VERSION = "2026-03-10"
 
 
 class GitHub:
@@ -57,7 +43,7 @@ class GitHub:
         })
         if token:
             self.session.headers["Authorization"] = f"Bearer {token}"
-        self.errors: dict[str, str] = {}  # owner/name -> GraphQL error message (other than not-found)
+        self.errors: dict[str, str] = {}  # owner/name -> why GitHub wouldn't serve it (other than not-found)
 
     # -- search -----------------------------------------------------------
 
@@ -82,24 +68,20 @@ class GitHub:
             raise RuntimeError(f"GraphQL error: {body.get('errors')}")
         return body
 
-    def repos(self, names: list[str], now: datetime, with_stars: bool = False,
-              window_days: int = 30, max_star_pages: int = 10) -> tuple[dict[str, dict], list[str]]:
+    def repos(self, names: list[str]) -> tuple[dict[str, dict], list[str]]:
         """Fetch metadata for owner/name strings. Returns ({lowercase name: record}, names not found).
 
-        Repos that fail for any other reason are recorded in self.errors. With with_stars, they are
-        retried without star history, so they come back without a starred_at field instead of vanishing.
+        Repos that fail for any other reason are left out and recorded in self.errors.
         """
         found: dict[str, dict] = {}
         missing: list[str] = []
-        failed: list[str] = []
-        fields = _BASE_FIELDS + (_STAR_FIELDS % "" if with_stars else "")
         for start in range(0, len(names), BATCH):
             chunk = names[start:start + BATCH]
             params, parts, variables = [], [], {}
             for i, name in enumerate(chunk):
                 owner, _, repo = name.partition("/")
                 params.append(f"$o{i}: String!, $n{i}: String!")
-                parts.append(f"r{i}: repository(owner: $o{i}, name: $n{i}) {{ {fields} }}")
+                parts.append(f"r{i}: repository(owner: $o{i}, name: $n{i}) {{ {_BASE_FIELDS} }}")
                 variables[f"o{i}"], variables[f"n{i}"] = owner, repo
             query = f"query({', '.join(params)}) {{ {' '.join(parts)} }}"
             body = self.graphql(query, variables)
@@ -113,39 +95,24 @@ class GitHub:
                         missing.append(name)
                     else:
                         self.errors[name] = error.get("message", "unknown GraphQL error")
-                        failed.append(name)
                     continue
-                record = from_graphql(node)
-                if with_stars:
-                    starred, has_older, cursor = _star_page(node["stargazers"])
-                    starred, has_older = self._more_stars(record["full_name"], starred, has_older, cursor,
-                                                          now - timedelta(days=window_days), max_star_pages - 1)
-                    record["starred_at"] = starred
-                    record["starred_exhausted"] = not has_older
                 # Keyed by the requested name so renamed repos still line up with their sources.
-                found[name.lower()] = record
-        if failed and with_stars:
-            retried, gone = self.repos(failed, now)
-            found.update(retried)
-            missing += gone
+                found[name.lower()] = from_graphql(node)
         return found, missing
 
-    def _more_stars(self, full_name: str, starred: list[str], has_older: bool, cursor: str | None,
-                    cutoff: datetime, pages: int) -> tuple[list[str], bool]:
-        """Keep paging back while every star so far is newer than the cutoff."""
-        owner, _, name = full_name.partition("/")
-        query = ("query($o: String!, $n: String!, $c: String) { repository(owner: $o, name: $n) { "
-                 + _STAR_FIELDS % ", before: $c" + " } }")
-        while has_older and pages > 0 and starred and parse_time(starred[-1]) >= cutoff:
-            repo = self.graphql(query, {"o": owner, "n": name, "c": cursor})["data"].get("repository")
-            if repo is None:  # keep what we have; the count is flagged as estimated
-                break
-            page, has_older, cursor = _star_page(repo["stargazers"])
-            starred += page
-            pages -= 1
-        return starred, has_older
-
     # -- per-repo REST ----------------------------------------------------
+
+    def star_history(self, full_name: str, weeks: int) -> list[dict] | None:
+        """Weekly star counts, newest week first: [{"week": unix start, "total": n, "days": [Sun..Sat]}].
+
+        Returns None, with the reason in self.errors, when GitHub won't serve it.
+        """
+        resp = self.session.get(f"{API}/repos/{full_name}/stargazers/history", params={"per_page": weeks},
+                                headers={"X-GitHub-Api-Version": STAR_HISTORY_API_VERSION}, timeout=30)
+        if resp.status_code != 200:
+            self.errors[full_name] = f"star history returned HTTP {resp.status_code}"
+            return None
+        return resp.json()
 
     def contributors(self, full_name: str) -> int | None:
         """Contributor count from the Link header's last page (one request)."""
@@ -170,19 +137,21 @@ class GitHub:
         return resp.text[:limit]
 
 
-def stars_gained(starred_at: list[str], exhausted: bool, now: datetime, days: int) -> tuple[int, bool]:
-    """Stars gained in the last `days` from a newest-first list of starredAt times.
+def stars_gained(history: list[dict], now: datetime, days: int) -> int:
+    """Stars gained in the last `days` days (today included) from star_history weeks.
 
-    Returns (count, estimated). When every fetched star is inside the window and
-    more pages exist, the count is extrapolated from the fetched rate.
+    GitHub only counts stars that still exist, and its week/day boundaries may not align
+    with UTC, so the window edge can be off by a day.
     """
-    cutoff = now - timedelta(days=days)
-    times = [parse_time(t) for t in starred_at]
-    recent = sum(1 for t in times if t >= cutoff)
-    if recent < len(times) or exhausted:
-        return recent, False
-    span_days = max((now - times[-1]).total_seconds() / 86400, 1 / 24)
-    return round(len(times) / span_days * days), True
+    first_day = (now - timedelta(days=days - 1)).date()
+    today = now.date()
+    total = 0
+    for week in history:
+        start = datetime.fromtimestamp(week["week"], tz=timezone.utc).date()
+        for offset, count in enumerate(week.get("days", [])):
+            if first_day <= start + timedelta(days=offset) <= today:
+                total += count
+    return total
 
 
 def from_rest(item: dict) -> dict:

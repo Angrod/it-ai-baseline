@@ -26,7 +26,7 @@ CONTRIBUTORS_CACHE_DAYS = 7
 
 CARD_FIELDS = (
     "full_name", "url", "description", "language", "stars", "stars_gained_7d", "stars_gained_30d",
-    "stars_gained_estimated", "stars_gained_unknown", "times_trending_7d", "times_trending_30d", "trend_score", "trend_rank",
+    "stars_gained_unknown", "times_trending_7d", "times_trending_30d", "trend_score", "trend_rank",
     "lens_rank", "fit", "scored_by", "tags", "why", "first_step", "readonly_mode", "trust_score",
     "trust_badge", "trust_reasons", "gated", "pushed_at", "license", "needs_review",
 )
@@ -57,7 +57,7 @@ def collect(settings: Settings, gh, now: datetime, snapshots: list[dict]) -> tup
             named.setdefault(name.lower(), name)
             sources.setdefault(name.lower(), set()).add(source)
 
-    found, missing = gh.repos([name for key, name in named.items() if key not in records], now)
+    found, missing = gh.repos([name for key, name in named.items() if key not in records])
     records.update(found)
     return records, sources, missing
 
@@ -219,40 +219,37 @@ def build(settings: Settings, gh, now: datetime, *, snapshot_dir: Path = SNAPSHO
             display_keys.append(key)  # shown with live data (e.g. in the baseline), never ranked
     tracked = pool_keys + display_keys
 
-    # -- enrichment (stars over time, releases) -------------------------------
-    enriched, gone = gh.repos([records[k]["full_name"] for k in tracked], now, with_stars=True,
-                              window_days=window, max_star_pages=settings.scoring["stargazers"]["max_pages"])
+    # -- enrichment (releases, star history) ----------------------------------
+    enriched, gone = gh.repos([records[k]["full_name"] for k in tracked])
     missing = sorted(set(missing) | set(gone))
     gone_keys = {g.lower() for g in gone}
     pool_keys = [k for k in pool_keys if k not in gone_keys]
     tracked = [k for k in tracked if k not in gone_keys]
-    newest_star: dict[str, str] = {}
+    weeks = window // 7 + 2  # enough whole weeks to cover the window
+    latest_week: dict[str, int | None] = {}
     for key in tracked:
         rec = records[key]
         rec.update(enriched.get(key, {}))  # a repo that failed enrichment keeps its collect-stage data
-        starred, exhausted = rec.pop("starred_at", None), rec.pop("starred_exhausted", True)
-        if starred is None:
+        history = gh.star_history(rec["full_name"], weeks)
+        if history is None:
             g30 = g7 = 0
-            estimated, unknown = False, True
         else:
-            (g30, est30), (g7, est7) = stars_gained(starred, exhausted, now, window), stars_gained(starred, exhausted, now, 7)
-            estimated, unknown = est30 or est7, False
-            if starred:
-                newest_star[key] = starred[0]
-        rec.update(stars_gained_30d=g30, stars_gained_7d=g7, stars_gained_estimated=estimated,
-                   stars_gained_unknown=unknown, times_trending_30d=tt30.get(key, 0),
-                   times_trending_7d=tt7.get(key, 0))
+            g30, g7 = stars_gained(history, now, window), stars_gained(history, now, 7)
+            latest_week[key] = history[0]["week"] if history else None
+        rec.update(stars_gained_30d=g30, stars_gained_7d=g7, stars_gained_unknown=history is None,
+                   times_trending_30d=tt30.get(key, 0), times_trending_7d=tt7.get(key, 0))
         rec["gated"], rec["gate_failures"] = lens.gate(rec, lens_cfg["gate"], now)
-    # Popular repos always have recent stars; an old "newest star" means star history came back wrong.
-    for key in sorted(newest_star, key=lambda k: -records[k]["stars"])[:3]:
-        rec = records[key]
-        print(f"star history check: {rec['full_name']} ({rec['stars']} stars) newest fetched star "
-              f"{newest_star[key][:10]}, +{rec['stars_gained_30d']} in {window}d")
+    # Popular repos always have a current week; anything else means star history came back wrong.
+    for key in sorted(latest_week, key=lambda k: -records[k]["stars"])[:3]:
+        rec, week = records[key], latest_week[key]
+        started = datetime.fromtimestamp(week, tz=timezone.utc).date().isoformat() if week else "none returned"
+        print(f"star history check: {rec['full_name']} ({rec['stars']} stars) latest week {started}, "
+              f"+{rec['stars_gained_30d']} in {window}d")
     fetch_errors = dict(getattr(gh, "errors", {}))
     if fetch_errors:
         first = next(iter(fetch_errors.values()))
-        print(f"::warning::GitHub GraphQL errors for {len(fetch_errors)} repo(s) (kept without star history). "
-              f"First: {first}")
+        print(f"::warning::GitHub returned errors for {len(fetch_errors)} repo(s); kept, with stars gained "
+              f"unknown. First: {first}")
 
     deep = [k for k in tracked if records[k]["gated"] or k in curated or k in display_keys]
     contributor_cache = load_json(cache_dir / "contributors.json", {})
@@ -351,7 +348,7 @@ def main(argv: list[str] | None = None) -> int:
                   cache_dir=args.cache_dir)
     if args.offline:
         from pipeline.offline import FixtureGitHub, fixture_scorecards
-        gh = FixtureGitHub(args.offline)
+        gh = FixtureGitHub(args.offline, now)
         kwargs.update(snapshot_dir=args.offline / "snapshots", scorecard_lookup=fixture_scorecards(gh))
         if args.classify == "live":
             kwargs["classify_mode"] = "off"

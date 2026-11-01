@@ -34,7 +34,7 @@ class FakeClassifier:
 
 
 def run(tmp_path, classifier=None, mode="live"):
-    gh = FixtureGitHub(FIXTURES)
+    gh = FixtureGitHub(FIXTURES, NOW)
     return build.build(Settings(), gh, NOW, snapshot_dir=FIXTURES / "snapshots",
                        scorecard_lookup=fixture_scorecards(gh), classify_mode=mode, classifier=classifier,
                        out=tmp_path / "data.json", review=tmp_path / "review.md", cache_dir=tmp_path / "cache")
