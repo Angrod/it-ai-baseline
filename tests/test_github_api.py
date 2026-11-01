@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta, timezone
 
-from pipeline.sources.github_api import TOO_MANY_CONTRIBUTORS, GitHub, stars_gained
+from pipeline.sources.github_api import STAR_HISTORY_API_VERSION, TOO_MANY_CONTRIBUTORS, GitHub
 
 NOW = datetime(2026, 10, 26, 12, tzinfo=timezone.utc)
 
@@ -32,12 +32,11 @@ class Session:
         return self.posts.pop(0)
 
     def get(self, url, params=None, headers=None, timeout=None):
-        self.sent.append((url, params))
+        self.sent.append((url, params, headers))
         return self.gets.pop(0)
 
 
-def node(name, starred, has_older):
-    """A GraphQL repository node; `starred` is one page in GitHub's ascending (oldest-first) order."""
+def node(name):
     return {
         "nameWithOwner": name, "url": f"https://github.com/{name}", "description": "d", "stargazerCount": 500,
         "forkCount": 1, "isArchived": False, "isFork": False, "pushedAt": ago(1), "createdAt": ago(400),
@@ -45,30 +44,42 @@ def node(name, starred, has_older):
         "owner": {"__typename": "Organization", "login": name.split("/")[0]},
         "repositoryTopics": {"nodes": [{"topic": {"name": "okta"}}]},
         "latestRelease": None,
-        "stargazers": {"edges": [{"starredAt": t} for t in starred],
-                       "pageInfo": {"hasPreviousPage": has_older, "startCursor": "c1"}},
     }
 
 
-def test_repos_pages_stars_until_past_the_window_and_reports_missing():
-    newest_page = [ago(1)] * 100
-    older_page = [ago(45)] * 50 + [ago(5)] * 50
-    session = Session(posts=[
-        Resp({"data": {"r0": node("acme-it/hot", newest_page, True), "r1": None}}),
-        Resp({"data": {"repository": {"stargazers": {"edges": [{"starredAt": t} for t in older_page],
-                                                     "pageInfo": {"hasPreviousPage": True, "startCursor": "c2"}}}}}),
-    ])
-    found, missing = GitHub(token="t", session=session).repos(["acme-it/hot", "acme-it/gone"], NOW, with_stars=True)
+def test_repos_batches_metadata_and_reports_missing():
+    session = Session(posts=[Resp({"data": {"r0": node("acme-it/hot"), "r1": None}})])
+    found, missing = GitHub(token="t", session=session).repos(["acme-it/hot", "acme-it/gone"])
     assert missing == ["acme-it/gone"]
     rec = found["acme-it/hot"]
     assert rec["topics"] == ["okta"] and rec["owner_type"] == "Organization" and rec["license"] == "MIT"
-    assert len(rec["starred_at"]) == 200 and rec["starred_exhausted"] is False
     batch_query = session.sent[0]
     assert batch_query["variables"] == {"o0": "acme-it", "n0": "hot", "o1": "acme-it", "n1": "gone"}
-    assert "stargazers(last: 100, orderBy: {field: STARRED_AT, direction: ASC})" in batch_query["query"]
-    assert "before: $c" in session.sent[1]["query"] and session.sent[1]["variables"]["c"] == "c1"
-    assert rec["starred_at"][0] == ago(1) and rec["starred_at"][-1] == ago(45)  # newest first across pages
-    assert len(session.posts) == 0  # stopped once the oldest star left the window
+    assert "stargazers" not in batch_query["query"]  # restricted by GitHub; star history comes from REST
+
+
+def test_graphql_errors_other_than_not_found_are_recorded():
+    session = Session(posts=[
+        Resp({"data": {"r0": None, "r1": None},
+              "errors": [{"path": ["r0"], "type": "FORBIDDEN", "message": "Resource not accessible by integration"},
+                         {"path": ["r1"], "type": "NOT_FOUND", "message": "Could not resolve to a Repository"}]}),
+    ])
+    gh = GitHub(token="t", session=session)
+    found, missing = gh.repos(["acme-it/locked", "acme-it/gone"])
+    assert found == {} and missing == ["acme-it/gone"]
+    assert gh.errors == {"acme-it/locked": "Resource not accessible by integration"}
+
+
+def test_star_history_uses_the_versioned_endpoint():
+    weeks = [{"week": 1761436800, "total": 5, "days": [3, 2, 0, 0, 0, 0, 0]}]
+    session = Session(gets=[Resp(weeks), Resp(status=403)])
+    gh = GitHub(token="t", session=session)
+    assert gh.star_history("acme-it/hot", 6) == weeks
+    url, params, headers = session.sent[0]
+    assert url.endswith("/repos/acme-it/hot/stargazers/history") and params == {"per_page": 6}
+    assert headers == {"X-GitHub-Api-Version": STAR_HISTORY_API_VERSION}
+    assert gh.star_history("acme-it/private", 6) is None
+    assert gh.errors == {"acme-it/private": "star history returned HTTP 403"}
 
 
 def test_contributors_from_link_header():
@@ -91,28 +102,3 @@ def test_search_skips_rejected_queries():
     gh = GitHub(token="t", session=Session(gets=[Resp({"items": [item]}), Resp(status=422)]))
     assert [r["full_name"] for r in gh.search("topic:jamf", 5, pause=0)] == ["acme-it/x"]
     assert gh.search("topic:bad!", 5, pause=0) == []
-
-
-def test_star_history_errors_keep_the_repo_and_record_why():
-    base_only = {k: v for k, v in node("acme-it/locked", [], False).items() if k != "stargazers"}
-    session = Session(posts=[
-        Resp({"data": {"r0": None, "r1": None},
-              "errors": [{"path": ["r0", "stargazers"], "type": "FORBIDDEN", "message": "Resource not accessible by integration"},
-                         {"path": ["r1"], "type": "NOT_FOUND", "message": "Could not resolve to a Repository"}]}),
-        Resp({"data": {"r0": base_only}}),  # retried without star history
-    ])
-    gh = GitHub(token="t", session=session)
-    found, missing = gh.repos(["acme-it/locked", "acme-it/gone"], NOW, with_stars=True)
-    assert missing == ["acme-it/gone"]
-    assert "starred_at" not in found["acme-it/locked"]
-    assert gh.errors == {"acme-it/locked": "Resource not accessible by integration"}
-    assert "stargazers" not in session.sent[1]["query"]
-
-
-def test_star_page_order_does_not_matter():
-    """Counting must work whichever order GitHub returns a page in."""
-    page = [ago(40), ago(10), ago(2)]  # ascending, as GitHub returns it
-    session = Session(posts=[Resp({"data": {"r0": node("acme-it/mixed", page, False)}})])
-    rec = GitHub(token="t", session=session).repos(["acme-it/mixed"], NOW, with_stars=True)[0]["acme-it/mixed"]
-    assert rec["starred_at"] == [ago(2), ago(10), ago(40)] and rec["starred_exhausted"] is True
-    assert stars_gained(rec["starred_at"], rec["starred_exhausted"], NOW, 30) == (2, False)

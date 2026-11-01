@@ -62,7 +62,7 @@
     const labels = Object.fromEntries(state.data.tags.map((t) => [t.id, t.label]));
     const rank = r[RANK_FIELD[state.view]];
     const history = state.data.methodology.history_days;
-    const gained = r.stars_gained_unknown ? "—" : `${r.stars_gained_estimated ? "≈" : "+"}${num.format(r.stars_gained_30d)}`;
+    const gained = r.stars_gained_unknown ? "—" : `+${num.format(r.stars_gained_30d)}`;
     return el("article", { class: "card" },
       el("div", { class: "card-head" },
         el("span", { class: "rank", title: state.view === "lens" ? "IT Ops lens rank" : "Composite trending rank" }, `#${rank}`),
@@ -74,7 +74,7 @@
       el("div", { class: "stats" },
         el("span", { title: "Total stars" }, "★ ", el("b", {}, compact.format(r.stars))),
         el("span", { title: r.stars_gained_unknown ? "Stars gained unavailable this week (GitHub returned an error)"
-          : r.stars_gained_estimated ? "Stars gained in 30 days (estimated from recent rate)" : "Stars gained in 30 days" },
+          : "Stars gained in 30 days (stars that still exist)" },
           el("b", {}, gained), " in 30d"),
         history > 0 && el("span", { title: `Days on a daily trending page, out of ${history} days of history` },
           el("b", {}, r.times_trending_30d), r.times_trending_30d === 1 ? " trending day" : " trending days"),

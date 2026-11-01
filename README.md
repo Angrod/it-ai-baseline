@@ -24,6 +24,8 @@ should my stack look like".
   (`config/topics.yaml`), nominations, and the baseline matrix. Forks and archived repos are excluded.
 - Score: 40% stars gained (30d) + 35% times trending (30d) + 25% total stars. Stars gained and times trending
   are max-normalized across the pool; total stars are log-normalized.
+- Stars gained: from GitHub's star-history endpoint (daily counts of stars that still exist). GitHub stopped
+  listing individual stargazers to anyone but a repo's admins and collaborators in 2026.
 - Times trending: distinct days a repo appeared on any daily trending page in the last 30 days.
 
 **IT Ops lens**
@@ -63,8 +65,9 @@ couldn't find. Merging that PR is the approval.
    - Secret `ANTHROPIC_API_KEY`: used for the fit scoring. Without it, the refresh still runs and simply skips scoring.
    - Variable `CLAUDE_MODEL`: the Claude model ID to score with.
    - Optional variable `CLAUDE_FALLBACKS`: `default` (server-side refusal fallback, the default) or `off` for models that don't support it.
-   - Secret `GH_PAT`: a classic personal access token with **no scopes** selected (read-only public data). The built-in
-     Actions token can't read star history, so without this, "stars gained" stays blank.
+   - Secret `GH_PAT`: a classic personal access token with **no scopes** selected (read-only public data). Star
+     history takes one API call per tracked repo (~700 a run), which needs this token's 5,000 requests/hour rather
+     than the built-in token's 1,000.
 2. **Actions permissions** (Settings → Actions → General → Workflow permissions): *Read and write*, and
    tick *Allow GitHub Actions to create and approve pull requests*.
 3. **Pages** (Settings → Pages): Source = *GitHub Actions*.
