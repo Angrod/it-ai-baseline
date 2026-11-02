@@ -15,12 +15,13 @@ NOW = datetime(2026, 10, 26, 12, tzinfo=timezone.utc)
 
 
 class FakeClassifier:
-    """Scores everything fit 1, except a few names with fixed answers."""
+    """Scores everything fit 2, except a few names with fixed answers."""
 
     ANSWERS = {
         "acme-it/okta-offboarder": {"fit": 3, "tags": ["identity", "helpdesk"]},
         "acme-it/gam-docs-generator": {"fit": 0, "tags": []},
         "gam-team/gam": {"fit": 1, "tags": ["saas"]},  # the human override (fit 3) must win
+        "pnp/powershell": {"fit": 1, "tags": ["saas"]},  # adjacent: lens yes, Trending no
     }
 
     def __init__(self):
@@ -28,7 +29,7 @@ class FakeClassifier:
 
     def classify(self, repo, readme):
         self.seen.append(repo["full_name"])
-        answer = self.ANSWERS.get(repo["full_name"].lower(), {"fit": 1, "tags": []})
+        answer = self.ANSWERS.get(repo["full_name"].lower(), {"fit": 2, "tags": []})
         return {"status": "scored", "why": f"why {repo['full_name']}", "first_step": "try it",
                 "readonly_mode": None, **answer}
 
@@ -56,6 +57,14 @@ def test_trending_view_is_it_only(scored):
     assert "acme-it/gam-docs-generator" not in trending      # Claude scored it fit 0
     ranks = [data["repos"][k]["trend_rank"] for k in trending]
     assert ranks == list(range(1, len(trending) + 1))
+
+
+def test_trending_hides_fit_below_minimum_but_lens_keeps_it(scored):
+    data, _, _ = scored
+    assert data["repos"]["pnp/powershell"]["fit"] == 1
+    assert "pnp/powershell" not in data["views"]["trending"]
+    assert data["repos"]["pnp/powershell"]["lens_rank"] is not None  # still ranked in the lens (below the top 15)
+    assert data["methodology"]["min_fit"] == 2
 
 
 def test_lens_needs_gate_and_fit(scored):

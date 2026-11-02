@@ -11,6 +11,8 @@ trending:
   # total_stars is log-normalized so one 50k-star repo doesn't flatten the rest;
   # the other two are max-normalized.
   log_total_stars: true
+  # Unscored repos still show; a Claude or reviewer fit below this hides a repo from Trending.
+  min_fit: 2
   show: 25
 
 lens:
