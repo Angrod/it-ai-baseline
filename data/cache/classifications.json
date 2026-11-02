@@ -367,6 +367,19 @@
     ],
     "why": "PowerShell tool that audits an M365 tenant (Entra ID, Exchange, SharePoint, Teams, Defender, Power Platform) against CISA SCuBA baselines and outputs HTML/JSON/CSV reports usable as compliance evidence."
   },
+  "cloudposse/terraform-aws-s3-bucket": {
+    "classified_at": "2026-11-02T23:07:39Z",
+    "first_step": "Run terraform plan with the module in a sandbox AWS account with user_enabled=false and review the planned bucket and policy resources.",
+    "fit": 1,
+    "key": "515168a74a4fe26a",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation",
+      "network"
+    ],
+    "why": "Terraform module for provisioning AWS S3 buckets with encryption, lifecycle rules and public-access blocking. Cloud infrastructure building block more than core IT admin; useful for teams storing logs or backups in S3."
+  },
   "cmderdev/cmder": {
     "classified_at": "2026-11-02T00:16:40Z",
     "first_step": "Extract the portable release to a user-writable folder on a workstation and try it as your daily shell before considering any shared install.",

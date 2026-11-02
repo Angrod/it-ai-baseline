@@ -107,6 +107,10 @@
     "fetched_at": "2026-10-29T04:39:32Z",
     "score": null
   },
+  "cloudposse/terraform-aws-s3-bucket": {
+    "fetched_at": "2026-11-02T23:07:39Z",
+    "score": null
+  },
   "cmderdev/cmder": {
     "fetched_at": "2026-11-01T21:02:05Z",
     "score": 2.8
