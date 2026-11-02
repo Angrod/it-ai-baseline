@@ -1,0 +1,2608 @@
+{
+  "baseline": {
+    "checklist": [
+      {
+        "detail": "A dedicated service account or API client for each MCP server, scoped read-only to start. Never reuse your own admin token.",
+        "title": "One identity per agent tool"
+      },
+      {
+        "detail": "Okta preview org, Jamf test instance, a Workspace test OU, an M365 developer tenant. Agents earn production access.",
+        "title": "Sandbox first"
+      },
+      {
+        "detail": "Keep tokens in a vault or the OS keychain. MCP config files are easy to commit by accident.",
+        "title": "Secrets stay out of config files"
+      },
+      {
+        "detail": "Vendor audit logs plus a Claude Code hook that appends each tool call to a local log.",
+        "title": "Log every tool call"
+      },
+      {
+        "detail": "Block Remove-*, gam delete, wipe/erase and deactivate unless you approve that specific call.",
+        "title": "Guardrail hooks for destructive verbs"
+      },
+      {
+        "detail": "Config-as-code changes go through PRs. Direct writes happen only after a confirmation step.",
+        "title": "Agent proposes, human approves"
+      },
+      {
+        "detail": "Treat MCP servers like any other software. Pin releases, read the changelog, and check the trust badge before upgrading.",
+        "title": "Pin and review versions"
+      },
+      {
+        "detail": "Know exactly which token to revoke to cut an agent off, and test it once.",
+        "title": "One-step kill switch"
+      }
+    ],
+    "domains": [
+      {
+        "cells": {
+          "L1": [
+            {
+              "key": "okta/okta-sdk-python",
+              "note": "Official Python SDK for the Okta management API.",
+              "repo": "okta/okta-sdk-python",
+              "unverified": false
+            },
+            {
+              "key": "okta/terraform-provider-okta",
+              "note": "Group rules, apps and policies as code, reviewed in PRs.",
+              "repo": "okta/terraform-provider-okta",
+              "unverified": false
+            },
+            {
+              "key": "microsoftgraph/msgraph-sdk-powershell",
+              "note": "Entra ID users, groups, apps and Conditional Access from PowerShell.",
+              "repo": "microsoftgraph/msgraph-sdk-powershell",
+              "unverified": false
+            }
+          ],
+          "L2": [
+            {
+              "key": "okta/okta-mcp-server",
+              "note": "Official. Start with read-only admin scopes (users, groups, system log) against a preview org.",
+              "repo": "okta/okta-mcp-server",
+              "unverified": false
+            },
+            {
+              "key": "microsoft/enterprisemcp",
+              "note": "Microsoft's official MCP Server for Enterprise. Natural-language queries over Entra data.",
+              "repo": "microsoft/EnterpriseMCP",
+              "unverified": false
+            },
+            {
+              "key": "merill/lokka",
+              "note": "Community Graph + Azure MCP. App-only auth lets you scope Graph permissions tightly.",
+              "repo": "merill/lokka",
+              "unverified": false
+            }
+          ],
+          "L3": [
+            {
+              "key": "okta/okta-mcp-server",
+              "note": "Add one write scope for one narrow task (e.g. group membership). Keep approval prompts on.",
+              "repo": "okta/okta-mcp-server",
+              "unverified": false
+            }
+          ],
+          "L4": [
+            {
+              "note": "Read-only audit of stale users, empty groups and admin-role sprawl.",
+              "skill": "skills/okta-access-audit"
+            },
+            {
+              "note": "Offboarding runbook across Okta, Google Workspace and Jamf, with a confirmation before every write.",
+              "skill": "skills/offboard-user"
+            }
+          ]
+        },
+        "id": "identity",
+        "label": "Identity & Access"
+      },
+      {
+        "cells": {
+          "L1": [
+            {
+              "key": "autopkg/autopkg",
+              "note": "Automated Mac app packaging. Pairs with Jamf, Munki or Intune.",
+              "repo": "autopkg/autopkg",
+              "unverified": false
+            },
+            {
+              "key": "installomator/installomator",
+              "note": "One script that installs and updates hundreds of Mac apps from vendor sources.",
+              "repo": "Installomator/Installomator",
+              "unverified": false
+            },
+            {
+              "key": "osquery/osquery",
+              "note": "SQL over your fleet. Handy as an agent's evidence source for compliance questions.",
+              "repo": "osquery/osquery",
+              "unverified": false
+            },
+            {
+              "key": "deploymenttheory/terraform-provider-jamfpro",
+              "note": "Jamf Pro policies, profiles and groups as code.",
+              "repo": "deploymenttheory/terraform-provider-jamfpro",
+              "unverified": false
+            }
+          ],
+          "L2": [
+            {
+              "key": "jamf-concepts/mcp-hub",
+              "note": "Jamf's own beta MCP server (Jamf Pro, Protect, Security Cloud).",
+              "repo": "Jamf-Concepts/mcp-hub",
+              "unverified": false
+            },
+            {
+              "key": "dbankscard/jamf-mcp-server",
+              "note": "Community Jamf Pro MCP with a read-only mode. Turn that on first.",
+              "repo": "dbankscard/jamf-mcp-server",
+              "unverified": false
+            }
+          ],
+          "L3": [
+            {
+              "key": "dbankscard/jamf-mcp-server",
+              "note": "Leave read-only only for scoped tasks, e.g. re-running a policy on one test Mac.",
+              "repo": "dbankscard/jamf-mcp-server",
+              "unverified": false
+            }
+          ],
+          "L4": [
+            {
+              "idea": "Zero-touch enrollment runbook skill",
+              "note": "Checks a new Mac's enrollment, prestage, Jamf Connect login and Okta push, then reports gaps."
+            }
+          ]
+        },
+        "id": "endpoint",
+        "label": "Endpoint, MDM & Patching"
+      },
+      {
+        "cells": {
+          "L1": [
+            {
+              "key": "gam-team/gam",
+              "note": "The Google Workspace admin CLI. Most agent workflows here start as GAM commands.",
+              "repo": "GAM-team/GAM",
+              "unverified": false
+            },
+            {
+              "key": "pnp/powershell",
+              "note": "Microsoft 365 (SharePoint, Teams, Entra) from PowerShell.",
+              "repo": "pnp/powershell",
+              "unverified": false
+            }
+          ],
+          "L2": [
+            {
+              "key": "taylorwilsdon/google_workspace_mcp",
+              "note": "Community Workspace MCP with a read-only mode. Pair it with a dedicated, limited admin role.",
+              "repo": "taylorwilsdon/google_workspace_mcp",
+              "unverified": false
+            },
+            {
+              "key": "merill/lokka",
+              "note": "Microsoft 365 via Graph. Mail, Teams and SharePoint reads under scoped app permissions.",
+              "repo": "merill/lokka",
+              "unverified": false
+            }
+          ],
+          "L3": [
+            {
+              "key": "taylorwilsdon/google_workspace_mcp",
+              "note": "Enable writes per tool, not globally. Drive transfers and group changes are good first candidates.",
+              "repo": "taylorwilsdon/google_workspace_mcp",
+              "unverified": false
+            }
+          ],
+          "L4": [
+            {
+              "idea": "GAM command-builder skill",
+              "note": "Drafts GAM commands, prints a dry-run preview, and only runs after you approve."
+            }
+          ]
+        },
+        "id": "saas",
+        "label": "SaaS & Collaboration"
+      },
+      {
+        "cells": {
+          "L1": [
+            {
+              "key": "crowdstrike/falconpy",
+              "note": "Official Python SDK for the Falcon API.",
+              "repo": "CrowdStrike/falconpy",
+              "unverified": false
+            },
+            {
+              "key": "wazuh/wazuh",
+              "note": "Open-source XDR/SIEM with an API. Common for compliance evidence in smaller shops.",
+              "repo": "wazuh/wazuh",
+              "unverified": false
+            }
+          ],
+          "L2": [
+            {
+              "key": "crowdstrike/falcon-mcp",
+              "note": "Official and read-oriented. Detections, incidents and hosts for agent-assisted triage.",
+              "repo": "CrowdStrike/falcon-mcp",
+              "unverified": false
+            }
+          ],
+          "L3": [],
+          "L4": [
+            {
+              "idea": "Vulnerability triage skill",
+              "note": "Turns Rapid7/Nessus exports into a ranked patch plan mapped to Jamf/Intune deployment groups."
+            }
+          ]
+        },
+        "id": "security",
+        "label": "Security & Compliance"
+      },
+      {
+        "cells": {
+          "L1": [
+            {
+              "key": "netbox-community/netbox",
+              "note": "Network source of truth with a full REST API.",
+              "repo": "netbox-community/netbox",
+              "unverified": false
+            },
+            {
+              "key": "fortinetdev/terraform-provider-fortios",
+              "note": "FortiGate configuration as code.",
+              "repo": "fortinetdev/terraform-provider-fortios",
+              "unverified": false
+            }
+          ],
+          "L2": [
+            {
+              "key": "netboxlabs/netbox-mcp-server",
+              "note": "Read-only NetBox access for agents. Answers \"what's on this VLAN?\" without touching gear.",
+              "repo": "netboxlabs/netbox-mcp-server",
+              "unverified": false
+            }
+          ],
+          "L3": [],
+          "L4": [
+            {
+              "idea": "Firewall change-review skill",
+              "note": "Diffs a proposed FortiGate/UniFi rule change against your standards before a human applies it."
+            }
+          ]
+        },
+        "id": "network",
+        "label": "Network & Infrastructure"
+      },
+      {
+        "cells": {
+          "L1": [
+            {
+              "key": "grokability/snipe-it",
+              "note": "Open-source IT asset management with a REST API.",
+              "repo": "grokability/snipe-it",
+              "unverified": false
+            }
+          ],
+          "L2": [],
+          "L3": [],
+          "L4": [
+            {
+              "note": "The runbook doubles as helpdesk documentation, since the agent and the human follow the same steps.",
+              "skill": "skills/offboard-user"
+            },
+            {
+              "idea": "New-hire onboarding skill",
+              "note": "Okta profile, Workspace account, Jamf prestage and SaaS groups from a single HR ticket."
+            }
+          ]
+        },
+        "id": "helpdesk",
+        "label": "Helpdesk & Knowledge"
+      }
+    ],
+    "foundations": [
+      {
+        "key": "anthropics/skills",
+        "note": "Agent Skills format and examples. The template for everything in L4.",
+        "repo": "anthropics/skills",
+        "unverified": false
+      },
+      {
+        "key": "modelcontextprotocol/servers",
+        "note": "Reference MCP servers. Shows how tools, scopes and transports fit together.",
+        "repo": "modelcontextprotocol/servers",
+        "unverified": false
+      },
+      {
+        "key": "ossf/scorecard",
+        "note": "Security health checks for open-source repos. Run it before you install an MCP server.",
+        "repo": "ossf/scorecard",
+        "unverified": false
+      }
+    ],
+    "levels": [
+      {
+        "description": "Official API, SDK or CLI. You (or an agent) can script against it.",
+        "id": "L1",
+        "label": "Scriptable"
+      },
+      {
+        "description": "Read-only MCP server. The agent can look but not touch.",
+        "id": "L2",
+        "label": "Agent-readable"
+      },
+      {
+        "description": "Write access with least-privilege scopes and a human approval step.",
+        "id": "L3",
+        "label": "Agent-operable"
+      },
+      {
+        "description": "Skills and runbooks that tell the agent how your team does the job.",
+        "id": "L4",
+        "label": "Codified know-how"
+      }
+    ]
+  },
+  "generated_at": "2026-11-02T00:16:40Z",
+  "methodology": {
+    "fit_scale": {
+      "0": "Not applicable to IT administration.",
+      "1": "Adjacent - a building block, inspiration, or a developer tool with some IT use.",
+      "2": "Clearly useful for IT work, but needs adaptation or integration effort, or serves a narrower stack.",
+      "3": "Automates, replaces or materially improves a recurring sysadmin task in a mainstream stack (Okta, Entra ID, Jamf, Intune, Google Workspace, Microsoft 365, common EDR/firewalls). Pilot-able this month."
+    },
+    "gate": {
+      "max_days_since_push": 180,
+      "min_stars": 500,
+      "min_stars_gained_30d": 50,
+      "min_times_trending_30d": 1,
+      "require_license": true
+    },
+    "history_days": 5,
+    "log_total_stars": true,
+    "show": {
+      "lens": 15,
+      "trending": 25
+    },
+    "trending_languages": [
+      "all",
+      "powershell",
+      "shell",
+      "hcl",
+      "python",
+      "go",
+      "swift"
+    ],
+    "trust": {
+      "badges": {
+        "pilot": 60,
+        "production": 85
+      },
+      "points": {
+        "community": 15,
+        "license": 10,
+        "maintenance": 30,
+        "provenance": 15,
+        "releases": 15,
+        "scorecard": 15
+      },
+      "readonly_bonus": 10,
+      "readonly_penalty": 10
+    },
+    "weights": {
+      "stars_gained": 0.4,
+      "times_trending": 0.35,
+      "total_stars": 0.25
+    },
+    "window_days": 30
+  },
+  "repos": {
+    "ansible/ansible": {
+      "description": "Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain. Automate everything from code deployment to network configuration to cloud management, in a language that approaches plain English, using SSH, with no agents to install on remote systems. https://docs.ansible.com.",
+      "first_step": "Install ansible-core in a venv and run an ad-hoc read-only command (e.g., `ansible all -m ping` or gather facts) against a small test inventory.",
+      "fit": 2,
+      "full_name": "ansible/ansible",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 50,
+      "license": "GPL-3.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T18:56:37Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 71193,
+      "stars_gained_30d": 452,
+      "stars_gained_7d": 89,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network",
+        "automation"
+      ],
+      "times_trending_30d": 1,
+      "times_trending_7d": 1,
+      "trend_rank": 17,
+      "trend_score": 37.48,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "373 contributors",
+        "GPL-3.0 license",
+        "organization-owned",
+        "OpenSSF Scorecard 7.1/10"
+      ],
+      "trust_score": 88,
+      "url": "https://github.com/ansible/ansible",
+      "why": "Agentless SSH/WinRM configuration management for pushing config, packages and ad-hoc commands to servers and network gear. It is a general platform rather than a turnkey fix for identity or MDM tasks."
+    },
+    "anthropics/skills": {
+      "description": "Public repository for Agent Skills",
+      "first_step": "",
+      "fit": null,
+      "full_name": "anthropics/skills",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": null,
+      "needs_review": null,
+      "pushed_at": "2026-10-28T19:20:39Z",
+      "readonly_mode": null,
+      "scored_by": null,
+      "stars": 186360,
+      "stars_gained_30d": 7505,
+      "stars_gained_7d": 2387,
+      "stars_gained_unknown": false,
+      "tags": [
+        "agent"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": null,
+      "trend_score": null,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 4d ago",
+        "no GitHub releases",
+        "16 contributors",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 68,
+      "url": "https://github.com/anthropics/skills",
+      "why": ""
+    },
+    "aquasecurity/trivy": {
+      "description": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
+      "first_step": "Install the binary and run `trivy fs --scanners vuln,secret,misconfig` against a non-production server directory or IaC repo to review findings locally.",
+      "fit": 2,
+      "full_name": "aquasecurity/trivy",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 52,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T14:48:38Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 38898,
+      "stars_gained_30d": 741,
+      "stars_gained_7d": 156,
+      "stars_gained_unknown": false,
+      "tags": [
+        "security",
+        "network"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 24,
+      "trend_score": 30.41,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "442 contributors",
+        "Apache-2.0 license",
+        "organization-owned",
+        "OpenSSF Scorecard 6.4/10"
+      ],
+      "trust_score": 87,
+      "url": "https://github.com/aquasecurity/trivy",
+      "why": "Scans container images, filesystems, VM images, Kubernetes clusters and IaC for CVEs, misconfigurations and exposed secrets. Useful for vulnerability management on servers and infrastructure, less so for endpoint/SaaS stacks."
+    },
+    "autopkg/autopkg": {
+      "description": "Automating packaging and software distribution on macOS.",
+      "first_step": "Run one recipe (e.g. GoogleChrome.pkg) locally, then wire up the JamfUploader processors.",
+      "fit": 3,
+      "full_name": "autopkg/autopkg",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 12,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T20:16:11Z",
+      "readonly_mode": null,
+      "scored_by": "human",
+      "stars": 1486,
+      "stars_gained_30d": 3,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "patching"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 165,
+      "trend_score": 15.76,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "55 contributors",
+        "Apache-2.0 license",
+        "established community org",
+        "OpenSSF Scorecard 3.8/10"
+      ],
+      "trust_score": 88,
+      "url": "https://github.com/autopkg/autopkg",
+      "why": "Automates downloading and packaging Mac apps for Jamf, Munki or Intune. It saves hours of manual repackaging every patch cycle."
+    },
+    "beenuar/aisoc": {
+      "description": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, and a replayable decision ledger for every agent step. Self-hostable, runs with no API keys, MIT licensed. Ships an MCP server for Claude, Cursor and Continue.",
+      "first_step": "Run `make up` on an isolated lab VM, load the synthetic sample data, and review AI triage verdicts before connecting any real tenant.",
+      "fit": 2,
+      "full_name": "beenuar/AiSOC",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 90,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-02T00:08:42Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 6205,
+      "stars_gained_30d": 3872,
+      "stars_gained_7d": 2149,
+      "stars_gained_unknown": false,
+      "tags": [
+        "security",
+        "automation",
+        "agent"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 1,
+      "trend_score": 76.3,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "19 contributors",
+        "MIT license",
+        "personal project",
+        "OpenSSF Scorecard 5.6/10"
+      ],
+      "trust_score": 81,
+      "url": "https://github.com/beenuar/AiSOC",
+      "why": "Self-hosted SOC platform that ingests EDR/SIEM/Okta telemetry, correlates alerts, and runs LLM triage with human-approved responses. Useful for small security teams, but heavy to deploy and operate."
+    },
+    "bregman-arie/devops-exercises": {
+      "description": "Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions",
+      "first_step": "Browse the Linux, Network and DNS topic sections to check your own knowledge or to draft interview questions for IT hires.",
+      "fit": 1,
+      "full_name": "bregman-arie/devops-exercises",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2025-12-27T14:22:30Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 86319,
+      "stars_gained_30d": 1685,
+      "stars_gained_7d": 1302,
+      "stars_gained_unknown": false,
+      "tags": [
+        "automation"
+      ],
+      "times_trending_30d": 1,
+      "times_trending_7d": 1,
+      "trend_rank": 7,
+      "trend_score": 50.63,
+      "trust_badge": "experimental",
+      "trust_reasons": [
+        "last push 309d ago",
+        "no GitHub releases",
+        "contributors not checked",
+        "no recognised license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 20,
+      "url": "https://github.com/bregman-arie/devops-exercises",
+      "why": "Interview questions and exercises covering Linux, networking, DNS, Ansible, Terraform and cloud; useful for skills study or for building hiring questions, not an operational tool."
+    },
+    "chaitin/safeline": {
+      "description": "SafeLine is a self-hosted WAF(Web Application Firewall) / reverse proxy to protect your web apps from attacks and exploits.",
+      "first_step": "Deploy it in a lab VM in front of a non-production web app and review its detections in a monitoring-only posture before routing real traffic.",
+      "fit": 2,
+      "full_name": "chaitin/SafeLine",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 59,
+      "license": "GPL-3.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-22T02:30:56Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 23140,
+      "stars_gained_30d": 484,
+      "stars_gained_7d": 155,
+      "stars_gained_unknown": false,
+      "tags": [
+        "security",
+        "network"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 10,
+      "trend_score": 44.14,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 11d ago",
+        "release in last 180d",
+        "27 contributors",
+        "GPL-3.0 license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 85,
+      "url": "https://github.com/chaitin/SafeLine",
+      "why": "Self-hosted WAF and reverse proxy that blocks SQLi, XSS, bots and brute force and rate-limits traffic in front of internal or public web apps. It is useful for protecting self-hosted tools, but it is not tied to the identity, endpoint or SaaS stack."
+    },
+    "cisagov/scubagear": {
+      "description": "Automation to assess the state of your M365 tenant against CISA's baselines",
+      "first_step": "Install the module from PSGallery and run Invoke-SCuBA -ProductNames * with a read-only reviewer account against a test or production tenant, then review the HTML report.",
+      "fit": 3,
+      "full_name": "cisagov/ScubaGear",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 13,
+      "license": "CC0-1.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T21:41:10Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 2779,
+      "stars_gained_30d": 90,
+      "stars_gained_7d": 43,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 4,
+      "times_trending_7d": 4,
+      "trend_rank": 5,
+      "trend_score": 53.0,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "50 contributors",
+        "CC0-1.0 license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 85,
+      "url": "https://github.com/cisagov/ScubaGear",
+      "why": "PowerShell tool that audits an M365 tenant (Entra ID, Exchange, SharePoint, Teams, Defender, Power Platform) against CISA SCuBA baselines and outputs HTML/JSON/CSV reports usable as compliance evidence."
+    },
+    "crowdstrike/falcon-mcp": {
+      "description": "Connect AI agents to CrowdStrike Falcon for automated security analysis and threat hunting",
+      "first_step": "Create a Falcon API client with read-only scopes and ask for a summary of last week's detections.",
+      "fit": 3,
+      "full_name": "CrowdStrike/falcon-mcp",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T05:45:16Z",
+      "readonly_mode": true,
+      "scored_by": "human",
+      "stars": 274,
+      "stars_gained_30d": 15,
+      "stars_gained_7d": 2,
+      "stars_gained_unknown": false,
+      "tags": [
+        "security",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 378,
+      "trend_score": 12.25,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "31 contributors",
+        "MIT license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 100,
+      "url": "https://github.com/CrowdStrike/falcon-mcp",
+      "why": "Official Falcon MCP. Pulls detections, incidents and host context into an agent for faster triage."
+    },
+    "crowdstrike/falconpy": {
+      "description": "The CrowdStrike Falcon SDK for Python",
+      "first_step": "Create a Falcon API client with read-only scopes (e.g. Hosts: Read) and use the Hosts service class to list devices in a test CID.",
+      "fit": 3,
+      "full_name": "CrowdStrike/falconpy",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 1,
+      "license": "Unlicense",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T15:24:03Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 517,
+      "stars_gained_30d": 3,
+      "stars_gained_7d": 1,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 286,
+      "trend_score": 13.49,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "51 contributors",
+        "Unlicense license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 8.4/10"
+      ],
+      "trust_score": 98,
+      "url": "https://github.com/CrowdStrike/falconpy",
+      "why": "Official Python SDK for the CrowdStrike Falcon API, used to script host inventory, detections, containment, policy and sensor management without hand-rolling OAuth2 token handling."
+    },
+    "dataplat/dbatools": {
+      "description": "🚀 SQL Server automation and instance migrations have never been safer, faster or freer",
+      "first_step": "Install it for the current user and run read-only commands like Get-DbaLastBackup and Get-DbaDatabase against a non-production instance.",
+      "fit": 2,
+      "full_name": "dataplat/dbatools",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 60,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-29T17:02:18Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 2857,
+      "stars_gained_30d": 13,
+      "stars_gained_7d": 4,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network",
+        "automation"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 19,
+      "trend_score": 34.77,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 3d ago",
+        "release in last 180d",
+        "280 contributors",
+        "MIT license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 85,
+      "url": "https://github.com/dataplat/dbatools",
+      "why": "PowerShell module with ~700 commands for SQL Server administration: backup verification, instance migration, finding databases across servers, and health checks. Most useful where IT also looks after SQL Server."
+    },
+    "dbankscard/jamf-mcp-server": {
+      "description": "Model Context Protocol server enabling AI assistants (Claude, ChatGPT) to manage Jamf Pro through natural   language. Search devices, deploy policies, execute scripts, manage profiles, and generate compliance   reports using conversational queries.",
+      "first_step": "Enable its read-only mode against a Jamf test instance and ask which Macs are behind on macOS updates.",
+      "fit": 2,
+      "full_name": "dbankscard/jamf-mcp-server",
+      "gated": false,
+      "language": "TypeScript",
+      "lens_rank": null,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-07-08T00:08:41Z",
+      "readonly_mode": true,
+      "scored_by": "human",
+      "stars": 39,
+      "stars_gained_30d": 1,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 691,
+      "trend_score": 7.95,
+      "trust_badge": "experimental",
+      "trust_reasons": [
+        "last push 117d ago",
+        "no GitHub releases",
+        "3 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 50,
+      "url": "https://github.com/dbankscard/jamf-mcp-server",
+      "why": "Community Jamf Pro MCP. Handy for inventory, compliance and policy questions; a personal project, so pilot it carefully."
+    },
+    "deploymenttheory/terraform-provider-jamfpro": {
+      "description": "A community terraform provider for Jamf Pro for configuration as code workflows. It can interface with both classic and jamf pro API's. Built upon the terraform provider sdkV2 and go-api-sdk-jamfpro SDK's and written in go.",
+      "first_step": "Point the provider at a non-production Jamf Pro instance with a limited-scope OAuth2 API client, import a few existing objects, and run terraform plan to review drift without applying.",
+      "fit": 3,
+      "full_name": "deploymenttheory/terraform-provider-jamfpro",
+      "gated": false,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "MPL-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-29T19:15:32Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 126,
+      "stars_gained_30d": 1,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "patching",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 534,
+      "trend_score": 10.44,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 3d ago",
+        "release in last 180d",
+        "27 contributors",
+        "MPL-2.0 license",
+        "established community org",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 90,
+      "url": "https://github.com/deploymenttheory/terraform-provider-jamfpro",
+      "why": "Terraform provider that manages Jamf Pro configuration (policies, groups, profiles, apps) as code, enabling version control, change review, drift detection and replication across tenants."
+    },
+    "docker-mailserver/docker-mailserver": {
+      "description": "Production-ready fullstack but simple mail server (SMTP, IMAP, LDAP, Antispam, Antivirus, etc.) running inside a container.",
+      "first_step": "Deploy the container in an isolated lab with a test domain, following the basic-installation tutorial, and verify DKIM/DMARC and spam filtering before any production use.",
+      "fit": 2,
+      "full_name": "docker-mailserver/docker-mailserver",
+      "gated": true,
+      "language": "Shell",
+      "lens_rank": 57,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-31T14:04:15Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 19715,
+      "stars_gained_30d": 851,
+      "stars_gained_7d": 32,
+      "stars_gained_unknown": false,
+      "tags": [
+        "saas",
+        "security",
+        "network"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 25,
+      "trend_score": 30.08,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "338 contributors",
+        "MIT license",
+        "organization-owned",
+        "OpenSSF Scorecard 5.7/10"
+      ],
+      "trust_score": 86,
+      "url": "https://github.com/docker-mailserver/docker-mailserver",
+      "why": "Self-hosted containerized mail server (Postfix, Dovecot, Rspamd, ClamAV, DKIM/DMARC) for running on-prem email or relay without Microsoft 365 or Google Workspace. Also usable for internal SMTP relays or test mail environments."
+    },
+    "fatedier/frp": {
+      "description": "A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.",
+      "first_step": "Run frps on a lab VPS with token or OIDC auth and an allowPorts restriction, then tunnel a single test SSH service from a sandbox machine.",
+      "fit": 2,
+      "full_name": "fatedier/frp",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 91,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-23T07:52:16Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 110375,
+      "stars_gained_30d": 803,
+      "stars_gained_7d": 226,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network"
+      ],
+      "times_trending_30d": 1,
+      "times_trending_7d": 1,
+      "trend_rank": 13,
+      "trend_score": 42.05,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 10d ago",
+        "release in last 180d",
+        "139 contributors",
+        "Apache-2.0 license",
+        "personal project",
+        "OpenSSF Scorecard 5.3/10"
+      ],
+      "trust_score": 81,
+      "url": "https://github.com/fatedier/frp",
+      "why": "Self-hosted reverse proxy and tunnel for exposing internal services (SSH, RDP, web apps) behind NAT or firewalls. Useful for remote access to lab or branch systems, but it bypasses perimeter controls, so it needs security review."
+    },
+    "fleetdm/fleet": {
+      "description": "Open device management",
+      "first_step": "Stand up a trial Fleet server and enroll a few test machines with the osquery agent to review inventory and CIS policy results before enabling MDM or software deployment.",
+      "fit": 3,
+      "full_name": "fleetdm/fleet",
+      "gated": false,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-11-02T00:11:07Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 7096,
+      "stars_gained_30d": 168,
+      "stars_gained_7d": 46,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "patching",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 3,
+      "times_trending_7d": 3,
+      "trend_rank": 8,
+      "trend_score": 47.08,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "407 contributors",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 5.6/10"
+      ],
+      "trust_score": 83,
+      "url": "https://github.com/fleetdm/fleet",
+      "why": "Open-source MDM and osquery-based device management for macOS, Windows, Linux, iOS and Android: inventory, software deployment and patching, CIS benchmark checks, and GitOps-managed config."
+    },
+    "fortinetdev/terraform-provider-fortios": {
+      "description": "Terraform Fortios provider",
+      "first_step": "Point the provider at a lab or non-production FortiGate with a limited-scope API token and run terraform plan against imported data sources to see the diff before applying anything.",
+      "fit": 3,
+      "full_name": "fortinetdev/terraform-provider-fortios",
+      "gated": false,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "MPL-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-26T17:42:34Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 82,
+      "stars_gained_30d": 0,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "security",
+        "network",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 616,
+      "trend_score": 9.51,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 6d ago",
+        "release in last 180d",
+        "15 contributors",
+        "MPL-2.0 license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 92,
+      "url": "https://github.com/fortinetdev/terraform-provider-fortios",
+      "why": "Official Fortinet Terraform provider for managing FortiGate (FortiOS 6.0–7.6) firewall policies, addresses, VPNs and interfaces as code, replacing manual GUI changes."
+    },
+    "gam-team/gam": {
+      "description": "command line management for Google Workspace",
+      "first_step": "Have Claude draft GAM commands for a task you already know, and compare them with what you would run.",
+      "fit": 3,
+      "full_name": "GAM-team/GAM",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 8,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T03:22:51Z",
+      "readonly_mode": null,
+      "scored_by": "human",
+      "stars": 4370,
+      "stars_gained_30d": 51,
+      "stars_gained_7d": 17,
+      "stars_gained_unknown": false,
+      "tags": [
+        "saas",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 74,
+      "trend_score": 18.58,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "37 contributors",
+        "Apache-2.0 license",
+        "established community org",
+        "OpenSSF Scorecard 5.1/10"
+      ],
+      "trust_score": 90,
+      "url": "https://github.com/GAM-team/GAM",
+      "why": "The standard Google Workspace admin CLI. Bulk user, group, Drive and license changes from CSV."
+    },
+    "glpi-project/glpi": {
+      "description": "GLPI is a Free Asset and IT Management Software package, Data center management, ITIL Service Desk, licenses tracking and software auditing.",
+      "first_step": "Deploy it in a test VM with MariaDB, inventory a few machines with GLPI Agent, and walk a sample ticket through the workflow before importing production data.",
+      "fit": 3,
+      "full_name": "glpi-project/glpi",
+      "gated": true,
+      "language": "PHP",
+      "lens_rank": 11,
+      "license": "GPL-3.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T14:08:09Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 6546,
+      "stars_gained_30d": 135,
+      "stars_gained_7d": 32,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "network",
+        "helpdesk"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 52,
+      "trend_score": 20.31,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "221 contributors",
+        "GPL-3.0 license",
+        "organization-owned",
+        "OpenSSF Scorecard 6.7/10"
+      ],
+      "trust_score": 88,
+      "url": "https://github.com/glpi-project/glpi",
+      "why": "Self-hosted ITSM and asset management: ticketing, CMDB, agent-based hardware/software inventory, license tracking, contracts and a knowledge base."
+    },
+    "googleworkspace/cli": {
+      "description": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.",
+      "first_step": "Install gws against a test Workspace tenant. Log in with narrow read-only scopes, run list commands such as admin directory users list, and use --dry-run before any write call.",
+      "fit": 3,
+      "full_name": "googleworkspace/cli",
+      "gated": true,
+      "language": "Rust",
+      "lens_rank": 14,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T16:06:54Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 32047,
+      "stars_gained_30d": 867,
+      "stars_gained_7d": 126,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "automation",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 22,
+      "trend_score": 31.29,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "has releases (none recent)",
+        "43 contributors",
+        "Apache-2.0 license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 85,
+      "url": "https://github.com/googleworkspace/cli",
+      "why": "A CLI built from Google's Discovery Service that covers every Workspace API, Admin included. Use it to script user, group, Drive and Gmail admin tasks with JSON output, and it ships agent skills for LLM-driven management."
+    },
+    "grokability/snipe-it": {
+      "description": "A free open source IT asset/license management system",
+      "first_step": "Try the hosted live demo, or run the Docker image locally with test data, before syncing any real Jamf or Kandji inventory.",
+      "fit": 3,
+      "full_name": "grokability/snipe-it",
+      "gated": true,
+      "language": "PHP",
+      "lens_rank": 5,
+      "license": "AGPL-3.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T19:30:13Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 15138,
+      "stars_gained_30d": 154,
+      "stars_gained_7d": 45,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "helpdesk"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 44,
+      "trend_score": 22.31,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "335 contributors",
+        "AGPL-3.0 license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 92,
+      "url": "https://github.com/grokability/snipe-it",
+      "why": "Self-hosted IT asset and license management for tracking who has which laptop, purchase and depreciation data, and software licenses. It has a REST API and integrations such as jamf2snipe and Kandji2Snipe."
+    },
+    "hashicorp/terraform": {
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "first_step": "Install the CLI, write a small config using a provider such as Okta or Entra ID against a sandbox tenant, and run only 'terraform plan' to review the proposed changes without applying them.",
+      "fit": 2,
+      "full_name": "hashicorp/terraform",
+      "gated": false,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T09:15:07Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 50346,
+      "stars_gained_30d": 626,
+      "stars_gained_7d": 310,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network",
+        "automation"
+      ],
+      "times_trending_30d": 1,
+      "times_trending_7d": 1,
+      "trend_rank": 16,
+      "trend_score": 38.53,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "contributors not checked",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 78,
+      "url": "https://github.com/hashicorp/terraform",
+      "why": "Terraform core is the IaC engine behind providers for Okta, Entra ID, Google Workspace and cloud networks, letting admins version and review tenant and infrastructure config. It needs separate providers and workflow setup to be useful."
+    },
+    "installomator/installomator": {
+      "description": "Installation script to deploy standard software on Macs",
+      "first_step": "Deploy it as a Jamf script with a single label (e.g. googlechromepkg) to a test group.",
+      "fit": 3,
+      "full_name": "Installomator/Installomator",
+      "gated": true,
+      "language": "Shell",
+      "lens_rank": 9,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-31T16:11:28Z",
+      "readonly_mode": null,
+      "scored_by": "human",
+      "stars": 1513,
+      "stars_gained_30d": 19,
+      "stars_gained_7d": 2,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "patching"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 157,
+      "trend_score": 15.96,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "319 contributors",
+        "Apache-2.0 license",
+        "established community org",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 90,
+      "url": "https://github.com/Installomator/Installomator",
+      "why": "One script that installs or updates hundreds of Mac apps straight from vendor sources. A staple Jamf policy payload."
+    },
+    "jamf-concepts/mcp-hub": {
+      "description": "Jamf's open source mcp for Jamf Pro, Jamf Protect and Jamf Security",
+      "first_step": "Connect it to a Jamf Pro sandbox instance using an API client limited to read privileges, and run inventory queries such as listing computers by macOS version.",
+      "fit": 3,
+      "full_name": "Jamf-Concepts/mcp-hub",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-19T16:47:46Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 32,
+      "stars_gained_30d": 1,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "security",
+        "automation",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 692,
+      "trend_score": 7.54,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 13d ago",
+        "no GitHub releases",
+        "2 contributors",
+        "MIT license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 66,
+      "url": "https://github.com/Jamf-Concepts/mcp-hub",
+      "why": "MCP server from Jamf with 50 tools for querying and managing Jamf Pro devices, smart groups, policies and profiles, plus Jamf Protect alerts and Security Cloud risk status."
+    },
+    "jmpsec/osctrl": {
+      "description": "Fast and efficient osquery management",
+      "first_step": "Deploy osctrl in a lab with a few test hosts enrolled, run saved read-only queries, and connect osctrl-mcp with mutating tools left disabled.",
+      "fit": 3,
+      "full_name": "jmpsec/osctrl",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 2,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T17:01:53Z",
+      "readonly_mode": true,
+      "scored_by": "claude",
+      "stars": 543,
+      "stars_gained_30d": 10,
+      "stars_gained_7d": 4,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "security",
+        "automation",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 275,
+      "trend_score": 13.67,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "17 contributors",
+        "MIT license",
+        "organization-owned",
+        "OpenSSF Scorecard 5.9/10",
+        "documented read-only mode"
+      ],
+      "trust_score": 96,
+      "url": "https://github.com/jmpsec/osctrl",
+      "why": "Self-hosted osquery fleet manager for running distributed queries across endpoints, carving files, alerting on node state, and tracking posture mapped to SOC 2/ISO 27001. Includes an MCP server for fleet inspection."
+    },
+    "maester365/maester": {
+      "description": "Maester is a test automation framework to help you stay in control of your Microsoft security configuration.",
+      "first_step": "Install the release build (2.3.0 or current stable) in PowerShell 7.4, run Connect-Maester and Invoke-Maester against a test tenant, and review the HTML report.",
+      "fit": 3,
+      "full_name": "maester365/maester",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 10,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T23:12:42Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 1170,
+      "stars_gained_30d": 51,
+      "stars_gained_7d": 10,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 167,
+      "trend_score": 15.74,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "133 contributors",
+        "MIT license",
+        "organization-owned",
+        "OpenSSF Scorecard 7.4/10"
+      ],
+      "trust_score": 89,
+      "url": "https://github.com/maester365/maester",
+      "why": "PowerShell framework that runs automated security configuration checks against Entra ID and Microsoft 365 tenants (Conditional Access, Exchange, etc.) and reports drift, with CI/CD and Teams/email notifications."
+    },
+    "merill/lokka": {
+      "description": "MCP (Model Context Protocol) for Microsoft 365. Includes support for Microsoft Graph and other services",
+      "first_step": "Register a custom Entra app with only User.Read.All and Group.Read.All, then point Lokka at it.",
+      "fit": 3,
+      "full_name": "merill/lokka",
+      "gated": false,
+      "language": "JavaScript",
+      "lens_rank": null,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-09-25T07:53:05Z",
+      "readonly_mode": null,
+      "scored_by": "human",
+      "stars": 310,
+      "stars_gained_30d": 8,
+      "stars_gained_7d": 3,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 359,
+      "trend_score": 12.44,
+      "trust_badge": "experimental",
+      "trust_reasons": [
+        "last push 38d ago",
+        "no GitHub releases",
+        "10 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 56,
+      "url": "https://github.com/merill/lokka",
+      "why": "Graph and Azure MCP from a Microsoft PM. One server covers Entra, Intune and M365 queries."
+    },
+    "mhsanaei/3x-ui": {
+      "description": "Supporting multi-protocol multi-user(Vmess, Vless, Trojan, ShadowSocks, Wireguard, Hysteria, Tunnel, Mixed, HTTP, Tun, MTProto، AmneziaWG) ",
+      "first_step": "Install it on a disposable test VPS to evaluate the panel and API. Do not expose it on corporate networks, since the README states it is not intended for production.",
+      "fit": 1,
+      "full_name": "MHSanaei/3x-ui",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 159,
+      "license": "GPL-3.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T15:53:11Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 49105,
+      "stars_gained_30d": 1921,
+      "stars_gained_7d": 474,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 3,
+      "trend_score": 60.6,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "315 contributors",
+        "GPL-3.0 license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 80,
+      "url": "https://github.com/MHSanaei/3x-ui",
+      "why": "Web panel for running Xray-core proxy/VPN servers (VLESS, Trojan, WireGuard) with per-client quotas. It is aimed at censorship circumvention and personal use, not corporate VPN or remote-access administration."
+    },
+    "michaelcade/90daysofdevops": {
+      "description": "This repository started out as a learning in public project for myself and has now become a structured learning map for many in the community. We have 3 years under our belt covering all things DevOps, including Principles, Processes, Tooling and Use Cases surrounding this vast topic. ",
+      "first_step": "Read the 2022 DevOps track sections on Ansible and Terraform and work through the labs in a personal lab environment.",
+      "fit": 1,
+      "full_name": "MichaelCade/90DaysOfDevOps",
+      "gated": false,
+      "language": "Shell",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-06-24T15:29:07Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 29929,
+      "stars_gained_30d": 167,
+      "stars_gained_7d": 70,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network",
+        "automation"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 14,
+      "trend_score": 41.42,
+      "trust_badge": "experimental",
+      "trust_reasons": [
+        "last push 130d ago",
+        "has releases (none recent)",
+        "contributors not checked",
+        "no recognised license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 38,
+      "url": "https://github.com/MichaelCade/90DaysOfDevOps",
+      "why": "A free learning curriculum covering DevOps basics like Linux, networking, Terraform, Ansible and containers. Useful for sysadmins building automation skills, but it is training material rather than an admin tool."
+    },
+    "micke-k/intunemanagement": {
+      "description": "Copy, export, import, delete, document and compare policies and profiles in Intune and Azure with PowerShell script and WPF UI. Import ADMX files and registry settings with ADMX ingestion. View and edit PowerShell script.  ",
+      "first_step": "Run a bulk export with read-only Graph permissions against a test tenant and review the generated JSON and documentation before trying any import.",
+      "fit": 3,
+      "full_name": "Micke-K/IntuneManagement",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 27,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-25T09:04:59Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 2117,
+      "stars_gained_30d": 31,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 20,
+      "trend_score": 34.31,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 8d ago",
+        "release in last 180d",
+        "8 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 76,
+      "url": "https://github.com/Micke-K/IntuneManagement",
+      "why": "Exports, backs up, documents, compares and migrates Intune policies and profiles, including assignments, between tenants via Graph, with a UI or silent batch mode."
+    },
+    "microsoft/enterprisemcp": {
+      "description": "",
+      "first_step": "Try it in an M365 developer tenant first and review which Graph permissions the consent grants.",
+      "fit": 3,
+      "full_name": "microsoft/EnterpriseMCP",
+      "gated": false,
+      "language": null,
+      "lens_rank": null,
+      "license": "CC-BY-4.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-28T20:47:52Z",
+      "readonly_mode": true,
+      "scored_by": "human",
+      "stars": 62,
+      "stars_gained_30d": 4,
+      "stars_gained_7d": 2,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 657,
+      "trend_score": 8.96,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 4d ago",
+        "no GitHub releases",
+        "6 contributors",
+        "CC-BY-4.0 license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 82,
+      "url": "https://github.com/microsoft/EnterpriseMCP",
+      "why": "Microsoft's own MCP server for querying Entra ID data. Covers the \"who has access to what\" questions that eat helpdesk time."
+    },
+    "microsoftdocs/powershell-docs": {
+      "description": "The official PowerShell documentation sources",
+      "first_step": "Browse the reference folder for your PowerShell version, or run Update-Help locally to get the same content offline.",
+      "fit": 1,
+      "full_name": "MicrosoftDocs/PowerShell-Docs",
+      "gated": false,
+      "language": "PowerShell",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-10-28T22:06:08Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 2577,
+      "stars_gained_30d": 24,
+      "stars_gained_7d": 3,
+      "stars_gained_unknown": false,
+      "tags": [
+        "automation"
+      ],
+      "times_trending_30d": 3,
+      "times_trending_7d": 3,
+      "trend_rank": 11,
+      "trend_score": 43.41,
+      "trust_badge": "experimental",
+      "trust_reasons": [
+        "last push 4d ago",
+        "no GitHub releases",
+        "contributors not checked",
+        "no recognised license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 55,
+      "url": "https://github.com/MicrosoftDocs/PowerShell-Docs",
+      "why": "Source for the official PowerShell cmdlet reference and conceptual docs. It is useful as a reference while writing admin scripts, but it is documentation, not a tool."
+    },
+    "microsoftgraph/msgraph-sdk-powershell": {
+      "description": "Powershell SDK for Microsoft Graph",
+      "first_step": "Install only Microsoft.Graph.Authentication and Microsoft.Graph.Users, then run Connect-MgGraph -Scopes User.Read.All and Get-MgUser against a test tenant.",
+      "fit": 3,
+      "full_name": "microsoftgraph/msgraph-sdk-powershell",
+      "gated": false,
+      "language": "C#",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T05:58:02Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 907,
+      "stars_gained_30d": 8,
+      "stars_gained_7d": 3,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "endpoint",
+        "saas",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 209,
+      "trend_score": 14.75,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 3d ago",
+        "release in last 180d",
+        "66 contributors",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 82,
+      "url": "https://github.com/microsoftgraph/msgraph-sdk-powershell",
+      "why": "Official PowerShell modules for Microsoft Graph, used to script Entra ID users and groups, Intune devices, Exchange/Teams data and compliance tasks across Microsoft 365."
+    },
+    "modelcontextprotocol/servers": {
+      "description": "Model Context Protocol Servers",
+      "first_step": "",
+      "fit": null,
+      "full_name": "modelcontextprotocol/servers",
+      "gated": false,
+      "language": "TypeScript",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-10-29T05:27:40Z",
+      "readonly_mode": null,
+      "scored_by": null,
+      "stars": 91738,
+      "stars_gained_30d": 942,
+      "stars_gained_7d": 158,
+      "stars_gained_unknown": false,
+      "tags": [
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": null,
+      "trend_score": null,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 4d ago",
+        "release in last 180d",
+        "427 contributors",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 82,
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "why": ""
+    },
+    "netbirdio/netbird": {
+      "description": "NetBird securely connects people, machines and AI agents across any network with one identity-based Zero Trust platform. Powered by peer-to-peer WireGuard®",
+      "first_step": "Deploy the self-hosted quickstart on a test VM with a sandbox IdP, enroll two non-production machines, and test access policies before touching production.",
+      "fit": 3,
+      "full_name": "netbirdio/netbird",
+      "gated": false,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T21:58:35Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 30531,
+      "stars_gained_30d": 873,
+      "stars_gained_7d": 297,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "security",
+        "network"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 23,
+      "trend_score": 31.25,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "contributors not checked",
+        "no recognised license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 70,
+      "url": "https://github.com/netbirdio/netbird",
+      "why": "Self-hostable WireGuard mesh VPN/ZTNA with IdP SSO, group sync, posture checks and access policies. A candidate to replace a legacy VPN for remote access to internal resources."
+    },
+    "netbox-community/netbox": {
+      "description": "The premier source of truth powering network automation. Open source under Apache 2. Try NetBox Cloud free: https://netboxlabs.com/products/free-netbox-cloud/",
+      "first_step": "Explore the public demo at demo.netbox.dev, then deploy the community Docker image in a lab and import a small subnet and rack inventory.",
+      "fit": 3,
+      "full_name": "netbox-community/netbox",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 3,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-31T05:02:15Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 21831,
+      "stars_gained_30d": 217,
+      "stars_gained_7d": 63,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network",
+        "automation",
+        "helpdesk"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 36,
+      "trend_score": 23.75,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "350 contributors",
+        "Apache-2.0 license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 6.7/10"
+      ],
+      "trust_score": 95,
+      "url": "https://github.com/netbox-community/netbox",
+      "why": "NetBox is a source of truth for IPAM and DCIM. It documents racks, devices, cables, IPs, VLANs and circuits, and exposes REST APIs that feed Ansible, monitoring and config rendering."
+    },
+    "netboxlabs/netbox-mcp-server": {
+      "description": "Model Context Protocol (MCP) server for read-only interaction with NetBox data in LLMs",
+      "first_step": "Point it at NetBox with a read-only token and ask which devices are on a given VLAN.",
+      "fit": 2,
+      "full_name": "netboxlabs/netbox-mcp-server",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T18:38:22Z",
+      "readonly_mode": true,
+      "scored_by": "human",
+      "stars": 254,
+      "stars_gained_30d": 15,
+      "stars_gained_7d": 5,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 392,
+      "trend_score": 12.09,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "15 contributors",
+        "Apache-2.0 license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 100,
+      "url": "https://github.com/netboxlabs/netbox-mcp-server",
+      "why": "Read-only NetBox access for agents. Useful once NetBox is your network source of truth."
+    },
+    "okta/okta-mcp-server": {
+      "description": "Okta Self-Hosted MCP Server",
+      "first_step": "Connect it to an Okta preview org with read-only scopes and ask which users haven't signed in for 90 days.",
+      "fit": 3,
+      "full_name": "okta/okta-mcp-server",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-23T01:45:56Z",
+      "readonly_mode": true,
+      "scored_by": "human",
+      "stars": 76,
+      "stars_gained_30d": 9,
+      "stars_gained_7d": 2,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 620,
+      "trend_score": 9.45,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 10d ago",
+        "release in last 180d",
+        "8 contributors",
+        "Apache-2.0 license",
+        "vendor or foundation maintained",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 98,
+      "url": "https://github.com/okta/okta-mcp-server",
+      "why": "Official Okta MCP server. Lets an agent answer user, group and log questions in plain language, scoped by OAuth admin scopes."
+    },
+    "okta/okta-sdk-python": {
+      "description": "Python SDK for Okta Management APIs",
+      "first_step": "Create an OAuth service app in an Okta developer org with only the okta.users.read scope and run a list_users script.",
+      "fit": 2,
+      "full_name": "okta/okta-sdk-python",
+      "gated": false,
+      "language": "Python",
+      "lens_rank": null,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-28T05:25:18Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 271,
+      "stars_gained_30d": 1,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 394,
+      "trend_score": 12.08,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 5d ago",
+        "release in last 180d",
+        "29 contributors",
+        "Apache-2.0 license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 5.5/10"
+      ],
+      "trust_score": 93,
+      "url": "https://github.com/okta/okta-sdk-python",
+      "why": "Official Python SDK for the Okta Management API, used to script user lifecycle, group membership, and app assignment tasks. It is a building block, so you write your own automation on top of it."
+    },
+    "okta/terraform-provider-okta": {
+      "description": "A Terraform provider to manage Okta resources, enabling infrastructure-as-code provisioning and management of users, groups, applications, and other Okta objects.",
+      "first_step": "Pin v6.15.0 and run terraform plan with data sources and import blocks against an Okta preview/sandbox org to codify existing config without making changes.",
+      "fit": 3,
+      "full_name": "okta/terraform-provider-okta",
+      "gated": false,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "MPL-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T19:00:01Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 351,
+      "stars_gained_30d": 2,
+      "stars_gained_7d": 1,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 341,
+      "trend_score": 12.65,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "141 contributors",
+        "MPL-2.0 license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 5.9/10"
+      ],
+      "trust_score": 94,
+      "url": "https://github.com/okta/terraform-provider-okta",
+      "why": "Official Okta-maintained Terraform provider for managing Okta users, groups, apps, and policies as code, letting you version-control and review identity configuration changes."
+    },
+    "osquery/osquery": {
+      "description": "SQL powered operating system instrumentation, monitoring, and analytics.",
+      "first_step": "Install it on one Mac and run a query for unencrypted disks or stale admin accounts.",
+      "fit": 2,
+      "full_name": "osquery/osquery",
+      "gated": false,
+      "language": "C++",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-10-31T06:05:06Z",
+      "readonly_mode": null,
+      "scored_by": "human",
+      "stars": 23712,
+      "stars_gained_30d": 122,
+      "stars_gained_7d": 30,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "security"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 41,
+      "trend_score": 22.95,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "380 contributors",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 6.5/10"
+      ],
+      "trust_score": 85,
+      "url": "https://github.com/osquery/osquery",
+      "why": "Query Mac/Windows/Linux endpoints with SQL. A strong evidence source for audits and agent investigations."
+    },
+    "ossf/scorecard": {
+      "description": "OpenSSF Scorecard - Security health metrics for Open Source",
+      "first_step": "",
+      "fit": null,
+      "full_name": "ossf/scorecard",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": null,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T08:29:25Z",
+      "readonly_mode": null,
+      "scored_by": null,
+      "stars": 5804,
+      "stars_gained_30d": 82,
+      "stars_gained_7d": 12,
+      "stars_gained_unknown": false,
+      "tags": [],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": null,
+      "trend_score": null,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 3d ago",
+        "release in last 180d",
+        "186 contributors",
+        "Apache-2.0 license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 8.6/10"
+      ],
+      "trust_score": 98,
+      "url": "https://github.com/ossf/scorecard",
+      "why": ""
+    },
+    "pester/pester": {
+      "description": "Pester is the ubiquitous test and mock framework for PowerShell.",
+      "first_step": "Install the module from PowerShell Gallery in CurrentUser scope and write a few mocked tests for an existing admin script, so it runs without touching real systems.",
+      "fit": 2,
+      "full_name": "pester/Pester",
+      "gated": false,
+      "language": "PowerShell",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T04:00:37Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 3372,
+      "stars_gained_30d": 21,
+      "stars_gained_7d": 6,
+      "stars_gained_unknown": false,
+      "tags": [
+        "automation"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 18,
+      "trend_score": 35.21,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "contributors not checked",
+        "no recognised license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 70,
+      "url": "https://github.com/pester/Pester",
+      "why": "Test and mock framework for PowerShell, used to validate admin scripts and modules before running them against production, and to write infrastructure state checks such as config or file presence tests."
+    },
+    "pnp/list-formatting": {
+      "description": "List Formatting Samples for use in SharePoint and Microsoft Lists",
+      "first_step": "Pick a column format from the gallery and apply it to a column in a test list on a non-production SharePoint site, keeping the previous format so you can restore it.",
+      "fit": 1,
+      "full_name": "pnp/List-Formatting",
+      "gated": true,
+      "language": "TypeScript",
+      "lens_rank": 156,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-29T19:43:21Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 2184,
+      "stars_gained_30d": 8,
+      "stars_gained_7d": 1,
+      "stars_gained_unknown": false,
+      "tags": [
+        "saas"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 21,
+      "trend_score": 34.14,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 3d ago",
+        "has releases (none recent)",
+        "116 contributors",
+        "MIT license",
+        "established community org",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 82,
+      "url": "https://github.com/pnp/List-Formatting",
+      "why": "Copy-ready JSON samples for formatting SharePoint and Microsoft Lists columns, views and forms; useful when building IT trackers or request lists in SharePoint, but it is site customization rather than tenant administration."
+    },
+    "pnp/powershell": {
+      "description": "PnP PowerShell",
+      "first_step": "Install PnP.PowerShell in PowerShell 7.4+, register your own Entra app, and run read-only Get- cmdlets such as Get-PnPTenantSite against a test tenant.",
+      "fit": 3,
+      "full_name": "pnp/powershell",
+      "gated": true,
+      "language": "C#",
+      "lens_rank": 6,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T09:45:54Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 909,
+      "stars_gained_30d": 6,
+      "stars_gained_7d": 0,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "automation",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 211,
+      "trend_score": 14.73,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "178 contributors",
+        "MIT license",
+        "established community org",
+        "OpenSSF Scorecard 6.3/10"
+      ],
+      "trust_score": 91,
+      "url": "https://github.com/pnp/powershell",
+      "why": "Widely used PowerShell module with 900+ cmdlets for administering SharePoint Online, Teams and other Microsoft 365 workloads, e.g. site provisioning, permissions reports and bulk changes."
+    },
+    "prowler-cloud/prowler": {
+      "description": "This repo hosts Prowler OSS (CLI and Local Server). Prowler is the world’s most widely used open-source cloud security platform that automates security and compliance across any cloud environment for Humans and AI Agents.",
+      "first_step": "Install via pip and run `prowler azure` or `prowler m365` with a read-only (Reader/SecurityAudit) identity against a test subscription or tenant, then review the report.",
+      "fit": 3,
+      "full_name": "prowler-cloud/prowler",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 15,
+      "license": "Apache-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T10:33:21Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 15150,
+      "stars_gained_30d": 243,
+      "stars_gained_7d": 53,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "security",
+        "automation"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 40,
+      "trend_score": 23.23,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "397 contributors",
+        "Apache-2.0 license",
+        "organization-owned",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 85,
+      "url": "https://github.com/prowler-cloud/prowler",
+      "why": "Runs CIS/NIST/SOC2-style security and compliance checks against AWS, Azure, GCP and (per its docs) Microsoft 365 and other providers, producing compliance evidence and misconfiguration findings."
+    },
+    "psmux/psmux": {
+      "description": "Tmux on Windows Powershell - tmux for PowerShell, Windows Terminal, cmd.exe. Includes psmux, pmux, and tmux commands. This is native High-Performance Tmux designed for Windows in Rust 🦀",
+      "first_step": "Install it via winget on a personal workstation and try a named session with split panes before using it on any admin jump box.",
+      "fit": 1,
+      "full_name": "psmux/psmux",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 160,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T22:19:22Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 3786,
+      "stars_gained_30d": 197,
+      "stars_gained_7d": 37,
+      "stars_gained_unknown": false,
+      "tags": [
+        "automation"
+      ],
+      "times_trending_30d": 3,
+      "times_trending_7d": 3,
+      "trend_rank": 9,
+      "trend_score": 46.02,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "46 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 80,
+      "url": "https://github.com/psmux/psmux",
+      "why": "Native tmux-style terminal multiplexer for Windows, useful for keeping persistent multi-pane PowerShell sessions during remote admin work over SSH. It does not manage any IT platform itself."
+    },
+    "raphire/win11debloat": {
+      "description": "A simple, lightweight PowerShell script that allows you to remove pre-installed apps, disable telemetry, as well as perform various other changes to declutter and customize your Windows experience. Win11Debloat works for both Windows 10 and Windows 11.",
+      "first_step": "Run it with command-line parameters on a disposable Windows VM snapshot to see which changes it applies before using it in any image or Intune deployment.",
+      "fit": 2,
+      "full_name": "Raphire/Win11Debloat",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 92,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T21:16:25Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 61469,
+      "stars_gained_30d": 3828,
+      "stars_gained_7d": 560,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "automation"
+      ],
+      "times_trending_30d": 1,
+      "times_trending_7d": 1,
+      "trend_rank": 2,
+      "trend_score": 72.04,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "40 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 80,
+      "url": "https://github.com/Raphire/Win11Debloat",
+      "why": "PowerShell script to strip preinstalled apps, disable telemetry/Copilot and set UI defaults on Windows 10/11, with CLI params, audit-mode support and exportable settings for image prep."
+    },
+    "romanitho/winget-autoupdate": {
+      "description": "WAU daily updates apps as system and notify connected users. (Allowlist and Blocklist support)",
+      "first_step": "Install WAU.msi on a test Windows VM with an included_apps.txt allowlist of a few apps and RUN_WAU=YES, then review the logs before deploying via Intune or GPO.",
+      "fit": 3,
+      "full_name": "Romanitho/Winget-AutoUpdate",
+      "gated": true,
+      "language": "PowerShell",
+      "lens_rank": 20,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-26T06:06:44Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 2026,
+      "stars_gained_30d": 25,
+      "stars_gained_7d": 4,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "patching",
+        "automation"
+      ],
+      "times_trending_30d": 3,
+      "times_trending_7d": 3,
+      "trend_rank": 12,
+      "trend_score": 42.9,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 7d ago",
+        "release in last 180d",
+        "51 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 80,
+      "url": "https://github.com/Romanitho/Winget-AutoUpdate",
+      "why": "Keeps Windows third-party apps patched via winget in system and user context, with allow/block lists, GPO support and Intune log integration for fleet deployment."
+    },
+    "snailsploit/claude-red": {
+      "description": "claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.",
+      "first_step": "Review a SKILL.md in an isolated environment to understand attack techniques relevant to your stack, for authorized testing only.",
+      "fit": 1,
+      "full_name": "SnailSploit/Claude-Red",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 168,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-12T15:02:40Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 10195,
+      "stars_gained_30d": 3027,
+      "stars_gained_7d": 716,
+      "stars_gained_unknown": false,
+      "tags": [
+        "security",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 6,
+      "trend_score": 51.14,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 20d ago",
+        "release in last 180d",
+        "9 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published"
+      ],
+      "trust_score": 76,
+      "url": "https://github.com/SnailSploit/Claude-Red",
+      "why": "Offensive security skill library for Claude; useful for red teamers but only adjacent to defensive sysadmin work. Could inform hardening priorities but is not a mainstream admin task tool."
+    },
+    "softeria/ms-365-mcp-server": {
+      "description": "A Model Context Protocol (MCP) server for interacting with Microsoft 365 and Microsoft Office services through the Graph API",
+      "first_step": "Run it with --read-only and --list-permissions against a test tenant, then connect it in Claude Desktop with a narrow --preset and --allowed-scopes.",
+      "fit": 3,
+      "full_name": "Softeria/ms-365-mcp-server",
+      "gated": true,
+      "language": "TypeScript",
+      "lens_rank": 4,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T21:30:00Z",
+      "readonly_mode": true,
+      "scored_by": "claude",
+      "stars": 1103,
+      "stars_gained_30d": 97,
+      "stars_gained_7d": 21,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "saas",
+        "automation",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 154,
+      "trend_score": 16.09,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "78 contributors",
+        "MIT license",
+        "organization-owned",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 95,
+      "url": "https://github.com/Softeria/ms-365-mcp-server",
+      "why": "MCP server exposing 300+ Microsoft Graph tools (mail, Teams, SharePoint, users) so an agent can query and manage Microsoft 365 tenants, with scope allowlists and tool filtering."
+    },
+    "tailscale/tailscale": {
+      "description": "The easiest, most secure way to use WireGuard and 2FA.",
+      "first_step": "Install the packaged client on a couple of test machines joined to a trial tailnet and evaluate ACLs and SSO login before any wider rollout.",
+      "fit": 2,
+      "full_name": "tailscale/tailscale",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 46,
+      "license": "BSD-3-Clause",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T18:46:24Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 38487,
+      "stars_gained_30d": 1454,
+      "stars_gained_7d": 361,
+      "stars_gained_unknown": false,
+      "tags": [
+        "identity",
+        "network"
+      ],
+      "times_trending_30d": 2,
+      "times_trending_7d": 2,
+      "trend_rank": 4,
+      "trend_score": 55.25,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "376 contributors",
+        "BSD-3-Clause license",
+        "organization-owned",
+        "OpenSSF Scorecard 7.8/10"
+      ],
+      "trust_score": 89,
+      "url": "https://github.com/tailscale/tailscale",
+      "why": "Source for the Tailscale client daemon and CLI, used to build mesh VPN access to internal hosts with SSO-backed identity. Useful for remote access setups, though most admins deploy the packaged builds."
+    },
+    "taylorwilsdon/google_workspace_mcp": {
+      "description": "Control Gmail, Google Calendar, Docs, Sheets, Slides, Chat, Forms, Tasks, Search & Drive with AI - Comprehensive Google Workspace MCP Server & CLI Tool",
+      "first_step": "Run it in read-only mode on a test OU and ask it to list files owned by a departed user.",
+      "fit": 3,
+      "full_name": "taylorwilsdon/google_workspace_mcp",
+      "gated": true,
+      "language": "Python",
+      "lens_rank": 7,
+      "license": "MIT",
+      "needs_review": null,
+      "pushed_at": "2026-10-30T21:39:34Z",
+      "readonly_mode": true,
+      "scored_by": "human",
+      "stars": 3457,
+      "stars_gained_30d": 180,
+      "stars_gained_7d": 37,
+      "stars_gained_unknown": false,
+      "tags": [
+        "saas",
+        "agent"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 61,
+      "trend_score": 19.4,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 2d ago",
+        "release in last 180d",
+        "181 contributors",
+        "MIT license",
+        "personal project",
+        "no OpenSSF Scorecard published",
+        "documented read-only mode"
+      ],
+      "trust_score": 90,
+      "url": "https://github.com/taylorwilsdon/google_workspace_mcp",
+      "why": "Workspace MCP covering Gmail, Drive, Calendar and admin data, with a read-only mode for safe starts."
+    },
+    "wazuh/wazuh": {
+      "description": "Wazuh - The Open Source Security Platform. Unified XDR and SIEM protection for endpoints and cloud workloads.",
+      "first_step": "Deploy the Wazuh Docker stack in a lab and enroll a couple of test endpoints to review vulnerability and configuration-assessment findings before enabling any active responses.",
+      "fit": 3,
+      "full_name": "wazuh/wazuh",
+      "gated": false,
+      "language": "C++",
+      "lens_rank": null,
+      "license": "NOASSERTION",
+      "needs_review": null,
+      "pushed_at": "2026-11-01T18:59:05Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 17533,
+      "stars_gained_30d": 475,
+      "stars_gained_7d": 94,
+      "stars_gained_unknown": false,
+      "tags": [
+        "endpoint",
+        "security",
+        "network"
+      ],
+      "times_trending_30d": 0,
+      "times_trending_7d": 0,
+      "trend_rank": 30,
+      "trend_score": 25.95,
+      "trust_badge": "pilot",
+      "trust_reasons": [
+        "last push 0d ago",
+        "release in last 180d",
+        "211 contributors",
+        "no recognised license",
+        "vendor or foundation maintained",
+        "OpenSSF Scorecard 6.2/10"
+      ],
+      "trust_score": 84,
+      "url": "https://github.com/wazuh/wazuh",
+      "why": "Open-source SIEM/XDR that collects endpoint and syslog data and adds file integrity monitoring, CVE-based vulnerability detection and configuration assessment against hardening baselines such as PCI DSS."
+    },
+    "xtls/xray-core": {
+      "description": "Xray, Penetrates Everything. Also the best v2ray-core. Where the magic happens. An open platform for various uses.",
+      "first_step": "Read the docs at xtls.github.io and run the official Docker image in an isolated lab to see how its traffic appears to your firewall or IDS.",
+      "fit": 1,
+      "full_name": "XTLS/Xray-core",
+      "gated": true,
+      "language": "Go",
+      "lens_rank": 152,
+      "license": "MPL-2.0",
+      "needs_review": null,
+      "pushed_at": "2026-10-31T13:39:55Z",
+      "readonly_mode": null,
+      "scored_by": "claude",
+      "stars": 42544,
+      "stars_gained_30d": 755,
+      "stars_gained_7d": 203,
+      "stars_gained_unknown": false,
+      "tags": [
+        "network"
+      ],
+      "times_trending_30d": 1,
+      "times_trending_7d": 1,
+      "trend_rank": 15,
+      "trend_score": 39.5,
+      "trust_badge": "production",
+      "trust_reasons": [
+        "last push 1d ago",
+        "release in last 180d",
+        "268 contributors",
+        "MPL-2.0 license",
+        "organization-owned",
+        "OpenSSF Scorecard 5.6/10"
+      ],
+      "trust_score": 86,
+      "url": "https://github.com/XTLS/Xray-core",
+      "why": "A proxy/tunnel core (VLESS, Trojan, Shadowsocks, WireGuard) built for censorship circumvention. It is mainly relevant to sysadmins who need to understand or detect these tunnels on their networks, not for managing corporate VPNs."
+    }
+  },
+  "source_repo": "Angrod/it-ai-baseline",
+  "tags": [
+    {
+      "id": "identity",
+      "label": "Identity & Access"
+    },
+    {
+      "id": "endpoint",
+      "label": "Endpoint & MDM"
+    },
+    {
+      "id": "patching",
+      "label": "Patching & Packaging"
+    },
+    {
+      "id": "saas",
+      "label": "SaaS & Collaboration Admin"
+    },
+    {
+      "id": "security",
+      "label": "Security & Compliance"
+    },
+    {
+      "id": "network",
+      "label": "Network & Infrastructure"
+    },
+    {
+      "id": "automation",
+      "label": "Automation & IaC"
+    },
+    {
+      "id": "helpdesk",
+      "label": "Helpdesk & Knowledge"
+    },
+    {
+      "id": "agent",
+      "label": "Agent Tooling (MCP & Skills)"
+    }
+  ],
+  "views": {
+    "lens": [
+      "crowdstrike/falconpy",
+      "jmpsec/osctrl",
+      "netbox-community/netbox",
+      "softeria/ms-365-mcp-server",
+      "grokability/snipe-it",
+      "pnp/powershell",
+      "taylorwilsdon/google_workspace_mcp",
+      "gam-team/gam",
+      "installomator/installomator",
+      "maester365/maester",
+      "glpi-project/glpi",
+      "autopkg/autopkg",
+      "cisagov/scubagear",
+      "googleworkspace/cli",
+      "prowler-cloud/prowler"
+    ],
+    "trending": [
+      "beenuar/aisoc",
+      "raphire/win11debloat",
+      "mhsanaei/3x-ui",
+      "tailscale/tailscale",
+      "cisagov/scubagear",
+      "snailsploit/claude-red",
+      "bregman-arie/devops-exercises",
+      "fleetdm/fleet",
+      "psmux/psmux",
+      "chaitin/safeline",
+      "microsoftdocs/powershell-docs",
+      "romanitho/winget-autoupdate",
+      "fatedier/frp",
+      "michaelcade/90daysofdevops",
+      "xtls/xray-core",
+      "hashicorp/terraform",
+      "ansible/ansible",
+      "pester/pester",
+      "dataplat/dbatools",
+      "micke-k/intunemanagement",
+      "pnp/list-formatting",
+      "googleworkspace/cli",
+      "netbirdio/netbird",
+      "aquasecurity/trivy",
+      "docker-mailserver/docker-mailserver"
+    ]
+  }
+}
