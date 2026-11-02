@@ -118,6 +118,7 @@ def methodology(settings: Settings, history_days: int) -> dict:
         "weights": trending["weights"],
         "window_days": trending["window_days"],
         "log_total_stars": trending.get("log_total_stars", True),
+        "min_fit": trending.get("min_fit", 0),
         "gate": lens_cfg["gate"],
         "show": {"trending": trending["show"], "lens": lens_cfg["show"]},
         "trust": settings.scoring["trust"],
@@ -285,8 +286,10 @@ def build(settings: Settings, gh, now: datetime, *, snapshot_dir: Path = SNAPSHO
 
     # -- views ----------------------------------------------------------------
     pool = [records[k] for k in pool_keys if records[k].get("fit") != 0]
-    score.trending_scores(pool, trending_cfg["weights"], trending_cfg.get("log_total_stars", True))
-    trending = sorted(pool, key=lambda r: (-r["trend_score"], -r["stars"]))
+    min_fit = trending_cfg.get("min_fit", 0)
+    trending_pool = [r for r in pool if r.get("fit") is None or r["fit"] >= min_fit]
+    score.trending_scores(trending_pool, trending_cfg["weights"], trending_cfg.get("log_total_stars", True))
+    trending = sorted(trending_pool, key=lambda r: (-r["trend_score"], -r["stars"]))
     score.assign_rank(trending, "trend_rank")
     lens_list = sorted([r for r in pool if r["gated"] and (r.get("fit") or 0) >= 1], key=lens.lens_sort_key)
     score.assign_rank(lens_list, "lens_rank")

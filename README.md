@@ -21,7 +21,8 @@ should my stack look like".
 **Trending**
 - Pool: repos that match at least one IT domain in `config/rubric.yaml`, gathered from daily GitHub Trending
   snapshots (global, PowerShell, Shell, HCL, Python, Go and Swift pages), GitHub topic search
-  (`config/topics.yaml`), nominations, and the baseline matrix. Forks and archived repos are excluded.
+  (`config/topics.yaml`), nominations, and the baseline matrix. Forks and archived repos are excluded, and
+  so are repos scored below fit 2 (repos not scored yet still appear).
 - Score: 40% stars gained (30d) + 35% times trending (30d) + 25% total stars. Stars gained and times trending
   are max-normalized across the pool; total stars are log-normalized.
 - Stars gained: from GitHub's star-history endpoint (daily counts of stars that still exist). GitHub stopped
