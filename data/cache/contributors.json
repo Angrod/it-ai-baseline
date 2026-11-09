@@ -111,6 +111,10 @@
     "count": 50,
     "fetched_at": "2026-10-29T04:39:32Z"
   },
+  "cloudposse/terraform-aws-s3-bucket": {
+    "count": 58,
+    "fetched_at": "2026-11-02T23:07:39Z"
+  },
   "cmderdev/cmder": {
     "count": 125,
     "fetched_at": "2026-11-01T21:02:05Z"
