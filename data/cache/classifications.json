@@ -197,6 +197,18 @@
     ],
     "why": "Curated index of open-source sysadmin software (backups, LDAP/SSO, asset management, monitoring, VPN) useful for finding self-hosted tools, but it is a list, not a tool."
   },
+  "badgerati/pode": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Install the module from the PowerShell Gallery on a test machine and expose one read-only admin script (e.g., a status query) as a localhost-only GET route.",
+    "fit": 1,
+    "key": "eb74e59fd1b6cd39",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation"
+    ],
+    "why": "PowerShell web framework for wrapping existing admin scripts in REST APIs or small internal web tools, with Windows/Azure AD auth and cron-style scheduled tasks. It is a building block, not a ready-made admin tool."
+  },
   "batfish/batfish": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Run the batfish/allinone Docker container, then load a snapshot of exported configs from a few devices and run the example notebooks. No device access is needed.",
@@ -278,6 +290,19 @@
     ],
     "why": "Aggregated inbound/outbound IP blocklists refreshed every 2 hours, consumable as external dynamic lists on pfSense, OPNsense, FortiGate, Palo Alto. Note: the data is CC BY-NC-SA, so commercial use is restricted."
   },
+  "bivlked/amneziawg-installer": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Run the installer on a disposable Ubuntu 24.04 test VPS, then review the system changes it makes, including package removals and disabled unattended-upgrades.",
+    "fit": 1,
+    "key": "8fac8fc7213fa9ab",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "automation"
+    ],
+    "why": "One-command Bash installer for a self-hosted AmneziaWG (obfuscated WireGuard) VPN server on Ubuntu/Debian with client QR codes. It suits personal or anti-censorship use more than corporate remote access."
+  },
   "borgbase/vykar": {
     "classified_at": "2026-11-01T21:02:05Z",
     "first_step": "Back up a non-critical test directory to a local or sandbox S3 repository, run it alongside your existing backup tool, and verify that restores work.",
@@ -301,6 +326,19 @@
     "tags": [],
     "why": "Interview questions and exercises covering Linux, networking, DNS, Ansible, Terraform and cloud; useful for skills study or for building hiring questions, not an operational tool."
   },
+  "bridgecrewio/checkov-action": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Add the action to a test repository containing your Terraform with soft_fail: true and review the SARIF findings without blocking merges.",
+    "fit": 1,
+    "key": "289329dfbe455abc",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "automation"
+    ],
+    "why": "GitHub Action that runs Checkov to scan Terraform, CloudFormation, Kubernetes and container images for misconfigurations; useful for IT teams managing infrastructure-as-code in GitHub repos."
+  },
   "bytedesk/bytedesk": {
     "classified_at": "2026-11-01T21:02:05Z",
     "first_step": "Deploy the docker-compose stack on an isolated test VM and change the default admin/admin credentials immediately. Then evaluate the ticket and knowledge base modules, and review the BSL/AGPL licensing terms.",
@@ -312,6 +350,20 @@
       "helpdesk"
     ],
     "why": "Self-hosted omnichannel customer-service platform with ticketing, SLA tracking and a knowledge base. It is aimed at external customer support more than internal IT service management, but could serve as an IT helpdesk."
+  },
+  "capture0x/adstrike": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Run in an isolated lab/sandbox AD domain with explicit authorization, starting with enumeration module 10 against a test DC.",
+    "fit": 1,
+    "key": "a49f7cbde40fb328",
+    "readonly_mode": false,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity",
+      "agent"
+    ],
+    "why": "Offensive AD red-team framework; useful for authorized pentesting/AD security validation, but it's an attack tool rather than a day-to-day sysadmin operations tool."
   },
   "casdoor/casdoor": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -836,6 +888,18 @@
     ],
     "why": "MCP servers that let an AI client query Google SecOps (Chronicle) SIEM, SOAR cases, Google Threat Intelligence and Security Command Center for alert triage and threat hunting. Useful only if you run Google's security stack."
   },
+  "google/osv-scanner": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Run `osv-scanner scan source -r` against a repo of internal admin scripts or tools, or `osv-scanner scan image` against an existing container image, and review the report.",
+    "fit": 2,
+    "key": "7ebc8273d1fc4fa5",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security"
+    ],
+    "why": "Scans source dependencies, container images and Linux OS packages for known vulnerabilities using OSV.dev. Useful for vulnerability checks on internal scripts, tools and server images, but it targets developer dependencies more than managed endpoints."
+  },
   "google/osv.dev": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Query the public OSV API at osv.dev for a package version your team runs instead of deploying this GCP codebase.",
@@ -1022,20 +1086,31 @@
     ],
     "why": "Terraform core is the IaC engine behind providers for Okta, Entra ID, Google Workspace and cloud networks, letting admins version and review tenant and infrastructure config. It needs separate providers and workflow setup to be useful."
   },
-  "helpcode-ai/anythingmcp": {
-    "classified_at": "2026-11-01T21:02:05Z",
-    "first_step": "Run the localhost Docker quickstart, connect a single read-only API or database, and restrict per-tool permissions before reviewing the audit log.",
+  "hashicorp/terraform-provider-azurerm": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Write a small config for a test resource group in a sandbox subscription and run terraform plan only, to review the proposed changes without applying them.",
     "fit": 2,
-    "key": "1cd4688a76512ad9",
-    "readonly_mode": true,
+    "key": "f8d9096c9ace58e3",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "automation",
+      "network"
+    ],
+    "why": "Official Terraform provider for managing Azure infrastructure as code, such as resource groups, virtual networks and VMs. It is useful for teams running Azure infrastructure, though it is cloud-infra focused rather than Entra/Intune admin."
+  },
+  "helpcode-ai/anythingmcp": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Run the localhost quickstart in Docker and connect a single test API whose credentials allow read-only access only. Then check the per-tool permissions and the audit log.",
+    "fit": 1,
+    "key": "1f387bbdecd2748d",
+    "readonly_mode": null,
     "status": "scored",
     "tags": [
       "agent",
-      "automation",
-      "saas",
-      "identity"
+      "automation"
     ],
-    "why": "Self-hosted MCP gateway that exposes REST/SOAP/SQL/OpenAPI systems to AI clients, with per-tool RBAC, audit logging and SSO/SCIM. Useful for IT teams governing agent access to internal systems, though the focus is ERP rather than IT admin stacks."
+    "why": "Self-hosted MCP gateway that exposes REST, SOAP, SQL and file shares to AI clients with RBAC and audit logs. Its connectors focus on ERP and e-commerce, so for IT admins it is mainly a platform for building agents, not a sysadmin tool."
   },
   "holo-routing/holo": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -1061,6 +1136,16 @@
       "endpoint"
     ],
     "why": "Hardens Windows using Microsoft-supported settings (Defender, BitLocker, firewall, WDAC). AppControl Manager helps build and deploy App Control for Business policies. Useful for baseline and application-allowlisting work."
+  },
+  "iainkay/ram-altman": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "If curious, run ./ram-altman.sh --status or --dry-run on a personal Linux box to read the memory figures without sending any email.",
+    "fit": 0,
+    "key": "5f56a082bf2b3009",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [],
+    "why": "A parody bash script that emails a daily joke about unused RAM. Its /proc/meminfo accounting is correct, but it is not a practical memory monitoring tool for IT work."
   },
   "infobyte/faraday": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -1117,10 +1202,10 @@
     "why": "Adds OIDC SSO to OpenVPN servers using Entra ID, Okta, Google Workspace or Keycloak, replacing static VPN credentials with your IdP login and MFA policies."
   },
   "jm33-m0/emp3r0r": {
-    "classified_at": "2026-10-29T04:39:32Z",
-    "first_step": "Not applicable for defensive sysadmin work; would only be relevant to red-team specialists.",
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Not applicable for defensive sysadmin use.",
     "fit": 0,
-    "key": "a1927f30f7eac941",
+    "key": "e725183ef4c09109",
     "readonly_mode": null,
     "status": "scored",
     "tags": [],
@@ -1766,6 +1851,19 @@
     ],
     "why": "Self-hosted web UI that exposes predefined shell commands as buttons and forms, letting helpdesk or junior admins run vetted scripts (restarts, backups) with logging of who ran what."
   },
+  "open-policy-agent/opa": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Run the OPA CLI locally and evaluate a sample Rego policy against exported JSON, such as a Terraform plan, in the Rego Playground or with opa eval.",
+    "fit": 1,
+    "key": "a33a7b4cb6c15f75",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "automation"
+    ],
+    "why": "General-purpose policy engine (Rego) for authorization and compliance checks across Kubernetes, Terraform, Docker and SSH/sudo. Mostly a platform/DevOps building block; it does not directly cover mainstream IT admin stacks."
+  },
   "opsmill/infrahub": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Explore the hosted sandbox or run the local quick start with sample data before importing any real inventory.",
@@ -1886,6 +1984,20 @@
     ],
     "why": "Test and mock framework for PowerShell, used to validate admin scripts and modules before running them against production, and to write infrastructure state checks such as config or file presence tests."
   },
+  "pipeshub-ai/pipeshub-ai": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Deploy it in a lab VM and connect one low-sensitivity test source with a read-only service account, then check that search results respect each user's permissions.",
+    "fit": 1,
+    "key": "03383221b1f54149",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "agent",
+      "saas",
+      "helpdesk"
+    ],
+    "why": "Self-hosted enterprise search over Slack, Drive, Microsoft 365, Jira and Confluence with permission-aware results and an MCP server. IT might run it as a knowledge platform, but it does not administer those systems."
+  },
   "pnp/cli-microsoft365": {
     "classified_at": "2026-10-29T04:39:32Z",
     "first_step": "Install via npm or Docker, run `m365 setup` to register a dedicated Entra app with minimal read permissions in a test tenant, then try list/get commands such as `m365 spo site list`.",
@@ -1926,6 +2038,19 @@
       "agent"
     ],
     "why": "Widely used PowerShell module with 900+ cmdlets for administering SharePoint Online, Teams and other Microsoft 365 workloads, e.g. site provisioning, permissions reports and bulk changes."
+  },
+  "pocket-id/pocket-id": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Deploy it via Docker in a lab, then connect one non-critical internal app as an OIDC client to test passkey sign-in.",
+    "fit": 2,
+    "key": "ec509d2cc5d93e73",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Self-hosted OIDC/OAuth 2.0 provider with passkey-only sign-in, useful for adding SSO and phishing-resistant MFA to internal or self-hosted apps without the complexity of Keycloak."
   },
   "powershell/psresourceget": {
     "classified_at": "2026-11-01T21:02:05Z",
@@ -2662,6 +2787,20 @@
     ],
     "why": "Lets UniFi gateways update Cloudflare DNS A/AAAA records via a Worker, covering multi-hostname and dual-stack DDNS for sites with dynamic WAN IPs."
   },
+  "windshiftapp/core": {
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Run the Docker image with embedded SQLite on a test host, import a sample Jira project, and evaluate the service portal and asset register before connecting SSO or the MCP server.",
+    "fit": 2,
+    "key": "985d9fff6ff3a839",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "helpdesk",
+      "agent",
+      "automation"
+    ],
+    "why": "Self-hosted Jira/JSM alternative with service desk queues, SLAs, request portal, knowledge base and asset/CMDB register; could host IT ticketing and asset tracking with LDAP/OIDC SSO."
+  },
   "xtls/xray-core": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Read the docs at xtls.github.io and run the official Docker image in an isolated lab to see how its traffic appears to your firewall or IDS.",
@@ -2687,18 +2826,17 @@
     "why": "Carries your local shell (zsh, fish, xonsh, bash) and dotfiles to remote Linux hosts over SSH without root. It is a convenience for admins working on Linux servers, and it does not automate any admin task."
   },
   "yuezk/globalprotect-openconnect": {
-    "classified_at": "2026-10-29T04:39:32Z",
-    "first_step": "Install gpclient on a test Linux machine and run 'sudo gpclient connect <portal> --browser' against your GlobalProtect portal to check SSO and HIP compatibility.",
+    "classified_at": "2026-11-09T23:47:45Z",
+    "first_step": "Install it on a test Linux machine and run `gpclient connect <portal> --browser` against your GlobalProtect portal to confirm SAML login and HIP checks work before recommending it to users.",
     "fit": 2,
-    "key": "7cf188ba649ee375",
+    "key": "6ef9731aab10ed89",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
       "network",
-      "endpoint",
       "identity"
     ],
-    "why": "Open-source GlobalProtect VPN client for Linux/macOS/BSD with SAML SSO (Okta/Entra), FIDO2 and cert auth, plus HIP reports. Useful for supporting Linux users on Palo Alto VPNs."
+    "why": "Third-party GlobalProtect VPN client for Linux/BSD/macOS with SAML SSO, MFA, and HIP reports. Useful for supporting Linux users on a Palo Alto VPN that has no official client option."
   },
   "zammad/zammad": {
     "classified_at": "2026-11-01T21:02:05Z",
