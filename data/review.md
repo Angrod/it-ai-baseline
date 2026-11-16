@@ -1,26 +1,30 @@
-# Weekly refresh: 2026-11-09
+# Weekly refresh: 2026-11-16
 
 Review the changes below. To change a score, tag or note, edit `curation/overrides.yaml` in this PR; overrides beat Claude's first pass.
 
 | Candidates | IT-relevant | Passed gate | Scored by Claude this run | Needs review |
 |---|---|---|---|---|
-| 1301 | 706 | 203 | 14 | 0 |
+| 1470 | 712 | 209 | 13 | 0 |
+
+## IT Ops lens changes
+
+- ⬆️ **crowdsecurity/crowdsec** entered at #10
+- ⬇️ glpi-project/glpi left the top 15
 
 ## Scored by Claude this run
 
 | Repo | Fit | Tags | Trust | Why for sysadmins |
 |---|---|---|---|---|
-| [yuezk/GlobalProtect-openconnect](https://github.com/yuezk/GlobalProtect-openconnect) | 2 | identity, network | pilot | Third-party GlobalProtect VPN client for Linux/BSD/macOS with SAML SSO, MFA, and HIP reports. Useful for supporting Linux users on a Palo Alto VPN that has no official client option. |
-| [jm33-m0/emp3r0r](https://github.com/jm33-m0/emp3r0r) | 0 | identity, agent | pilot | This is an offensive C2/post-exploitation and malware framework for red teaming, not a tool for administering identity, endpoints, SaaS, or networks. |
-| [Badgerati/Pode](https://github.com/Badgerati/Pode) | 1 | automation | pilot | PowerShell web framework for wrapping existing admin scripts in REST APIs or small internal web tools, with Windows/Azure AD auth and cron-style scheduled tasks. It is a building block, not a ready-made admin tool. |
-| [HelpCode-ai/anythingmcp](https://github.com/HelpCode-ai/anythingmcp) | 1 | automation, agent | production | Self-hosted MCP gateway that exposes REST, SOAP, SQL and file shares to AI clients with RBAC and audit logs. Its connectors focus on ERP and e-commerce, so for IT admins it is mainly a platform for building agents, not a sysadmin tool. |
-| [IainKay/ram-altman](https://github.com/IainKay/ram-altman) | 0 | automation | experimental | A parody bash script that emails a daily joke about unused RAM. Its /proc/meminfo accounting is correct, but it is not a practical memory monitoring tool for IT work. |
-| [Windshiftapp/core](https://github.com/Windshiftapp/core) | 2 | automation, helpdesk, agent | production | Self-hosted Jira/JSM alternative with service desk queues, SLAs, request portal, knowledge base and asset/CMDB register; could host IT ticketing and asset tracking with LDAP/OIDC SSO. |
-| [capture0x/AdStrike](https://github.com/capture0x/AdStrike) | 1 | identity, security, agent | experimental | Offensive AD red-team framework; useful for authorized pentesting/AD security validation, but it's an attack tool rather than a day-to-day sysadmin operations tool. |
-| [pocket-id/pocket-id](https://github.com/pocket-id/pocket-id) | 2 | identity, security | production | Self-hosted OIDC/OAuth 2.0 provider with passkey-only sign-in, useful for adding SSO and phishing-resistant MFA to internal or self-hosted apps without the complexity of Keycloak. |
-| [bridgecrewio/checkov-action](https://github.com/bridgecrewio/checkov-action) | 1 | security, automation | pilot | GitHub Action that runs Checkov to scan Terraform, CloudFormation, Kubernetes and container images for misconfigurations; useful for IT teams managing infrastructure-as-code in GitHub repos. |
-| [bivlked/amneziawg-installer](https://github.com/bivlked/amneziawg-installer) | 1 | network, automation | pilot | One-command Bash installer for a self-hosted AmneziaWG (obfuscated WireGuard) VPN server on Ubuntu/Debian with client QR codes. It suits personal or anti-censorship use more than corporate remote access. |
-| [hashicorp/terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | 2 | network, automation | production | Official Terraform provider for managing Azure infrastructure as code, such as resource groups, virtual networks and VMs. It is useful for teams running Azure infrastructure, though it is cloud-infra focused rather than Entra/Intune admin. |
-| [open-policy-agent/opa](https://github.com/open-policy-agent/opa) | 1 | security, automation | production | General-purpose policy engine (Rego) for authorization and compliance checks across Kubernetes, Terraform, Docker and SSH/sudo. Mostly a platform/DevOps building block; it does not directly cover mainstream IT admin stacks. |
-| [google/osv-scanner](https://github.com/google/osv-scanner) | 2 | security | production | Scans source dependencies, container images and Linux OS packages for known vulnerabilities using OSV.dev. Useful for vulnerability checks on internal scripts, tools and server images, but it targets developer dependencies more than managed endpoints. |
-| [pipeshub-ai/pipeshub-ai](https://github.com/pipeshub-ai/pipeshub-ai) | 1 | saas, helpdesk, agent | production | Self-hosted enterprise search over Slack, Drive, Microsoft 365, Jira and Confluence with permission-aware results and an MCP server. IT might run it as a knowledge platform, but it does not administer those systems. |
+| [jm33-m0/emp3r0r](https://github.com/jm33-m0/emp3r0r) | 0 | identity, security, agent | pilot | This is an offensive C2/post-exploitation framework for red teaming and malware operations, not a tool for administering IT systems. |
+| [fleetdm/fleet](https://github.com/fleetdm/fleet) | 3 | endpoint, patching, security, automation | pilot | Open-source MDM and osquery-based device management for macOS, Windows, Linux, iOS and Android. It covers inventory, software deployment, patching, CIS benchmark checks and GitOps-managed configuration. |
+| [zinggAI/zingg](https://github.com/zinggAI/zingg) | 1 | endpoint | production | Spark-based ML entity resolution for deduplicating customer/master data. 'Identity resolution' here means customer records, not IAM; marginal use for deduping exported user or asset lists. |
+| [Bytedesk/bytedesk](https://github.com/Bytedesk/bytedesk) | 1 | helpdesk | pilot | Self-hosted omnichannel customer-service platform with ticketing, SLA tracking and a knowledge base; built for external customer support rather than internal IT, though it could serve as a basic ticket desk. |
+| [GroundedCoreAI/nexusdesk](https://github.com/GroundedCoreAI/nexusdesk) | 1 | helpdesk, agent | pilot | Self-hosted AI agent platform aimed at external customer support with RAG knowledge bases and ticketing; could be adapted into an internal IT helpdesk bot but has no built-in IT system integrations. |
+| [pipeshub-ai/pipeshub-ai](https://github.com/pipeshub-ai/pipeshub-ai) | 1 | saas, helpdesk, agent | production | Self-hosted enterprise search and RAG platform that indexes Slack, Google Drive, Microsoft 365, Jira and Confluence with permission sync. IT may deploy or run it as an internal knowledge or helpdesk answer layer, but it is not an admin tool. |
+| [community-scripts/ProxmoxVE](https://github.com/community-scripts/ProxmoxVE) | 2 | network, automation | production | One-command shell scripts that deploy 700+ services as LXC containers or VMs on Proxmox VE, plus host post-install and maintenance tooling. Most relevant to admins running Proxmox infrastructure. |
+| [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) | 2 | security, network | production | Template-based vulnerability scanner for checking internal and external hosts, web apps, DNS and TLS for known CVEs and misconfigurations. It is useful for periodic exposure checks, but it is security-team oriented. |
+| [kubescape/kubescape](https://github.com/kubescape/kubescape) | 1 | security, network, agent | production | Scans Kubernetes clusters, manifests and images against CIS, NSA-CISA and MITRE baselines for misconfigurations and CVEs. This is useful only where IT runs Kubernetes, which is mostly platform/DevOps territory. |
+| [crowdsecurity/crowdsec](https://github.com/crowdsecurity/crowdsec) | 3 | security, network | production | Log-based IDS/IPS and WAF that detects brute force, port scans and web scans on Linux/Windows servers and blocks malicious IPs at firewalls or reverse proxies. A fail2ban replacement with a shared community blocklist. |
+| [gravitational/teleport](https://github.com/gravitational/teleport) | 2 | identity, security, network | production | Self-hosted access proxy that puts SSH, RDP, Kubernetes and database access behind SSO with Okta or Entra ID, short-lived certificates, JIT access requests and session recording for audit. |
+| [meshery/meshery](https://github.com/meshery/meshery) | 1 | network, automation | production | Kubernetes multi-cluster management platform with visual GitOps design and dry-run deployments. Useful only to IT teams that run Kubernetes infrastructure; it does not touch identity, endpoint or SaaS administration. |
+| [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) | 2 | security | pilot | Library of 3000+ vendor-agnostic SIEM detection rules (Windows, Sysmon, cloud, compliance) that convert to Splunk, Elastic, Sentinel and other query languages for building detections. |
