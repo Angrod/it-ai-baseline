@@ -340,16 +340,16 @@
     "why": "GitHub Action that runs Checkov to scan Terraform, CloudFormation, Kubernetes and container images for misconfigurations; useful for IT teams managing infrastructure-as-code in GitHub repos."
   },
   "bytedesk/bytedesk": {
-    "classified_at": "2026-11-01T21:02:05Z",
-    "first_step": "Deploy the docker-compose stack on an isolated test VM and change the default admin/admin credentials immediately. Then evaluate the ticket and knowledge base modules, and review the BSL/AGPL licensing terms.",
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Start the docker-compose stack on an isolated test VM, change the default admin/admin credentials immediately, and evaluate the ticket and KB modules; check the license terms first, since the metadata says AGPL but the README states BSL 1.1.",
     "fit": 1,
-    "key": "8b412d2c2ae8da33",
+    "key": "7b9ceb387e344cbb",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
       "helpdesk"
     ],
-    "why": "Self-hosted omnichannel customer-service platform with ticketing, SLA tracking and a knowledge base. It is aimed at external customer support more than internal IT service management, but could serve as an IT helpdesk."
+    "why": "Self-hosted omnichannel customer-service platform with ticketing, SLA tracking and a knowledge base; built for external customer support rather than internal IT, though it could serve as a basic ticket desk."
   },
   "capture0x/adstrike": {
     "classified_at": "2026-11-09T23:47:45Z",
@@ -470,6 +470,19 @@
     ],
     "why": "Self-hosted ITSM platform with a CMDB, ticketing, change and SLA management, and CSV import for tracking assets, incidents and service dependencies."
   },
+  "community-scripts/proxmoxve": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Read the source of a single script, then run it on a non-production Proxmox test host to deploy one container with Advanced settings.",
+    "fit": 2,
+    "key": "d0bd56ba104ed047",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "automation"
+    ],
+    "why": "One-command shell scripts that deploy 700+ services as LXC containers or VMs on Proxmox VE, plus host post-install and maintenance tooling. Most relevant to admins running Proxmox infrastructure."
+  },
   "compasssecurity/entrafalcon": {
     "classified_at": "2026-10-29T04:39:32Z",
     "first_step": "Run run_EntraFalcon.ps1 with a Global Reader account against a test or production tenant and review the Security Findings HTML report before changing anything.",
@@ -496,6 +509,19 @@
       "network"
     ],
     "why": "Kubernetes-based control plane for declaratively managing cloud infrastructure; relevant to platform/cloud engineers more than identity, endpoint or SaaS admins."
+  },
+  "crowdsecurity/crowdsec": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Install it on a single non-critical Linux server in detection-only mode, with no bouncer installed, and review the alerts it raises from existing SSH and web logs.",
+    "fit": 3,
+    "key": "8c1f335c600dfb2b",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "network"
+    ],
+    "why": "Log-based IDS/IPS and WAF that detects brute force, port scans and web scans on Linux/Windows servers and blocks malicious IPs at firewalls or reverse proxies. A fail2ban replacement with a shared community blocklist."
   },
   "crowdstrike/falconpy": {
     "classified_at": "2026-11-02T00:16:40Z",
@@ -794,10 +820,10 @@
     "why": "Self-hosted open source ticketing system (Laravel/PHP) that IT teams could run as an internal helpdesk; it is customer-support oriented, and the community edition lacks asset management."
   },
   "fleetdm/fleet": {
-    "classified_at": "2026-10-29T04:39:32Z",
-    "first_step": "Stand up a trial Fleet server and enroll a few test machines with the osquery agent to review inventory and CIS policy results before enabling MDM or software deployment.",
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Stand up a free Fleet instance in a lab and enroll a few test devices with fleetd to review inventory and CIS policy results before enabling any MDM or software deployment features.",
     "fit": 3,
-    "key": "fb139db802e189bf",
+    "key": "2d7ebcb318f107b3",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
@@ -806,7 +832,7 @@
       "security",
       "automation"
     ],
-    "why": "Open-source MDM and osquery-based device management for macOS, Windows, Linux, iOS and Android: inventory, software deployment and patching, CIS benchmark checks, and GitOps-managed config."
+    "why": "Open-source MDM and osquery-based device management for macOS, Windows, Linux, iOS and Android. It covers inventory, software deployment, patching, CIS benchmark checks and GitOps-managed configuration."
   },
   "fortinetdev/terraform-provider-fortios": {
     "classified_at": "2026-11-02T00:16:40Z",
@@ -992,6 +1018,20 @@
     ],
     "why": "Official Python quickstart samples for Google Workspace APIs, including Admin SDK Directory and Reports. Useful as starting code for scripting user listings or audit log pulls, but not a finished tool."
   },
+  "gravitational/teleport": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Deploy the Linux demo cluster in a lab, connect it to a test Okta or Entra ID SSO app, and enroll one non-production SSH server and one Windows host to evaluate access and audit logs.",
+    "fit": 2,
+    "key": "5bfd71190527f0f8",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security",
+      "network"
+    ],
+    "why": "Self-hosted access proxy that puts SSH, RDP, Kubernetes and database access behind SSO with Okta or Entra ID, short-lived certificates, JIT access requests and session recording for audit."
+  },
   "greenbone/openvas-scanner": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Deploy the Greenbone Community Containers in a lab VM and run an authorized scan against a single test host on an isolated subnet.",
@@ -1017,6 +1057,19 @@
       "endpoint"
     ],
     "why": "Self-hosted IT asset and license management for tracking who has which laptop, purchase and depreciation data, and software licenses. It has a REST API and integrations such as jamf2snipe and Kandji2Snipe."
+  },
+  "groundedcoreai/nexusdesk": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Run the Docker quickstart locally with the mock model and default 127.0.0.1 binding to evaluate the knowledge base and agent features before connecting any real systems.",
+    "fit": 1,
+    "key": "d2305f40963f316d",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "helpdesk",
+      "agent"
+    ],
+    "why": "Self-hosted AI agent platform aimed at external customer support with RAG knowledge bases and ticketing; could be adapted into an internal IT helpdesk bot but has no built-in IT system integrations."
   },
   "guacsec/guac": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -1202,14 +1255,14 @@
     "why": "Adds OIDC SSO to OpenVPN servers using Entra ID, Okta, Google Workspace or Keycloak, replacing static VPN credentials with your IdP login and MFA policies."
   },
   "jm33-m0/emp3r0r": {
-    "classified_at": "2026-11-09T23:47:45Z",
-    "first_step": "Not applicable for defensive sysadmin use.",
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Not applicable for defensive sysadmin work.",
     "fit": 0,
-    "key": "e725183ef4c09109",
+    "key": "a6a900a5b1c753bf",
     "readonly_mode": null,
     "status": "scored",
     "tags": [],
-    "why": "This is an offensive C2/post-exploitation and malware framework for red teaming, not a tool for administering identity, endpoints, SaaS, or networks."
+    "why": "This is an offensive C2/post-exploitation framework for red teaming and malware operations, not a tool for administering IT systems."
   },
   "jmpsec/osctrl": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -1291,6 +1344,20 @@
       "saas"
     ],
     "why": "A library of prompt instruction blocks for M365 Copilot declarative agents, mostly aimed at business users (writing, PM, HR). M365 admins rolling out Copilot could use it as starter content for users."
+  },
+  "kubescape/kubescape": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Run `kubescape scan framework nsa` against a non-production cluster with a read-only kubeconfig and review the posture report.",
+    "fit": 1,
+    "key": "8ace7d992fa0fe26",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "network",
+      "agent"
+    ],
+    "why": "Scans Kubernetes clusters, manifests and images against CIS, NSA-CISA and MITRE baselines for misconfigurations and CVEs. This is useful only where IT runs Kubernetes, which is mostly platform/DevOps territory."
   },
   "lacs-project/sysknife": {
     "classified_at": "2026-11-02T00:16:40Z",
@@ -1468,6 +1535,19 @@
       "security"
     ],
     "why": "Provides over 270 Windows/AD/Sysmon EVTX attack samples mapped to MITRE ATT&CK, for testing whether your SIEM detection rules fire on AD, Defender and Exchange events."
+  },
+  "meshery/meshery": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Try the hosted Cloud Native Playground, or deploy the Helm chart against a non-production test cluster to explore its read-only visualization.",
+    "fit": 1,
+    "key": "ddecb8e049b05f3e",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "automation"
+    ],
+    "why": "Kubernetes multi-cluster management platform with visual GitOps design and dry-run deployments. Useful only to IT teams that run Kubernetes infrastructure; it does not touch identity, endpoint or SaaS administration."
   },
   "mhsanaei/3x-ui": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -1985,10 +2065,10 @@
     "why": "Test and mock framework for PowerShell, used to validate admin scripts and modules before running them against production, and to write infrastructure state checks such as config or file presence tests."
   },
   "pipeshub-ai/pipeshub-ai": {
-    "classified_at": "2026-11-09T23:47:45Z",
-    "first_step": "Deploy it in a lab VM and connect one low-sensitivity test source with a read-only service account, then check that search results respect each user's permissions.",
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Deploy it in an isolated lab VM and connect a single test Confluence space or Drive folder using a read-only service account, then check that permission filtering behaves as expected.",
     "fit": 1,
-    "key": "03383221b1f54149",
+    "key": "1d8859a852700345",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
@@ -1996,7 +2076,7 @@
       "saas",
       "helpdesk"
     ],
-    "why": "Self-hosted enterprise search over Slack, Drive, Microsoft 365, Jira and Confluence with permission-aware results and an MCP server. IT might run it as a knowledge platform, but it does not administer those systems."
+    "why": "Self-hosted enterprise search and RAG platform that indexes Slack, Google Drive, Microsoft 365, Jira and Confluence with permission sync. IT may deploy or run it as an internal knowledge or helpdesk answer layer, but it is not an admin tool."
   },
   "pnp/cli-microsoft365": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -2115,6 +2195,19 @@
       "patching"
     ],
     "why": "Patches OS-package vulnerabilities in existing container images using Trivy scan reports, without a full rebuild. Useful for teams that run third-party container workloads and have security SLAs to meet."
+  },
+  "projectdiscovery/nuclei": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Install the CLI and run it with a limited template set (e.g. -severity critical,high) against a single host you own in a test network, with rate limits set.",
+    "fit": 2,
+    "key": "6b49adf1d13751cc",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "network"
+    ],
+    "why": "Template-based vulnerability scanner for checking internal and external hosts, web apps, DNS and TLS for known CVEs and misconfigurations. It is useful for periodic exposure checks, but it is security-team oriented."
   },
   "prowler-cloud/prowler": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -2363,6 +2456,18 @@
       "network"
     ],
     "why": "Installs and maintains Tailscale as a persistent systemd service on UniFi Cloud Gateways, so the gateway can act as a subnet router or exit node for remote access to the site LAN."
+  },
+  "sigmahq/sigma": {
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Download a release rule package, convert a few Windows rules with sigma-cli to your SIEM's query language, and run them as searches in a test workspace before enabling alerts.",
+    "fit": 2,
+    "key": "c6b824acf5b984bb",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security"
+    ],
+    "why": "Library of 3000+ vendor-agnostic SIEM detection rules (Windows, Sysmon, cloud, compliance) that convert to Splunk, Elastic, Sentinel and other query languages for building detections."
   },
   "silverhack/monkey365": {
     "classified_at": "2026-11-01T21:02:05Z",
@@ -2851,14 +2956,14 @@
     "why": "Self-hostable open-source ticketing system for running an IT helpdesk queue across email, chat and phone, with a REST API for integrations. It is customer-support oriented rather than a full ITSM."
   },
   "zinggai/zingg": {
-    "classified_at": "2026-10-29T04:39:32Z",
-    "first_step": "Run the Docker image against the bundled Febrl example, then try a CSV export of duplicate asset or user records.",
+    "classified_at": "2026-11-16T23:45:08Z",
+    "first_step": "Run the Docker image with the bundled Febrl example config to see match output before trying a CSV export of duplicate asset or user records.",
     "fit": 1,
-    "key": "d9e368ccd28213f1",
+    "key": "b332fca66380edf5",
     "readonly_mode": null,
     "status": "scored",
     "tags": [],
-    "why": "Spark-based ML entity resolution for customer/master data. It is a data engineering tool, though it could help dedupe messy asset or user records merged from multiple HR/IT systems."
+    "why": "Spark-based ML entity resolution for deduplicating customer/master data. 'Identity resolution' here means customer records, not IAM; marginal use for deduping exported user or asset lists."
   },
   "zitadel/zitadel": {
     "classified_at": "2026-10-29T04:39:32Z",

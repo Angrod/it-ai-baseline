@@ -143,6 +143,10 @@
     "count": 57,
     "fetched_at": "2026-11-09T23:47:45Z"
   },
+  "community-scripts/proxmoxve": {
+    "count": 467,
+    "fetched_at": "2026-11-16T23:45:08Z"
+  },
   "compasssecurity/entrafalcon": {
     "count": 2,
     "fetched_at": "2026-11-09T23:47:45Z"
@@ -150,6 +154,10 @@
   "crossplane/crossplane": {
     "count": 291,
     "fetched_at": "2026-11-09T23:47:45Z"
+  },
+  "crowdsecurity/crowdsec": {
+    "count": 89,
+    "fetched_at": "2026-11-16T23:45:08Z"
   },
   "crowdstrike/falcon-mcp": {
     "count": 33,
@@ -319,6 +327,10 @@
     "count": 32,
     "fetched_at": "2026-11-09T23:47:45Z"
   },
+  "gravitational/teleport": {
+    "count": 324,
+    "fetched_at": "2026-11-16T23:45:08Z"
+  },
   "greenbone/openvas-scanner": {
     "count": 57,
     "fetched_at": "2026-11-09T23:47:45Z"
@@ -326,6 +338,10 @@
   "grokability/snipe-it": {
     "count": 337,
     "fetched_at": "2026-11-09T23:47:45Z"
+  },
+  "groundedcoreai/nexusdesk": {
+    "count": 4,
+    "fetched_at": "2026-11-16T23:45:08Z"
   },
   "guacsec/guac": {
     "count": 79,
@@ -411,6 +427,10 @@
     "count": 2,
     "fetched_at": "2026-11-09T23:47:45Z"
   },
+  "kubescape/kubescape": {
+    "count": 267,
+    "fetched_at": "2026-11-16T23:45:08Z"
+  },
   "lacs-project/sysknife": {
     "count": 31,
     "fetched_at": "2026-11-09T23:47:45Z"
@@ -466,6 +486,10 @@
   "merill/lokka": {
     "count": 10,
     "fetched_at": "2026-11-09T23:47:45Z"
+  },
+  "meshery/meshery": {
+    "count": 309,
+    "fetched_at": "2026-11-16T23:45:08Z"
   },
   "mhsanaei/3x-ui": {
     "count": 323,
@@ -666,6 +690,10 @@
   "project-copacetic/copacetic": {
     "count": 54,
     "fetched_at": "2026-11-09T23:47:45Z"
+  },
+  "projectdiscovery/nuclei": {
+    "count": 293,
+    "fetched_at": "2026-11-16T23:45:08Z"
   },
   "prowler-cloud/prowler": {
     "count": 396,
