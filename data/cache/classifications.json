@@ -1,4 +1,19 @@
 {
+  "7wdn/7shell": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Install it on an admin workstation, connect to a lab host to try SSH, SFTP and the host monitor, and leave the MCP server off until you have reviewed its risk and approval rules.",
+    "fit": 2,
+    "key": "6f8f6db545469a05",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "automation",
+      "agent",
+      "security"
+    ],
+    "why": "Desktop SSH/SFTP/RDP client with batch command execution, host monitoring, Docker/Kubernetes and VMware Workstation management, plus an MCP server with risk rules and an audit log."
+  },
   "abgox/pscompletions": {
     "classified_at": "2026-11-01T21:02:05Z",
     "first_step": "Install the module from PowerShell Gallery on a personal workstation, run 'psc add git', and check whether it conflicts with your existing PSReadLine profile.",
@@ -91,6 +106,16 @@
     ],
     "why": "Collection of DevOps tutorial code (Terraform, Kubernetes, Ansible, AWS/GCP) accompanying YouTube videos; useful as reference examples for cloud infrastructure, not for mainstream IT admin tasks."
   },
+  "appwrite/appwrite": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Self-host it in a local Docker sandbox using the installer bound to localhost and evaluate it as a backend for a small internal tool.",
+    "fit": 1,
+    "key": "4fada3720ec9e780",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [],
+    "why": "Backend-as-a-service platform for app developers covering auth, databases, storage and functions. Useful to IT mainly if you build or self-host internal apps, not for administering identity, endpoints or SaaS."
+  },
   "aquasecurity/kube-bench": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Apply the supplied job.yaml to a non-production cluster and review the pass/fail results in the pod logs.",
@@ -116,6 +141,19 @@
       "network"
     ],
     "why": "Scans container images, filesystems, VM images, Kubernetes clusters and IaC for CVEs, misconfigurations and exposed secrets. Useful for vulnerability management on servers and infrastructure, less so for endpoint/SaaS stacks."
+  },
+  "armur-ai/pentest-swarm-ai": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Run self-hosted against a sandbox/CTF target you own using a local Ollama model, within strict scope guardrails.",
+    "fit": 2,
+    "key": "a0fdfd8ea8bf17c4",
+    "readonly_mode": false,
+    "status": "scored",
+    "tags": [
+      "security",
+      "automation"
+    ],
+    "why": "Autonomous AI pentesting swarm for web apps and APIs with verification oracles; useful for security teams running authorized vulnerability testing against their own assets."
   },
   "art-of-wifi/unifi-api-browser": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -143,17 +181,17 @@
     "why": "PHP client library for the UniFi Network Application API, useful for scripting device/client inventory, guest vouchers, stats and config on UniFi networks. Requires writing PHP code."
   },
   "ascit31/dark-moon": {
-    "classified_at": "2026-10-29T04:39:32Z",
-    "first_step": "Clone and run against an authorized sandbox target (e.g. OWASP Juice Shop) with a local model to review findings before any production use.",
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Run against an isolated lab target (like OWASP Juice Shop) using a local LLM, not production.",
     "fit": 2,
-    "key": "4f7a2e804aa88a3c",
+    "key": "7dc253e80b19f120",
     "readonly_mode": false,
     "status": "scored",
     "tags": [
       "security",
-      "automation"
+      "agent"
     ],
-    "why": "Autonomous AI penetration testing across web, AD, cloud, K8s and CI/CD, runnable on a local LLM for self-hosted vulnerability assessment of your own infrastructure."
+    "why": "Autonomous AI pentesting tool for finding/exploiting vulnerabilities across web, AD, cloud and Kubernetes; useful for vulnerability assessment on authorized infrastructure."
   },
   "assafdori/bypass-mdm": {
     "classified_at": "2026-11-02T00:16:40Z",
@@ -237,6 +275,19 @@
     ],
     "why": "Self-hosted SOC platform that ingests EDR/SIEM/Okta telemetry, correlates alerts, and runs LLM triage with human-approved responses. Useful for small security teams, but heavy to deploy and operate."
   },
+  "benthecyberone/copperhound": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Run the Docker container locally on 127.0.0.1 and load the fabricated demo dataset before importing any real SharpHound or AzureHound collection.",
+    "fit": 2,
+    "key": "daee9709077bb2e4",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Analyzes AD, ADCS and Entra ID attack paths from SharpHound/AzureHound data, ranks findings and plans remediation of privilege exposure to Tier Zero. Useful for identity hardening, though it needs collection data and AD security know-how."
+  },
   "bert-janp/hunting-queries-detection-rules": {
     "classified_at": "2026-11-01T22:43:52Z",
     "first_step": "Copy a few Entra ID or Defender for Endpoint queries into Advanced Hunting and run them read-only to review the results before turning any into custom detection rules.",
@@ -278,17 +329,17 @@
     "why": "Browser-based tool for documenting physical Ethernet cabling: switches, patch panels and wall ports, with printable port and connection sheets. Useful for small-office or closet cable documentation."
   },
   "bitwire-it/ipblocklist": {
-    "classified_at": "2026-11-01T22:43:52Z",
-    "first_step": "Import outbound.txt as an external dynamic list on a test firewall in log-only mode, then review the hits for false positives before you enable blocking.",
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Import outbound.txt as an external threat feed on a test firewall rule set to log only, and review hits for false positives before switching to block.",
     "fit": 2,
-    "key": "93d6022a5914d632",
+    "key": "e56c91ccd2984aac",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
       "security",
       "network"
     ],
-    "why": "Aggregated inbound/outbound IP blocklists refreshed every 2 hours, consumable as external dynamic lists on pfSense, OPNsense, FortiGate, Palo Alto. Note: the data is CC BY-NC-SA, so commercial use is restricted."
+    "why": "Aggregated inbound/outbound IP blocklists refreshed every 2 hours, usable as external dynamic lists on pfSense, OPNsense, FortiGate, Palo Alto, or UniFi firewalls to block scanners and C2 traffic."
   },
   "bivlked/amneziawg-installer": {
     "classified_at": "2026-11-09T23:47:45Z",
@@ -419,6 +470,19 @@
     ],
     "why": "PowerShell tool that audits an M365 tenant (Entra ID, Exchange, SharePoint, Teams, Defender, Power Platform) against CISA SCuBA baselines and outputs HTML/JSON/CSV reports usable as compliance evidence."
   },
+  "cisofy/lynis": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Clone the repo onto a non-production Linux or macOS test machine, run './lynis audit system', and review the hardening suggestions in the report and /var/log/lynis-report.dat.",
+    "fit": 3,
+    "key": "9769690ac89ca418",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "endpoint"
+    ],
+    "why": "Agentless shell tool that audits Linux, macOS and BSD hosts for hardening gaps, vulnerable packages and misconfigurations, producing findings useful as compliance evidence (PCI DSS, HIPAA, ISO27001)."
+  },
   "cloudposse/terraform-aws-s3-bucket": {
     "classified_at": "2026-11-02T23:07:39Z",
     "first_step": "Run terraform plan with the module in a sandbox AWS account with user_enabled=false and review the planned bucket and policy resources.",
@@ -482,6 +546,19 @@
       "automation"
     ],
     "why": "One-command shell scripts that deploy 700+ services as LXC containers or VMs on Proxmox VE, plus host post-install and maintenance tooling. Most relevant to admins running Proxmox infrastructure."
+  },
+  "community-vyprojects/vymanager": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Deploy it with Docker Compose in a lab and connect a test VyOS VM using a dedicated API key, viewing dashboards before pushing any config changes.",
+    "fit": 2,
+    "key": "862244209aa79def",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "agent"
+    ],
+    "why": "Web control plane for managing VyOS routers across multiple sites: firewall and routing config, live dashboards and per-site RBAC. Useful only if your network runs on VyOS."
   },
   "compasssecurity/entrafalcon": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -702,17 +779,16 @@
     "why": "Hardening reference for macOS covering FileVault, firewall/pf, Gatekeeper, SIP and logging; useful for drafting Mac security baselines, though aimed at individual users rather than MDM-managed fleets."
   },
   "dromara/maxkey": {
-    "classified_at": "2026-10-29T04:39:32Z",
-    "first_step": "Deploy the Docker build in an isolated lab, connect it to a test LDAP/AD, and federate one non-production SAML or OIDC app.",
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Deploy the Docker build in an isolated lab, connect it to a test LDAP/AD, and federate one non-production app via SAML or OIDC.",
     "fit": 2,
-    "key": "1a726a19ae7bc57b",
+    "key": "a27471f9b5e9eeb6",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
-      "identity",
-      "security"
+      "identity"
     ],
-    "why": "Self-hosted open-source IdP providing SSO (SAML, OIDC, CAS), MFA, SCIM provisioning and AD/LDAP account management. An alternative to Okta/Entra, but it requires running and maintaining a Java/MySQL stack."
+    "why": "Self-hosted IAM/SSO platform supporting SAML, OIDC, CAS, SCIM, LDAP/AD sync, MFA and password self-service. An alternative to Keycloak or Okta for on-prem identity and lifecycle management."
   },
   "ediwang/moonglade": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -900,6 +976,18 @@
       "network"
     ],
     "why": "Self-hosted ITSM and asset management: ticketing, CMDB, agent-based hardware/software inventory, license tracking, contracts and a knowledge base."
+  },
+  "gnacho/netpulse": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Click through the read-only live demo, then run the server binary on a lab Linux box with a single test OpenWrt router.",
+    "fit": 1,
+    "key": "0be5814c58178bc2",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network"
+    ],
+    "why": "Self-hosted dashboard for monitoring OpenWrt/GL.iNet home routers, with topology, device inventory, WireGuard peers and speed tests. It is aimed at home networks, though small offices running OpenWrt, OPNsense or UniFi may get some use from it."
   },
   "google/mcp-security": {
     "classified_at": "2026-11-01T21:02:05Z",
@@ -1359,6 +1447,32 @@
     ],
     "why": "Scans Kubernetes clusters, manifests and images against CIS, NSA-CISA and MITRE baselines for misconfigurations and CVEs. This is useful only where IT runs Kubernetes, which is mostly platform/DevOps territory."
   },
+  "kyverno/kyverno": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Install it on a test cluster (e.g. kind) and apply Policy Library policies in Audit mode, then review the policy reports without enforcing anything.",
+    "fit": 1,
+    "key": "0084daa5c9543786",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "automation"
+    ],
+    "why": "Kubernetes admission policy engine for enforcing pod security standards, CIS policies and image signature checks. Relevant only to IT teams that run Kubernetes clusters; it does not cover identity, endpoint or SaaS admin."
+  },
+  "labnol/apps-script-starter": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Clone it with degit and push a trivial standalone script to a test Google account using clasp, before writing any automation that touches production Workspace data.",
+    "fit": 1,
+    "key": "3fc521acdf43ee71",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "saas",
+      "automation"
+    ],
+    "why": "Boilerplate for writing Google Apps Script projects locally with Vite, Jest and clasp. Useful if you build Workspace automations or add-ons, but it does not perform any admin tasks itself."
+  },
   "lacs-project/sysknife": {
     "classified_at": "2026-11-02T00:16:40Z",
     "first_step": "Install on a disposable Ubuntu VM and use only the read-only query tools and sysknife_plan, without approving any execution receipts.",
@@ -1523,6 +1637,19 @@
       "automation"
     ],
     "why": "PowerShell framework that runs automated security configuration checks against Entra ID and Microsoft 365 tenants (Conditional Access, Exchange, etc.) and reports drift, with CI/CD and Teams/email notifications."
+  },
+  "mafifrizi/ares": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Run self-hosted in an isolated lab tenant with a tightly scoped campaign and dry-run plan before any live targets.",
+    "fit": 2,
+    "key": "4228e90048bb9d48",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "agent"
+    ],
+    "why": "Red-team validation platform that proves exploitable attack paths against AD and cloud, maps MITRE ATT&CK, and produces audit-ready reports for defensive posture validation."
   },
   "mdecrevoisier/evtx-to-mitre-attack": {
     "classified_at": "2026-11-01T21:02:05Z",
@@ -1702,6 +1829,16 @@
     ],
     "why": "Official PowerShell modules for Microsoft Graph, used to script Entra ID users and groups, Intune devices, Exchange/Teams data and compliance tasks across Microsoft 365."
   },
+  "mjmirza/app-store-compliance": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Skip it for IT operations work. If your org builds apps, pass it to the mobile developers, who can run the guard script against a copy of their project.",
+    "fit": 0,
+    "key": "18cc3da48887d375",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [],
+    "why": "A pre-submission checker for mobile app developers publishing to the App Store or Google Play. It does not touch any IT administration task such as MDM, identity or SaaS admin."
+  },
   "mthcht/awesome-lists": {
     "classified_at": "2026-11-01T21:02:05Z",
     "first_step": "Download one list, such as the RMM or suspicious OAuth app IDs CSV, and run it as a read-only lookup against existing SIEM or Entra sign-in logs to review the hits.",
@@ -1847,6 +1984,33 @@
       "automation"
     ],
     "why": "Python client for the NetBox API, used to script queries and updates to a network source of truth (devices, IPs, sites) for inventory sync and automation."
+  },
+  "netdata/netdata": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Install the open-source agent on a single non-production Linux server and review its local dashboard and default alerts before connecting it to Netdata Cloud or enabling its MCP server.",
+    "fit": 2,
+    "key": "fe029573973a0d0f",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "network",
+      "security",
+      "agent"
+    ],
+    "why": "Self-hosted per-second monitoring for servers, VMs, SNMP network gear, NetFlow and hardware (IPMI/Redfish), with anomaly detection and alerting. It is useful for infrastructure monitoring, but it is not focused on identity or endpoint management."
+  },
+  "nh-red-team/rusthound": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Run read-only against a lab AD domain to generate collection JSON and analyze in BloodHound.",
+    "fit": 2,
+    "key": "50221142747b1be9",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "identity",
+      "security"
+    ],
+    "why": "Collects Active Directory objects (users, groups, GPOs, ADCS) into BloodHound JSON for attack-path analysis, useful for AD security audits and hardening reviews."
   },
   "normation/rudder": {
     "classified_at": "2026-11-01T21:02:05Z",
@@ -2025,6 +2189,19 @@
     ],
     "why": "Self-hosted Linux/FreeBSD/Windows server patch management with package inventory, dry-run and approved patch runs, scheduling, CIS/OpenSCAP compliance scans and OIDC SSO."
   },
+  "patrowl/patrowlmanager": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Deploy PatrowlManager and one PatrowlEngine in a lab VM per the installation guide and scan a small set of test assets you own.",
+    "fit": 2,
+    "key": "2d77d190d6fbe881",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "automation"
+    ],
+    "why": "Self-hosted platform for orchestrating vulnerability scans across assets, aggregating findings, and relaying alerts to TheHive or Splunk. Requires deploying separate scan engines alongside it."
+  },
   "pegaprox/project-pegaprox": {
     "classified_at": "2026-11-01T21:02:05Z",
     "first_step": "Deploy it on a test VM, connect a lab Proxmox cluster using a Viewer-role or read-only API account, and review the dashboard and monitoring before enabling any write actions.",
@@ -2077,6 +2254,19 @@
       "helpdesk"
     ],
     "why": "Self-hosted enterprise search and RAG platform that indexes Slack, Google Drive, Microsoft 365, Jira and Confluence with permission sync. IT may deploy or run it as an internal knowledge or helpdesk answer layer, but it is not an admin tool."
+  },
+  "plumhound/plumhound": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Load a SharpHound collection from a lab or test domain into Neo4j and run PlumHound with the default task list to review the generated reports.",
+    "fit": 2,
+    "key": "d63f7e9313391eef",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "security",
+      "identity"
+    ],
+    "why": "Turns BloodHound Neo4j data into HTML reports on AD privilege issues such as Kerberoastable users, delegation, DCSync rights, GPO owners and local admins, for hardening work."
   },
   "pnp/cli-microsoft365": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -2289,16 +2479,16 @@
     "why": "Drag-and-drop rack elevation designer using NetBox device images, for planning and documenting server/network racks and exporting diagrams for change requests."
   },
   "rana-gmbh/netfluss": {
-    "classified_at": "2026-11-01T22:43:52Z",
-    "first_step": "Install it on one test Mac, leave the privileged helper and DNS rules off, and use it to check per-app bandwidth during a slow-network ticket.",
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Install it on a single test Mac or Windows machine and watch per-app bandwidth, leaving the DNS and VPN features off.",
     "fit": 1,
-    "key": "ad3fb916557de311",
+    "key": "7cadbcde4c22dc60",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
       "network"
     ],
-    "why": "Menubar app for macOS and Windows that shows per-app bandwidth, router traffic (UniFi, OpenWrt, Fritz!Box), DNS switching and VPN status. It is useful for ad-hoc troubleshooting on a single machine, but it is not a fleet admin tool."
+    "why": "A personal menu bar/taskbar network monitor with per-app bandwidth, router stats (UniFi, OpenWrt, Fritzbox), DNS switching and a VPN client. It is handy for troubleshooting a single machine but is not a fleet management tool."
   },
   "raphire/win11debloat": {
     "classified_at": "2026-11-01T22:43:52Z",
@@ -2366,6 +2556,19 @@
     ],
     "why": "Developer tool that checks Ruby Gemfile.lock files for gems with known vulnerabilities. Useful to sysadmins only if they run or maintain Ruby apps such as internal Rails tools."
   },
+  "rushb-fr/freekiosk": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Install the APK on a spare factory-reset Android test tablet, set Device Owner via ADB, and test lockdown and PIN exit before touching production devices.",
+    "fit": 2,
+    "key": "2cabb18b5e907b41",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "endpoint",
+      "automation"
+    ],
+    "why": "Locks Android tablets into single-app or web kiosk mode via Device Owner, with ADB provisioning and a REST/MQTT API for signage, POS and lobby devices. It's a cheaper alternative to Fully Kiosk."
+  },
   "ruudmens/lazyadmin": {
     "classified_at": "2026-11-01T21:02:05Z",
     "first_step": "Browse the repo for a reporting script (e.g., an AD or M365 user report), read the code and the matching blog guide, then run it in a test environment with read-only permissions.",
@@ -2405,6 +2608,19 @@
       "security"
     ],
     "why": "Web panel for managing OpenResty reverse proxies, Let's Encrypt certificate renewal, access control and HTTP flood protection, plus host terminal and Docker app management. Useful for self-hosted web services, not core identity/endpoint work."
+  },
+  "sandbox-quantum/switch": {
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Self-host it in a test Slack or Teams workspace with one agent and no connectors enabled, then review the admin controls for per-room access and connector permissions.",
+    "fit": 1,
+    "key": "0351e8d44b0dfafd",
+    "readonly_mode": null,
+    "status": "scored",
+    "tags": [
+      "agent",
+      "automation"
+    ],
+    "why": "Self-hosted chatops platform that puts AI coding agents into Slack/Teams channels with connectors like Google Workspace and GitHub. It is aimed at dev teams, not IT admin tasks, but could host helpdesk or runbook agents."
   },
   "sebadob/rauthy": {
     "classified_at": "2026-10-29T04:39:32Z",
@@ -2931,17 +3147,18 @@
     "why": "Carries your local shell (zsh, fish, xonsh, bash) and dotfiles to remote Linux hosts over SSH without root. It is a convenience for admins working on Linux servers, and it does not automate any admin task."
   },
   "yuezk/globalprotect-openconnect": {
-    "classified_at": "2026-11-09T23:47:45Z",
-    "first_step": "Install it on a test Linux machine and run `gpclient connect <portal> --browser` against your GlobalProtect portal to confirm SAML login and HIP checks work before recommending it to users.",
+    "classified_at": "2026-11-24T02:14:31Z",
+    "first_step": "Install gpclient on a test Linux VM and connect to your GlobalProtect portal with --browser to verify SSO and HIP compatibility before offering it to users.",
     "fit": 2,
-    "key": "6ef9731aab10ed89",
+    "key": "f9014ec09f3a1731",
     "readonly_mode": null,
     "status": "scored",
     "tags": [
       "network",
-      "identity"
+      "identity",
+      "endpoint"
     ],
-    "why": "Third-party GlobalProtect VPN client for Linux/BSD/macOS with SAML SSO, MFA, and HIP reports. Useful for supporting Linux users on a Palo Alto VPN that has no official client option."
+    "why": "Open-source GlobalProtect VPN client with SAML SSO/MFA and HIP reporting, useful for supporting Linux/BSD users or headless hosts that need access to a Palo Alto VPN."
   },
   "zammad/zammad": {
     "classified_at": "2026-11-01T21:02:05Z",

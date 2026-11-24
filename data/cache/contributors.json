@@ -1,87 +1,103 @@
 {
+  "7wdn/7shell": {
+    "count": 1,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
   "abgox/pscompletions": {
     "count": 6,
     "fetched_at": "2026-10-29T04:39:32Z"
   },
   "abhinavxd/libredesk": {
     "count": 37,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "agentic-community/mcp-gateway-registry": {
-    "count": 79,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 81,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "aixisstudio/snitch": {
-    "count": 3,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 4,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ansible/ansible": {
     "count": 373,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ansible/ansible-navigator": {
     "count": 61,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "anthropics/skills": {
     "count": 16,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "antonputra/tutorials": {
     "count": 89,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "appwrite/appwrite": {
+    "count": 353,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "aquasecurity/kube-bench": {
     "count": 165,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "aquasecurity/trivy": {
-    "count": 442,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 440,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "armur-ai/pentest-swarm-ai": {
+    "count": 16,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "art-of-wifi/unifi-api-browser": {
     "count": 9,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "art-of-wifi/unifi-api-client": {
     "count": 11,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ascit31/dark-moon": {
     "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "automatedlab/automatedlab": {
-    "count": 66,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 67,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "autopkg/autopkg": {
     "count": 55,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "badgerati/pode": {
     "count": 32,
     "fetched_at": "2026-11-09T23:47:45Z"
   },
   "bartreardon/swiftdialog": {
-    "count": 22,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 21,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "batfish/batfish": {
     "count": 70,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "beenuar/aisoc": {
-    "count": 29,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 34,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "benthecyberone/copperhound": {
+    "count": 0,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "bert-janp/hunting-queries-detection-rules": {
-    "count": 16,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 19,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "bestpractical/rt": {
     "count": 78,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "bijomaru78/eccm": {
     "count": 1,
@@ -89,127 +105,135 @@
   },
   "bitwire-it/ipblocklist": {
     "count": 4,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "bivlked/amneziawg-installer": {
     "count": 4,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "borgbase/vykar": {
-    "count": 5,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 6,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "bridgecrewio/checkov-action": {
     "count": 33,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "bytedesk/bytedesk": {
     "count": 4,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "capture0x/adstrike": {
     "count": 1,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "casdoor/casdoor": {
-    "count": 323,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 327,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "chainguard-dev/osquery-defense-kit": {
     "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "chaitin/safeline": {
     "count": 27,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "cisagov/scubagear": {
     "count": 50,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "cisofy/lynis": {
+    "count": 250,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "cloudposse/terraform-aws-s3-bucket": {
     "count": 58,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "cmderdev/cmder": {
-    "count": 125,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 126,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "codingwonders/dismtools": {
     "count": 1,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "combodo/itop": {
     "count": 57,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "community-scripts/proxmoxve": {
     "count": 467,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "community-vyprojects/vymanager": {
+    "count": 16,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "compasssecurity/entrafalcon": {
     "count": 2,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "crossplane/crossplane": {
     "count": 291,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "crowdsecurity/crowdsec": {
     "count": 89,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "crowdstrike/falcon-mcp": {
     "count": 33,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "crowdstrike/falconpy": {
     "count": 50,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "cyb3rmik3/kql-threat-hunting-queries": {
-    "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 5,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "cyb3rxp/awesome-soc": {
-    "count": 14,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 15,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "datacleaner/datacleaner": {
-    "count": 32,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 33,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "dataplat/dbatools": {
     "count": 281,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "dbankscard/jamf-mcp-server": {
     "count": 3,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "deepfence/threatmapper": {
-    "count": 41,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 40,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "defectdojo/django-defectdojo": {
     "count": 352,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "deploymenttheory/terraform-provider-jamfpro": {
     "count": 27,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "dirkjanm/roadtools": {
-    "count": 35,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 36,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "django-crm/django-crm": {
-    "count": 44,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 43,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "django-helpdesk/django-helpdesk": {
-    "count": 145,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 149,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "docker-mailserver/docker-mailserver": {
     "count": 340,
@@ -217,27 +241,27 @@
   },
   "dotnet/dev-proxy": {
     "count": 28,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "drduh/macos-security-and-privacy-guide": {
-    "count": 88,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 87,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "dromara/maxkey": {
-    "count": 42,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 44,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ediwang/moonglade": {
     "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ehmo/gum": {
     "count": 0,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "emersonfelipesp/netbox-proxbox": {
     "count": 17,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "enms-automation/enms": {
     "count": 20,
@@ -245,39 +269,39 @@
   },
   "ep1cman/unifi-protect-backup": {
     "count": 18,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "evotecit/eventviewerx": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "fatedier/frp": {
-    "count": 138,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 139,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "faveosuite/faveo-helpdesk": {
-    "count": 29,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 30,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "fleetdm/fleet": {
-    "count": 409,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 411,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "fortinetdev/terraform-provider-fortios": {
     "count": 15,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "frappe/helpdesk": {
-    "count": 109,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 111,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "freescout-help-desk/freescout": {
-    "count": 99,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 101,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "future-architect/vuls": {
-    "count": 126,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 127,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "gacwr/openuba": {
     "count": 5,
@@ -285,135 +309,139 @@
   },
   "gam-team/gam": {
     "count": 39,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "glpi-project/glpi": {
-    "count": 223,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 225,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "gnacho/netpulse": {
+    "count": 8,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "google/mcp-security": {
-    "count": 46,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 48,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "google/osv-scanner": {
-    "count": 131,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 132,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "google/osv.dev": {
-    "count": 112,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 113,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "googleworkspace/apps-script-oauth2": {
     "count": 42,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "googleworkspace/apps-script-samples": {
     "count": 66,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "googleworkspace/cli": {
     "count": 44,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "googleworkspace/google-chat-samples": {
     "count": 28,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "googleworkspace/node-samples": {
     "count": 31,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "googleworkspace/python-samples": {
     "count": 32,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "gravitational/teleport": {
-    "count": 324,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "count": 323,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "greenbone/openvas-scanner": {
-    "count": 57,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 58,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "grokability/snipe-it": {
-    "count": 337,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 343,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "groundedcoreai/nexusdesk": {
     "count": 4,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "guacsec/guac": {
-    "count": 79,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 82,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "h-mdm/hmdm-server": {
     "count": 11,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "hairyhenderson/gomplate": {
-    "count": 68,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 72,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "harmveenstra/powershellisfun": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "hashicorp/terraform-provider-azurerm": {
     "count": 330,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "helpcode-ai/anythingmcp": {
-    "count": 47,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 52,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "holo-routing/holo": {
-    "count": 15,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 19,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "hotcakex/harden-windows-security": {
     "count": 19,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "iainkay/ram-altman": {
     "count": 1,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "infobyte/faraday": {
     "count": 43,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "installomator/installomator": {
-    "count": 322,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 329,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "jaegeral/security-apis": {
-    "count": 44,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 45,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "jamf-concepts/mcp-hub": {
-    "count": 2,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 7,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "jkroepke/openvpn-auth-oauth2": {
-    "count": 21,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 22,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "jm33-m0/emp3r0r": {
     "count": 11,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "jmpsec/osctrl": {
     "count": 17,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "kanidm/kanidm": {
-    "count": 157,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 156,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "karib0u/rustinel": {
     "count": 9,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "kchristensen/udm-le": {
     "count": 29,
@@ -421,63 +449,75 @@
   },
   "kdeldycke/awesome-iam": {
     "count": 17,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "kesslernity/awesome-copilot-studio-agents": {
     "count": 2,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "kubescape/kubescape": {
-    "count": 267,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "count": 276,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "kyverno/kyverno": {
+    "count": 418,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "labnol/apps-script-starter": {
+    "count": 11,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lacs-project/sysknife": {
-    "count": 31,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 41,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lazywinadmin/powershell": {
     "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lefayjey/linwinpwn": {
     "count": 11,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lemker/unifi-os-server": {
     "count": 5,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lethal-forensics/microsoft-analyzer-suite": {
     "count": 2,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lissy93/networking-toolbox": {
     "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lissy93/web-check": {
-    "count": 40,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 41,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "lkarlslund/adalanche": {
     "count": 1,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "m14r41/pentestingeverything": {
     "count": 14,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "macadmins/nudge": {
-    "count": 43,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 45,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "macjutsu/super": {
     "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "maester365/maester": {
     "count": 138,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "mafifrizi/ares": {
+    "count": 2,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "mdecrevoisier/evtx-to-mitre-attack": {
     "count": 2,
@@ -485,267 +525,287 @@
   },
   "merill/lokka": {
     "count": 10,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "meshery/meshery": {
-    "count": 309,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "count": 311,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "mhsanaei/3x-ui": {
-    "count": 323,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 330,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "michaelgrafnetter/dsinternals": {
     "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "micke-k/intunemanagement": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "micromdm/micromdm": {
     "count": 53,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "microsoft/enterprisemcp": {
     "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "microsoft/mcp": {
-    "count": 182,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 185,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "microsoft/shell-intune-samples": {
     "count": 59,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "microsoft365dsc/microsoft365dsc": {
-    "count": 166,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 168,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "microsoftgraph/msgraph-sdk-javascript": {
     "count": 54,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "microsoftgraph/msgraph-sdk-powershell": {
     "count": 67,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "modelcontextprotocol/servers": {
     "count": 427,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "mthcht/awesome-lists": {
-    "count": 14,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 15,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "mukul975/cve-mcp-server": {
     "count": 2,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "munki/munki": {
     "count": 108,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "nautobot/nautobot": {
-    "count": 316,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 318,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netalertx/netalertx": {
-    "count": 161,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 162,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netbox-community/devicetype-library": {
-    "count": 448,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 447,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netbox-community/netbox": {
-    "count": 349,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 348,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netbox-community/netbox-docker": {
     "count": 110,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netbox-community/netbox-topology-views": {
     "count": 29,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netbox-community/pynetbox": {
     "count": 53,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "netboxlabs/netbox-mcp-server": {
-    "count": 15,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 22,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "netdata/netdata": {
+    "count": 400,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "nh-red-team/rusthound": {
+    "count": 9,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "normation/rudder": {
     "count": 37,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "nozaq/terraform-aws-secure-baseline": {
     "count": 32,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "oauth2-proxy/oauth2-proxy": {
     "count": 415,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "okta/okta-mcp-server": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "okta/okta-sdk-python": {
     "count": 29,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "okta/terraform-provider-okta": {
-    "count": 141,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 142,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "olivetin/olivetin": {
-    "count": 29,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 32,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "open-policy-agent/opa": {
-    "count": 415,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 416,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "opsmill/infrahub": {
-    "count": 64,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 65,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "orange-cyberdefense/goad": {
     "count": 41,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "osquery/osquery": {
-    "count": 381,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 382,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ossf/scorecard": {
-    "count": 186,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 190,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "outflanknl/redelk": {
     "count": 17,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "owasp/nettacker": {
-    "count": 83,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 84,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pablosnt/rekono": {
     "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "patchmon/patchmon": {
     "count": 42,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "patrowl/patrowlmanager": {
+    "count": 13,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pegaprox/project-pegaprox": {
-    "count": 28,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 32,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pennyw0rth/netexec": {
-    "count": 200,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 202,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pipeshub-ai/pipeshub-ai": {
-    "count": 90,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 97,
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "plumhound/plumhound": {
+    "count": 16,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pnp/cli-microsoft365": {
-    "count": 154,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 155,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pnp/list-formatting": {
     "count": 116,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pnp/powershell": {
-    "count": 178,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 177,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pocket-id/pocket-id": {
-    "count": 108,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 109,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "powershell/psresourceget": {
-    "count": 41,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 42,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "powershellorg/plaster": {
     "count": 36,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "powershellorg/pskoans": {
     "count": 47,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pranshuparmar/witr": {
-    "count": 45,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 46,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "project-copacetic/copacetic": {
-    "count": 54,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 62,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "projectdiscovery/nuclei": {
-    "count": 293,
-    "fetched_at": "2026-11-16T23:45:08Z"
+    "count": 295,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "prowler-cloud/prowler": {
-    "count": 396,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 399,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "psake/psake": {
     "count": 74,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "psappdeploytoolkit/psappdeploytoolkit": {
     "count": 67,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "psmux/psmux": {
-    "count": 50,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 53,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "pythops/oryx": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "rackulalives/rackula": {
     "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "rana-gmbh/netfluss": {
     "count": 5,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "raphire/win11debloat": {
     "count": 41,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "reconmap/reconmap": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "rmbolger/posh-acme": {
     "count": 88,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "romanitho/winget-autoupdate": {
     "count": 51,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "rubysec/bundler-audit": {
     "count": 63,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
+  },
+  "rushb-fr/freekiosk": {
+    "count": 24,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ruudmens/lazyadmin": {
     "count": 16,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "s1ckb0y1337/active-directory-exploitation-cheat-sheet": {
     "count": 12,
@@ -753,187 +813,187 @@
   },
   "safe3/openresty-manager": {
     "count": 1,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "sebadob/rauthy": {
-    "count": 71,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 77,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "sharepoint/sp-dev-docs": {
     "count": 397,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "sherifabdlnaby/elastdocker": {
-    "count": 9,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 10,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "sierrasoftworks/tailscale-unifi": {
     "count": 22,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "silverhack/monkey365": {
     "count": 9,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "sirkirby/unifi-mcp": {
-    "count": 50,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 60,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "skiptotheendpoint/openintunebaseline": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "snailsploit/claude-red": {
-    "count": 9,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 11,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "snipe/snipe-it": {
     "count": 335,
     "fetched_at": "2026-10-29T04:39:32Z"
   },
   "softeria/ms-365-mcp-server": {
-    "count": 81,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 83,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "srl-labs/containerlab": {
-    "count": 211,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 213,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "stackql/stackql": {
-    "count": 33,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 38,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "stevegilham/altcover": {
     "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "t0pcyber/hawk": {
     "count": 16,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "tailscale/tailscale": {
-    "count": 377,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 379,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "taylorwilsdon/google_workspace_mcp": {
-    "count": 186,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 197,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "tenzir/tenzir": {
     "count": 50,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "terraform-aws-modules/terraform-aws-iam": {
-    "count": 147,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 151,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "the-art-of-hacking/h4cker": {
-    "count": 66,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 68,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "the-viper-one/psmapexec": {
     "count": 5,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "threathunters-io/laurel": {
-    "count": 16,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 17,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "timhartmann7/omnyssh": {
     "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "tngan/samlify": {
     "count": 63,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "tonyphipps/siem": {
     "count": 6,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "topscoder/nuclei-wordfence-cve": {
     "count": 4,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "turbot/tailpipe": {
-    "count": 8,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 12,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "turroks/cve_prioritizer": {
     "count": 5,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "ucs-care-group/mailcraft": {
-    "count": 19,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 52,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "unpoller/unpoller": {
-    "count": 58,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 61,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "useopendesk/opendesk": {
-    "count": 13,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 17,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "utmstack/utmstack": {
-    "count": 17,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 18,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "vgrem/office365-rest-python-client": {
-    "count": 58,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 59,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "vibber-ai/fastapi-azure-auth": {
     "count": 32,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "victoriametrics/victorialogs": {
     "count": 367,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "voltiusapp/voltius": {
-    "count": 12,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 13,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "wazuh/wazuh": {
-    "count": 211,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 209,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "willswire/unifi-ddns": {
     "count": 30,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "windshiftapp/core": {
-    "count": 19,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 22,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "xtls/xray-core": {
-    "count": 275,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 282,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "xxh/xxh": {
     "count": 26,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "yuezk/globalprotect-openconnect": {
-    "count": 55,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 57,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "zammad/zammad": {
-    "count": 156,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "count": 162,
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "zinggai/zingg": {
     "count": 33,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "zitadel/zitadel": {
     "count": 252,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "znuny/znuny": {
     "count": 101,
-    "fetched_at": "2026-11-09T23:47:45Z"
+    "fetched_at": "2026-11-24T02:14:31Z"
   },
   "zoicware/removewindowsai": {
     "count": 6,
