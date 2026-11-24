@@ -1,30 +1,41 @@
-# Weekly refresh: 2026-11-16
+# Weekly refresh: 2026-11-24
 
 Review the changes below. To change a score, tag or note, edit `curation/overrides.yaml` in this PR; overrides beat Claude's first pass.
 
 | Candidates | IT-relevant | Passed gate | Scored by Claude this run | Needs review |
 |---|---|---|---|---|
-| 1470 | 712 | 209 | 13 | 0 |
+| 1543 | 724 | 220 | 22 | 0 |
 
 ## IT Ops lens changes
 
-- ⬆️ **crowdsecurity/crowdsec** entered at #10
-- ⬇️ glpi-project/glpi left the top 15
+- ⬆️ **glpi-project/glpi** entered at #7
+- ⬆️ **macadmins/nudge** entered at #14
+- ⬇️ googleworkspace/cli left the top 15
+- ⬇️ prowler-cloud/prowler left the top 15
 
 ## Scored by Claude this run
 
 | Repo | Fit | Tags | Trust | Why for sysadmins |
 |---|---|---|---|---|
-| [jm33-m0/emp3r0r](https://github.com/jm33-m0/emp3r0r) | 0 | identity, security, agent | pilot | This is an offensive C2/post-exploitation framework for red teaming and malware operations, not a tool for administering IT systems. |
-| [fleetdm/fleet](https://github.com/fleetdm/fleet) | 3 | endpoint, patching, security, automation | pilot | Open-source MDM and osquery-based device management for macOS, Windows, Linux, iOS and Android. It covers inventory, software deployment, patching, CIS benchmark checks and GitOps-managed configuration. |
-| [zinggAI/zingg](https://github.com/zinggAI/zingg) | 1 | endpoint | production | Spark-based ML entity resolution for deduplicating customer/master data. 'Identity resolution' here means customer records, not IAM; marginal use for deduping exported user or asset lists. |
-| [Bytedesk/bytedesk](https://github.com/Bytedesk/bytedesk) | 1 | helpdesk | pilot | Self-hosted omnichannel customer-service platform with ticketing, SLA tracking and a knowledge base; built for external customer support rather than internal IT, though it could serve as a basic ticket desk. |
-| [GroundedCoreAI/nexusdesk](https://github.com/GroundedCoreAI/nexusdesk) | 1 | helpdesk, agent | pilot | Self-hosted AI agent platform aimed at external customer support with RAG knowledge bases and ticketing; could be adapted into an internal IT helpdesk bot but has no built-in IT system integrations. |
-| [pipeshub-ai/pipeshub-ai](https://github.com/pipeshub-ai/pipeshub-ai) | 1 | saas, helpdesk, agent | production | Self-hosted enterprise search and RAG platform that indexes Slack, Google Drive, Microsoft 365, Jira and Confluence with permission sync. IT may deploy or run it as an internal knowledge or helpdesk answer layer, but it is not an admin tool. |
-| [community-scripts/ProxmoxVE](https://github.com/community-scripts/ProxmoxVE) | 2 | network, automation | production | One-command shell scripts that deploy 700+ services as LXC containers or VMs on Proxmox VE, plus host post-install and maintenance tooling. Most relevant to admins running Proxmox infrastructure. |
-| [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) | 2 | security, network | production | Template-based vulnerability scanner for checking internal and external hosts, web apps, DNS and TLS for known CVEs and misconfigurations. It is useful for periodic exposure checks, but it is security-team oriented. |
-| [kubescape/kubescape](https://github.com/kubescape/kubescape) | 1 | security, network, agent | production | Scans Kubernetes clusters, manifests and images against CIS, NSA-CISA and MITRE baselines for misconfigurations and CVEs. This is useful only where IT runs Kubernetes, which is mostly platform/DevOps territory. |
-| [crowdsecurity/crowdsec](https://github.com/crowdsecurity/crowdsec) | 3 | security, network | production | Log-based IDS/IPS and WAF that detects brute force, port scans and web scans on Linux/Windows servers and blocks malicious IPs at firewalls or reverse proxies. A fail2ban replacement with a shared community blocklist. |
-| [gravitational/teleport](https://github.com/gravitational/teleport) | 2 | identity, security, network | production | Self-hosted access proxy that puts SSH, RDP, Kubernetes and database access behind SSO with Okta or Entra ID, short-lived certificates, JIT access requests and session recording for audit. |
-| [meshery/meshery](https://github.com/meshery/meshery) | 1 | network, automation | production | Kubernetes multi-cluster management platform with visual GitOps design and dry-run deployments. Useful only to IT teams that run Kubernetes infrastructure; it does not touch identity, endpoint or SaaS administration. |
-| [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) | 2 | security | pilot | Library of 3000+ vendor-agnostic SIEM detection rules (Windows, Sysmon, cloud, compliance) that convert to Splunk, Elastic, Sentinel and other query languages for building detections. |
+| [yuezk/GlobalProtect-openconnect](https://github.com/yuezk/GlobalProtect-openconnect) | 2 | identity, endpoint, network | pilot | Open-source GlobalProtect VPN client with SAML SSO/MFA and HIP reporting, useful for supporting Linux/BSD users or headless hosts that need access to a Palo Alto VPN. |
+| [BenTheCyberOne/Copperhound](https://github.com/BenTheCyberOne/Copperhound) | 2 | identity, security | pilot | Analyzes AD, ADCS and Entra ID attack paths from SharpHound/AzureHound data, ranks findings and plans remediation of privilege exposure to Tier Zero. Useful for identity hardening, though it needs collection data and AD security know-how. |
+| [dromara/MaxKey](https://github.com/dromara/MaxKey) | 2 | identity | production | Self-hosted IAM/SSO platform supporting SAML, OIDC, CAS, SCIM, LDAP/AD sync, MFA and password self-service. An alternative to Keycloak or Okta for on-prem identity and lifecycle management. |
+| [PlumHound/PlumHound](https://github.com/PlumHound/PlumHound) | 2 | identity, security | production | Turns BloodHound Neo4j data into HTML reports on AD privilege issues such as Kerberoastable users, delegation, DCSync rights, GPO owners and local admins, for hardening work. |
+| [ASCIT31/Dark-Moon](https://github.com/ASCIT31/Dark-Moon) | 2 | security, agent | pilot | Autonomous AI pentesting tool for finding/exploiting vulnerabilities across web, AD, cloud and Kubernetes; useful for vulnerability assessment on authorized infrastructure. |
+| [NH-RED-TEAM/RustHound](https://github.com/NH-RED-TEAM/RustHound) | 2 | identity, security | pilot | Collects Active Directory objects (users, groups, GPOs, ADCS) into BloodHound JSON for attack-path analysis, useful for AD security audits and hardening reviews. |
+| [Mafifrizi/ARES](https://github.com/Mafifrizi/ARES) | 2 | security, agent | pilot | Red-team validation platform that proves exploitable attack paths against AD and cloud, maps MITRE ATT&CK, and produces audit-ready reports for defensive posture validation. |
+| [RushB-fr/freekiosk](https://github.com/RushB-fr/freekiosk) | 2 | endpoint, automation | production | Locks Android tablets into single-app or web kiosk mode via Device Owner, with ADB provisioning and a REST/MQTT API for signage, POS and lobby devices. It's a cheaper alternative to Fully Kiosk. |
+| [labnol/apps-script-starter](https://github.com/labnol/apps-script-starter) | 1 | saas, automation | pilot | Boilerplate for writing Google Apps Script projects locally with Vite, Jest and clasp. Useful if you build Workspace automations or add-ons, but it does not perform any admin tasks itself. |
+| [netdata/netdata](https://github.com/netdata/netdata) | 2 | security, network, agent | production | Self-hosted per-second monitoring for servers, VMs, SNMP network gear, NetFlow and hardware (IPMI/Redfish), with anomaly detection and alerting. It is useful for infrastructure monitoring, but it is not focused on identity or endpoint management. |
+| [Patrowl/PatrowlManager](https://github.com/Patrowl/PatrowlManager) | 2 | security, automation | pilot | Self-hosted platform for orchestrating vulnerability scans across assets, aggregating findings, and relaying alerts to TheHive or Splunk. Requires deploying separate scan engines alongside it. |
+| [Community-VyProjects/VyManager](https://github.com/Community-VyProjects/VyManager) | 2 | network, agent | production | Web control plane for managing VyOS routers across multiple sites: firewall and routing config, live dashboards and per-site RBAC. Useful only if your network runs on VyOS. |
+| [bitwire-it/ipblocklist](https://github.com/bitwire-it/ipblocklist) | 2 | security, network | pilot | Aggregated inbound/outbound IP blocklists refreshed every 2 hours, usable as external dynamic lists on pfSense, OPNsense, FortiGate, Palo Alto, or UniFi firewalls to block scanners and C2 traffic. |
+| [rana-gmbh/NetFluss](https://github.com/rana-gmbh/NetFluss) | 1 | network | pilot | A personal menu bar/taskbar network monitor with per-app bandwidth, router stats (UniFi, OpenWrt, Fritzbox), DNS switching and a VPN client. It is handy for troubleshooting a single machine but is not a fleet management tool. |
+| [7wdn/7shell](https://github.com/7wdn/7shell) | 2 | security, network, automation, agent | pilot | Desktop SSH/SFTP/RDP client with batch command execution, host monitoring, Docker/Kubernetes and VMware Workstation management, plus an MCP server with risk rules and an audit log. |
+| [Armur-Ai/Pentest-Swarm-AI](https://github.com/Armur-Ai/Pentest-Swarm-AI) | 2 | security, automation | production | Autonomous AI pentesting swarm for web apps and APIs with verification oracles; useful for security teams running authorized vulnerability testing against their own assets. |
+| [gnacho/netpulse](https://github.com/gnacho/netpulse) | 1 | network | pilot | Self-hosted dashboard for monitoring OpenWrt/GL.iNet home routers, with topology, device inventory, WireGuard peers and speed tests. It is aimed at home networks, though small offices running OpenWrt, OPNsense or UniFi may get some use from it. |
+| [CISOfy/lynis](https://github.com/CISOfy/lynis) | 3 | endpoint, security | production | Agentless shell tool that audits Linux, macOS and BSD hosts for hardening gaps, vulnerable packages and misconfigurations, producing findings useful as compliance evidence (PCI DSS, HIPAA, ISO27001). |
+| [appwrite/appwrite](https://github.com/appwrite/appwrite) | 1 | network | production | Backend-as-a-service platform for app developers covering auth, databases, storage and functions. Useful to IT mainly if you build or self-host internal apps, not for administering identity, endpoints or SaaS. |
+| [kyverno/kyverno](https://github.com/kyverno/kyverno) | 1 | security, automation | production | Kubernetes admission policy engine for enforcing pod security standards, CIS policies and image signature checks. Relevant only to IT teams that run Kubernetes clusters; it does not cover identity, endpoint or SaaS admin. |
+| [mjmirza/app-store-compliance](https://github.com/mjmirza/app-store-compliance) | 0 | security, agent | pilot | A pre-submission checker for mobile app developers publishing to the App Store or Google Play. It does not touch any IT administration task such as MDM, identity or SaaS admin. |
+| [sandbox-quantum/switch](https://github.com/sandbox-quantum/switch) | 1 | automation, agent | pilot | Self-hosted chatops platform that puts AI coding agents into Slack/Teams channels with connectors like Google Workspace and GitHub. It is aimed at dev teams, not IT admin tasks, but could host helpdesk or runbook agents. |
